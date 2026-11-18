@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.momdyn.com/sitemap.xml
+Sitemap: https://momdyn.dc-engineer.com/sitemap.xml
