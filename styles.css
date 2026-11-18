@@ -248,3 +248,4 @@ h2 { font-size: clamp(1.5rem, 4vw, 2rem); }
   background: #fff;
 }
 .shots.two img { width: calc(50% - 0.5rem); max-width: 12rem; }
+.shots.wide img { width: min(100%, 20rem); }
