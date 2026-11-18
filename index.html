@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mobile Multibody Dynamics for iPhone &amp; iPad | MOMDYN</title>
-  <meta name="description" content="Build a mechanism, derive its equations of motion, then simulate and animate it in 3D on iPhone and iPad. Export Python to run bigger studies on your desktop.">
+  <meta name="description" content="Free multibody dynamics app for iPhone and iPad. Build a mechanism, see its symbolic equations of motion, and export Python for desktop analysis.">
   <link rel="canonical" href="https://momdyn.dc-engineer.com/">
-  <meta name="theme-color" content="#14213d">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1020" media="(prefers-color-scheme: dark)">
 
   <!-- Apple smart app banner (Safari on iOS) -->
   <meta name="apple-itunes-app" content="app-id=1491149780">
@@ -15,46 +16,67 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="MOMDYN">
   <meta property="og:title" content="Mobile Multibody Dynamics for iPhone &amp; iPad">
-  <meta property="og:description" content="Model a mechanism, derive its equations of motion, simulate and animate it in 3D, then export Python code to run it on your desktop.">
+  <meta property="og:description" content="Free on the App Store. Build a mechanism, see its symbolic equations of motion, and export Python for desktop analysis.">
   <meta property="og:url" content="https://momdyn.dc-engineer.com/">
   <meta property="og:image" content="https://momdyn.dc-engineer.com/assets/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="MOMDYN: a 3D diagram of a mechanism next to the text 'Mobile Multibody Dynamics'.">
+  <meta property="og:image:alt" content="The MOMDYN app on an iPhone, showing plots of a simulation, next to the text 'Multibody dynamics, free on iPhone and iPad'.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mobile Multibody Dynamics for iPhone &amp; iPad">
-  <meta name="twitter:description" content="Model a mechanism, derive its equations of motion, simulate and animate it in 3D, then export Python code to run it on your desktop.">
+  <meta name="twitter:description" content="Free on the App Store. Build a mechanism, see its symbolic equations of motion, and export Python for desktop analysis.">
   <meta name="twitter:image" content="https://momdyn.dc-engineer.com/assets/og.png">
-  <meta name="twitter:image:alt" content="MOMDYN: a 3D diagram of a mechanism next to the text 'Mobile Multibody Dynamics'.">
+  <meta name="twitter:image:alt" content="The MOMDYN app on an iPhone, showing plots of a simulation, next to the text 'Multibody dynamics, free on iPhone and iPad'.">
 
-  <link rel="icon" href="/favicon.ico" sizes="32x32">
-  <link rel="icon" href="/assets/favicon.png" type="image/png">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-  <link rel="preload" href="assets/fonts/noto-serif-bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" as="image" href="assets/screens/plots.webp" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
+  <noscript><link rel="stylesheet" href="assets/katex/katex.min.css"></noscript>
 
-  <!-- Structured data. No price, rating or review fields: those are not confirmed yet. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Mobile Multibody Dynamics",
     "alternateName": "MOMDYN",
-    "description": "Define a mechanism, derive its equations of motion, simulate it and animate it in 3D on iPhone and iPad. Export Python source code to run heavier analysis on a desktop.",
+    "description": "Free multibody dynamics app for iPhone and iPad. Build a mechanism, see its symbolic equations of motion, simulate it in 3D and export Python for desktop analysis.",
     "applicationCategory": "EducationalApplication",
-    "operatingSystem": "iOS 18, iPadOS 18",
+    "operatingSystem": "iOS 18",
+    "softwareVersion": "2.2.1",
     "url": "https://momdyn.dc-engineer.com/",
     "downloadUrl": "https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780",
     "installUrl": "https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780",
     "image": "https://momdyn.dc-engineer.com/assets/icon-512.png",
     "inLanguage": "en",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
     "featureList": [
-      "Define symbols, reference frames, vectors, points, joints, bodies, loads and sensors",
-      "Derive equations of motion",
-      "Simulate and animate the mechanism in a 3D diagram",
-      "Plot the simulated states over time",
-      "Read a report of the math behind the model",
-      "Export Python source code that reproduces the model"
+      "Symbolic equations of motion, derived and displayed on the device",
+      "Export to runnable Python for desktop analysis",
+      "3D animation of the mechanism",
+      "Plots of the simulated states",
+      "Report of the math behind the model"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Is MOMDYN free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, free on the App Store." } },
+      { "@type": "Question", "name": "Which devices are supported?",
+        "acceptedAnswer": { "@type": "Answer", "text": "iPhone and iPad, iOS/iPadOS 18 or later." } },
+      { "@type": "Question", "name": "Do I need Python?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The app derives and simulates on the device. Python export is optional, for desktop analysis." } },
+      { "@type": "Question", "name": "Can I use it in my course?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The documentation and the pendulum and oscillator tutorials are free to link from your course page." } },
+      { "@type": "Question", "name": "How does it relate to commercial multibody software?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It is an accessible entry point that shows the math, not a replacement for full-scale tools." } },
+      { "@type": "Question", "name": "What data is collected?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The app has no accounts, ads or analytics, and your models stay on your device. Details are in the privacy policy." } }
     ]
   }
   </script>
@@ -62,139 +84,273 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="wrap">
-      <a class="brand" href="/" aria-label="MOMDYN home">
-        <img src="assets/icon-512.png" width="36" height="36" alt="">
-        MOMDYN
-      </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#features">Features</a>
-        <a href="#learn">Learn</a>
-        <a href="https://momdyn.github.io/html/index.html">Docs</a>
-      </nav>
-    </div>
-  </header>
-
   <main id="main">
+    <!-- 1. HERO. First mobile screen = headline, device visual, badge. Nothing else. -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="wrap">
-        <div>
-          <p class="eyebrow">Mobile Multibody Dynamics</p>
-          <h1 id="hero-title">Derive the equations of motion. Watch the mechanism move.</h1>
-          <p class="lede">Model a mechanism on your iPhone or iPad, derive its equations of motion, then simulate and animate it in 3D. The math stays visible, and you can export Python to run bigger studies on your desktop.</p>
-          <p class="proof">The first multibody dynamics app for iOS, on the App Store since 2019.</p>
-          <div class="cta">
-            <!-- Official badge from Apple Marketing Tools. The image is loaded from Apple's servers, as Apple's code intends. -->
+      <div class="wrap hero-grid">
+        <div class="hero-first">
+          <h1 id="hero-title">Multibody dynamics, free on iPhone &amp; iPad.</h1>
+
+          <div class="hero-visual">
+            <div class="device">
+              <!--
+                TODO (asset): add media/hero.mp4 and media/hero.webm (under 3 MB, portrait, about 9:19, no essential info in it).
+                Until they exist the browser shows the poster. The poster is a device-framed app screen, not the diagram.
+              -->
+              <video id="hero-video" autoplay muted loop playsinline preload="metadata"
+                     poster="assets/screens/plots.webp" width="560" height="1139"
+                     aria-label="Preview of the MOMDYN app showing plots of a simulation">
+                <source src="media/hero.mp4" type="video/mp4">
+                <source src="media/hero.webm" type="video/webm">
+              </video>
+            </div>
+          </div>
+
+          <div class="hero-cta">
+            <!-- Official badge from Apple Marketing Tools (image is loaded from Apple's servers, as Apple's code intends). -->
             <a class="store-badge" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780?itscg=30200&amp;itsct=apps_box_badge&amp;mttnsubad=1491149780">
               <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1600214400" width="246" height="82" alt="Download on the App Store">
             </a>
-            <p class="cta-note">For iPhone and iPad, iOS 18 or later.</p>
+            <p class="badge-note">Free &middot; iOS 18+</p>
+          </div>
+          <div class="qr">
+            <img src="assets/qr-app-store.svg" width="96" height="96" loading="lazy" alt="QR code that opens Mobile Multibody Dynamics on the App Store">
+            <span>Scan to open on your iPhone</span>
           </div>
         </div>
-        <figure class="figure">
-          <img src="assets/diagram.png" width="593" height="1200" alt="A 3D diagram of a mechanism: orange links with spring coils join small blue joints and green-and-black spheres, with red, green and blue coordinate-frame arrows.">
-          <figcaption>A mechanism shown in the app's 3D diagram.</figcaption>
-        </figure>
+
+        <div class="hero-sub">
+          <h2 class="sub-title">Derive the equations of motion. Watch the mechanism move.</h2>
+          <p>Build a mechanism by touch, see its symbolic equations, export Python. No license required.</p>
+        </div>
       </div>
     </section>
 
+    <!-- 2. SYMBOLIC EQUATIONS -->
+    <section id="equations" class="split" aria-labelledby="eq-title">
+      <div class="wrap">
+        <div class="media">
+          <div class="device small">
+            <img src="assets/screens/equations.webp" width="560" height="1139" loading="lazy" alt="The Equations of Motion view of the app's report, showing a mass matrix and the vector of generalized speeds, followed by the start of the forcing vector.">
+          </div>
+        </div>
+        <div class="text">
+          <h2 id="eq-title">Real equations, not a black box</h2>
+          <p>Unlike CAD-style tools that hide the math, MOMDYN shows every equation it derives.</p>
+          <figure class="math" aria-label="Equations of motion of a planar double pendulum">
+            <figcaption>Example: planar double pendulum</figcaption>
+            <div class="math-scroll" tabindex="0" role="group" aria-label="Scrollable equations">
+<!-- EQUATIONS:START (rendered with KaTeX 0.16.11 at build time, see scripts/equations.katex.html) -->
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="bold">M</mi><mtext> </mtext><mover accent="true"><mi mathvariant="bold-italic">θ</mi><mo>¨</mo></mover><mo>=</mo><mi mathvariant="bold">F</mi></mrow><annotation encoding="application/x-tex">\mathbf{M}\,\ddot{\boldsymbol{\theta}} = \mathbf{F}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9313em;"></span><span class="mord mathbf">M</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9313em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord boldsymbol" style="margin-right:0.03194em;">θ</span></span></span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">¨</span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">F</span></span></span></span></span>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="bold">M</mi><mo>=</mo><mrow><mo fence="true">[</mo><mtable rowspacing="0.16em" columnalign="center center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo stretchy="false">(</mo><msub><mi>m</mi><mn>1</mn></msub><mo>+</mo><msub><mi>m</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mtext> </mtext><msubsup><mi>l</mi><mn>1</mn><mn>2</mn></msubsup></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><msub><mi>m</mi><mn>2</mn></msub><mtext> </mtext><msub><mi>l</mi><mn>1</mn></msub><msub><mi>l</mi><mn>2</mn></msub><mi>cos</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>θ</mi><mn>1</mn></msub><mo>−</mo><msub><mi>θ</mi><mn>2</mn></msub><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><msub><mi>m</mi><mn>2</mn></msub><mtext> </mtext><msub><mi>l</mi><mn>1</mn></msub><msub><mi>l</mi><mn>2</mn></msub><mi>cos</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>θ</mi><mn>1</mn></msub><mo>−</mo><msub><mi>θ</mi><mn>2</mn></msub><mo stretchy="false">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><msub><mi>m</mi><mn>2</mn></msub><mtext> </mtext><msubsup><mi>l</mi><mn>2</mn><mn>2</mn></msubsup></mrow></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">\mathbf{M} = \begin{bmatrix} (m_1+m_2)\,l_1^{2} &amp; m_2\,l_1 l_2\cos(\theta_1-\theta_2) \\ m_2\,l_1 l_2\cos(\theta_1-\theta_2) &amp; m_2\,l_2^{2} \end{bmatrix}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">M</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.4em;vertical-align:-0.95em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">[</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-2.4519em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2481em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">cos</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.95em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">cos</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-2.4519em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2481em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.95em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">]</span></span></span></span></span></span></span>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="bold">F</mi><mo>=</mo><mrow><mo fence="true">[</mo><mtable rowspacing="0.16em" columnalign="center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mo>−</mo><msub><mi>m</mi><mn>2</mn></msub><mtext> </mtext><msub><mi>l</mi><mn>1</mn></msub><msub><mi>l</mi><mn>2</mn></msub><mtext> </mtext><msubsup><mover accent="true"><mi>θ</mi><mo>˙</mo></mover><mn>2</mn><mn>2</mn></msubsup><mi>sin</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>θ</mi><mn>1</mn></msub><mo>−</mo><msub><mi>θ</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo>−</mo><mo stretchy="false">(</mo><msub><mi>m</mi><mn>1</mn></msub><mo>+</mo><msub><mi>m</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mtext> </mtext><mi>g</mi><mtext> </mtext><msub><mi>l</mi><mn>1</mn></msub><mi>sin</mi><mo>⁡</mo><msub><mi>θ</mi><mn>1</mn></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>  </mtext><mtext>  </mtext><msub><mi>m</mi><mn>2</mn></msub><mtext> </mtext><msub><mi>l</mi><mn>1</mn></msub><msub><mi>l</mi><mn>2</mn></msub><mtext> </mtext><msubsup><mover accent="true"><mi>θ</mi><mo>˙</mo></mover><mn>1</mn><mn>2</mn></msubsup><mi>sin</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>θ</mi><mn>1</mn></msub><mo>−</mo><msub><mi>θ</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo>−</mo><msub><mi>m</mi><mn>2</mn></msub><mtext> </mtext><mi>g</mi><mtext> </mtext><msub><mi>l</mi><mn>2</mn></msub><mi>sin</mi><mo>⁡</mo><msub><mi>θ</mi><mn>2</mn></msub></mrow></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">\mathbf{F} = \begin{bmatrix} -m_2\,l_1 l_2\,\dot\theta_2^{2}\sin(\theta_1-\theta_2) - (m_1+m_2)\,g\,l_1\sin\theta_1 \\ \;\;m_2\,l_1 l_2\,\dot\theta_1^{2}\sin(\theta_1-\theta_2) - m_2\,g\,l_2\sin\theta_2 \end{bmatrix}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6861em;"></span><span class="mord mathbf">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.5826em;vertical-align:-1.0413em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">[</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.5413em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">−</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9313em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.0556em;"><span class="mord">˙</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-2.4519em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2481em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">sin</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.3187em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mspace" style="margin-right:0.2778em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9313em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.0556em;"><span class="mord">˙</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-2.4519em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2481em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">sin</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.0413em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">]</span></span></span></span></span></span></span>
+<!-- EQUATIONS:END -->
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. EXPORT TO PYTHON -->
+    <section id="python" class="steps-section" aria-labelledby="py-title">
+      <div class="wrap">
+        <div class="text">
+          <h2 id="py-title">Build on your phone, analyze in Python</h2>
+          <p>The exported script runs with common free Python packages, ready for phase plots, frequency analysis or controls.</p>
+        </div>
+        <ol class="steps">
+          <li>
+            <figure>
+              <img src="assets/screens/export.webp" width="560" height="725" loading="lazy" alt="The Export screen of the app, with switches for Save File, Python File, Tabular Data and Plot Images, and an Export Now button.">
+              <figcaption><b>1</b> Export from the app</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <!--
+                TODO (asset): replace media/export-snippet.py with a real MOMDYN export (about 15 lines), then run
+                `python3 scripts/render_snippet.py` to re-highlight it into this block. No other edit is needed.
+              -->
+              <pre class="code" tabindex="0" aria-label="Python code example"><code><!-- SNIPPET:START --><span class="tok-c1"># PLACEHOLDER: sample script, not real MOMDYN output. Replace with a real export.</span>
+<span class="tok-k">import</span> numpy <span class="tok-k">as</span> np
+<span class="tok-k">from</span> scipy.integrate <span class="tok-k">import</span> solve_ivp
+
+m1, m2, l1, l2, g = <span class="tok-mf">1.0</span>, <span class="tok-mf">1.0</span>, <span class="tok-mf">1.0</span>, <span class="tok-mf">1.0</span>, <span class="tok-mf">9.81</span>
+
+<span class="tok-k">def</span> <span class="tok-nf">rhs</span>(t, y):
+    th1, th2, w1, w2 = y
+    d = th1 - th2
+    M = np.array([[(m1 + m2) * l1**<span class="tok-mf">2</span>, m2 * l1 * l2 * np.cos(d)],
+                  [m2 * l1 * l2 * np.cos(d), m2 * l2**<span class="tok-mf">2</span>]])
+    F = np.array([-m2 * l1 * l2 * w2**<span class="tok-mf">2</span> * np.sin(d) - (m1 + m2) * g * l1 * np.sin(th1),
+                  m2 * l1 * l2 * w1**<span class="tok-mf">2</span> * np.sin(d) - m2 * g * l2 * np.sin(th2)])
+    <span class="tok-k">return</span> [w1, w2, *np.linalg.solve(M, F)]
+
+sol = solve_ivp(rhs, (<span class="tok-mf">0</span>, <span class="tok-mf">10</span>), [<span class="tok-mf">1.0</span>, <span class="tok-mf">0.5</span>, <span class="tok-mf">0</span>, <span class="tok-mf">0</span>], max_step=<span class="tok-mf">0.01</span>)
+
+<!-- SNIPPET:END --></code></pre>
+              <figcaption><b>2</b> Run it in Python</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <!-- TODO (asset): replace media/plot.png with a real plot made from an exported model (4:3 works best). -->
+              <img src="media/plot.png" width="720" height="540" loading="lazy" alt="A phase plot of an angle against its angular velocity, drawn with Python.">
+              <figcaption><b>3</b> Analyze on your desktop</figcaption>
+            </figure>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 4. FEATURES -->
     <section id="features" aria-labelledby="features-title">
       <div class="wrap">
-        <h2 id="features-title">From model to motion in one app</h2>
-        <p class="section-intro">The whole workflow lives on your phone or tablet: build the model, get its equations, run it, and read the math behind it.</p>
-        <ul class="features">
-          <li class="feature">
+        <h2 id="features-title">Model, derive, animate, export</h2>
+        <ul class="cards">
+          <li>
+            <img src="assets/screens/build.webp" width="560" height="1127" loading="lazy" alt="The Edit Frame screen of the app, with menus and fields for the frame's name, reference point, reference frame and rotation sequence.">
             <h3>Build a mechanism</h3>
-            <p>Start from the built-in examples or define your own: symbols, reference frames, vectors and points, or ready-made joints. Add bodies, loads such as forces, moments and springs, and sensors.</p>
-            <div class="shots">
-              <img src="assets/screens/build.webp" width="560" height="1127" loading="lazy" alt="The Edit Frame screen of the app, with menus and fields for the frame's name, reference point, reference frame, rotation sequence and rotation angles.">
-            </div>
+            <p>Frames, joints, bodies and loads, by touch.</p>
           </li>
-          <li class="feature">
+          <li>
+            <img src="assets/screens/equations.webp" width="560" height="1139" loading="lazy" alt="The Equations of Motion view of the app's report, showing a mass matrix.">
             <h3>Derive the equations of motion</h3>
-            <p>One tap derives the equations of motion, runs the simulation and starts the animation. See exactly how the equations were assembled.</p>
-            <div class="shots">
-              <img src="assets/screens/equations.webp" width="560" height="1139" loading="lazy" alt="The Equations of Motion view of the app's report, showing a mass matrix and the vector of generalized speeds, followed by the start of the forcing vector.">
-            </div>
+            <p>One tap derives them and runs the simulation.</p>
           </li>
-          <li class="feature">
+          <li>
+            <img src="assets/screens/diagram.webp" width="560" height="1139" loading="lazy" alt="The app's 3D diagram of a chain of linked points with red, green and blue coordinate-frame arrows, above a play button and a timeline slider.">
             <h3>Watch it move in 3D</h3>
-            <p>Orbit the diagram with one finger, pan with two, pinch to zoom, and scrub the timeline to any moment. Plot the simulated states over time.</p>
-            <div class="shots two">
-              <img src="assets/screens/diagram.webp" width="560" height="1139" loading="lazy" alt="The app's 3D diagram of a chain of linked points, each with red, green and blue coordinate-frame arrows, above a play button and a timeline slider.">
-              <img src="assets/screens/plots.webp" width="560" height="1139" loading="lazy" alt="The Plots view of the app, with two line charts of generalized coordinates and generalized speeds against time.">
-            </div>
+            <p>Orbit, pan, zoom and scrub the timeline.</p>
           </li>
-          <li class="feature">
-            <h3>Read the math, export Python</h3>
-            <p>A report shows the symbols, kinematics, loads and equations behind your model. For heavier work, such as a Monte Carlo study, export Python source code that reproduces the model and run it on your desktop.</p>
-            <div class="shots wide">
-              <img src="assets/screens/export.webp" width="560" height="725" loading="lazy" alt="The Export screen of the app, with switches for Save File, Python File, Tabular Data and Plot Images, an Overwrite switch for old files, and an Export Now button.">
-            </div>
+          <li>
+            <img src="assets/screens/export.webp" width="560" height="725" loading="lazy" alt="The Export screen of the app, with switches for Save File, Python File, Tabular Data and Plot Images.">
+            <h3>Export Python</h3>
+            <p>Take your model to the desktop.</p>
           </li>
         </ul>
       </div>
     </section>
 
-    <section aria-labelledby="who-title">
+    <!-- 5. WHO IT IS FOR -->
+    <section id="who" aria-labelledby="who-title">
       <div class="wrap">
-        <h2 id="who-title">Who it is for</h2>
-        <p class="section-intro">People who want to see the dynamics, not just the animation, without the cost of desktop software.</p>
-        <ul class="audience">
-          <li><strong>Students</strong><span>Learning dynamics, multibody dynamics, robotics or mechanisms.</span></li>
-          <li><strong>Educators</strong><span>Looking for a live demo tool that shows the equations as well as the motion.</span></li>
-          <li><strong>Practicing engineers</strong><span>Who want a quick model check away from the desktop.</span></li>
+        <h2 id="who-title">A free bridge into multibody dynamics</h2>
+        <ul class="who">
+          <li><h3>Students learning dynamics</h3><p>See the equations behind every motion.</p></li>
+          <li><h3>Educators teaching it</h3><p>A live demo tool for class, with free tutorials.</p></li>
+          <li><h3>Engineers prototyping before commercial MBD software</h3><p>Test an idea on your phone first.</p></li>
         </ul>
       </div>
     </section>
 
+    <!-- 6. LEARN -->
     <section id="learn" aria-labelledby="learn-title">
       <div class="wrap">
-        <h2 id="learn-title">Docs and tutorials</h2>
-        <p class="section-intro">Step-by-step guides live on the documentation site, including walkthroughs for a pendulum and an oscillator.</p>
-        <ul class="docs-links">
-          <li><a href="https://momdyn.github.io/html/index.html">Documentation</a></li>
-          <li><a href="https://momdyn.github.io/html/tutorials/pendulum.html">Pendulum tutorial</a></li>
-          <li><a href="https://momdyn.github.io/html/tutorials/oscillator.html">Oscillator tutorial</a></li>
+        <h2 id="learn-title">Learn by doing</h2>
+        <ul class="learn">
+          <li><a href="https://momdyn.github.io/html/index.html"><b>Documentation</b><span>Guides and reference</span></a></li>
+          <li><a href="https://momdyn.github.io/html/tutorials/pendulum.html"><b>Pendulum tutorial</b><span>Your first model</span></a></li>
+          <li><a href="https://momdyn.github.io/html/tutorials/oscillator.html"><b>Oscillator tutorial</b><span>Springs and dampers</span></a></li>
         </ul>
       </div>
     </section>
 
-    <section class="get-app" aria-labelledby="get-title">
+    <!-- 7. FAQ -->
+    <section id="faq" aria-labelledby="faq-title">
+      <div class="wrap narrow">
+        <h2 id="faq-title">Questions</h2>
+        <details><summary>Is MOMDYN free?</summary><p>Yes, free on the App Store.</p></details>
+        <details><summary>Which devices are supported?</summary><p>iPhone and iPad, iOS/iPadOS 18 or later.</p></details>
+        <details><summary>Do I need Python?</summary><p>No. The app derives and simulates on the device. Python export is optional, for desktop analysis.</p></details>
+        <details><summary>Can I use it in my course?</summary><p>Yes. The <a href="https://momdyn.github.io/html/index.html">documentation</a> and the <a href="https://momdyn.github.io/html/tutorials/pendulum.html">pendulum</a> and <a href="https://momdyn.github.io/html/tutorials/oscillator.html">oscillator</a> tutorials are free to link from your course page.</p></details>
+        <details><summary>How does it relate to commercial multibody software?</summary><p>It is an accessible entry point that shows the math, not a replacement for full-scale tools.</p></details>
+        <details><summary>What data is collected?</summary><p>The app has no accounts, ads or analytics, and your models stay on your device. Details are in the <a href="privacy.html">privacy policy</a>.</p></details>
+      </div>
+    </section>
+
+    <!-- 8. FINAL CTA (the only other download prompts are the hero badge and the mobile sticky button) -->
+    <section id="get" class="get-app" aria-labelledby="get-title">
       <div class="wrap">
         <!-- Official app icon badge from Apple Marketing Tools (icon image is loaded from Apple's servers). -->
         <a class="app-icon-badge" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780?itscg=30200&amp;itsct=apps_box_artwork&amp;mttnsubad=1491149780">
-          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ab/98/c7/ab98c77e-8888-34fb-6097-dddc849c0b90/AppIcon-0-0-1x_U007epad-0-1-85-220.png/540x540bb.jpg" width="170" height="170" alt="Mobile Multibody Dynamics app icon">
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ab/98/c7/ab98c77e-8888-34fb-6097-dddc849c0b90/AppIcon-0-0-1x_U007epad-0-1-85-220.png/540x540bb.jpg" width="170" height="170" loading="lazy" alt="Mobile Multibody Dynamics app icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230.5 230.5" aria-hidden="true" focusable="false">
             <path fill="none" stroke="#000" stroke-linejoin="round" stroke-miterlimit="1.4" stroke-opacity=".1" stroke-width="1" d="M158.2 230H64.1a320 320 0 0 1-7-.1c-5 0-10-.5-15-1.3a50.8 50.8 0 0 1-14.4-4.8 48.2 48.2 0 0 1-21-21 50.9 50.9 0 0 1-4.8-14.4 100.7 100.7 0 0 1-1.3-15v-7l-.1-8.2V64.1a320 320 0 0 1 .1-7c0-5 .5-10 1.3-15a50.7 50.7 0 0 1 4.8-14.4 48.2 48.2 0 0 1 21-21 51 51 0 0 1 14.4-4.8c5-.8 10-1.2 15-1.3a320 320 0 0 1 7 0l8.2-.1h94.1a320 320 0 0 1 7 .1c5 0 10 .5 15 1.3a52 52 0 0 1 14.4 4.8 48.2 48.2 0 0 1 21 21 50.9 50.9 0 0 1 4.8 14.4c.8 5 1.2 10 1.3 15a320 320 0 0 1 .1 7v102.3l-.1 7c0 5-.5 10-1.3 15a50.7 50.7 0 0 1-4.8 14.4 48.2 48.2 0 0 1-21 21 50.8 50.8 0 0 1-14.4 4.8c-5 .8-10 1.2-15 1.3a320 320 0 0 1-7 0l-8.2.1z" clip-rule="evenodd" vector-effect="non-scaling-stroke"/>
           </svg>
         </a>
         <div>
-          <h2 id="get-title">Get Mobile Multibody Dynamics</h2>
-          <p class="section-intro">Available on the App Store for iPhone and iPad, iOS 18 or later.</p>
+          <h2 id="get-title">Free on iPhone &amp; iPad</h2>
           <a class="store-badge" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780?itscg=30200&amp;itsct=apps_box_badge&amp;mttnsubad=1491149780">
-            <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1600214400" width="246" height="82" alt="Download on the App Store">
+            <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1600214400" width="246" height="82" loading="lazy" alt="Download on the App Store">
           </a>
+          <p class="badge-note">Free &middot; iOS 18+</p>
         </div>
       </div>
     </section>
-
-    <!-- ANDROID: when an Android build is ready to promote, add a Google Play badge next to the App Store badges.
-         Package: com.badeyedea.momdyn -->
   </main>
 
+  <!-- 9. FOOTER -->
   <footer class="site-footer">
     <div class="wrap">
+      <p class="credit">Built by <a href="https://dc-engineer.com">Eliott Radcliffe</a>, a mechanical engineer specializing in dynamics. On the App Store since 2019.</p>
+      <p class="sisters">More from DC-Engineer:
+        <a href="https://armor.dc-engineer.com">ARMOR</a>
+        <a href="https://twolinks.dc-engineer.com">TwoLinks</a>
+        <!-- TODO (confirm): link YouKon to its own page; this points to the DC-Engineer home page until the URL is known. -->
+        <a href="https://dc-engineer.com">YouKon</a>
+      </p>
       <nav aria-label="Footer">
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms</a>
         <a href="https://momdyn.github.io/html/index.html">Docs</a>
         <a href="https://www.youtube.com/@DC-Engineer">YouTube</a>
-        <a href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780">App Store</a>
+        <a href="mailto:Eliott.Radcliffe@DC-Engineer.com">Contact / Support</a>
       </nav>
-      <p>Mobile Multibody Dynamics (MOMDYN). Built by a dynamicist, designed for engineering students and professionals. Apple, iPhone, iPad and App Store are trademarks of Apple Inc.</p>
+      <p class="legal">Apple, iPhone, iPad and App Store are trademarks of Apple Inc.</p>
     </div>
   </footer>
+
+  <!-- Sticky mobile button: shown after the hero badge scrolls away, hidden while the final CTA is on screen. -->
+  <div class="sticky-cta" id="sticky" aria-hidden="true">
+    <a class="btn" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780?itscg=30200&amp;itsct=apps_box_badge&amp;mttnsubad=1491149780">Download free</a>
+  </div>
+
+  <script>
+  (function () {
+    var bar = document.getElementById('sticky');
+    var badge = document.querySelector('.hero .store-badge');
+    var end = document.getElementById('get');
+    var past = false, endVisible = false;
+    function update() {
+      var on = past && !endVisible;
+      bar.classList.toggle('show', on);
+      bar.setAttribute('aria-hidden', on ? 'false' : 'true');
+    }
+    function loadKatexCss() {
+      if (document.getElementById('katex-css')) return;
+      var l = document.createElement('link');
+      l.id = 'katex-css'; l.rel = 'stylesheet'; l.href = 'assets/katex/katex.min.css';
+      document.head.appendChild(l);
+    }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) {
+        past = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; update();
+      }).observe(badge);
+      new IntersectionObserver(function (e) { endVisible = e[0].isIntersecting; update(); }).observe(end);
+      new IntersectionObserver(function (e, o) {
+        if (e[0].isIntersecting) { loadKatexCss(); o.disconnect(); }
+      }, { rootMargin: '800px 0px' }).observe(document.getElementById('equations'));
+    } else { loadKatexCss(); }
+
+    // Reduced motion: show only the poster, never play the video.
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var v = document.getElementById('hero-video');
+      v.removeAttribute('autoplay'); v.removeAttribute('loop'); v.preload = 'none';
+      Array.prototype.forEach.call(v.querySelectorAll('source'), function (s) { s.remove(); });
+      v.load();
+    }
+  })();
+  </script>
 </body>
 </html>
