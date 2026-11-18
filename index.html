@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobile Multibody Dynamics for iPhone &amp; iPad | MOMDYN</title>
+  <meta name="description" content="Build a mechanism, derive its equations of motion, then simulate and animate it in 3D on iPhone and iPad. Export Python to run bigger studies on your desktop.">
+  <link rel="canonical" href="https://www.momdyn.com/">
+  <meta name="theme-color" content="#14213d">
+
+  <!-- Apple smart app banner (Safari on iOS) -->
+  <meta name="apple-itunes-app" content="app-id=1491149780">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MOMDYN">
+  <meta property="og:title" content="Mobile Multibody Dynamics for iPhone &amp; iPad">
+  <meta property="og:description" content="Model a mechanism, derive its equations of motion, simulate and animate it in 3D, then export Python code to run it on your desktop.">
+  <meta property="og:url" content="https://www.momdyn.com/">
+  <meta property="og:image" content="https://www.momdyn.com/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MOMDYN: a 3D diagram of a mechanism next to the text 'Mobile Multibody Dynamics'.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mobile Multibody Dynamics for iPhone &amp; iPad">
+  <meta name="twitter:description" content="Model a mechanism, derive its equations of motion, simulate and animate it in 3D, then export Python code to run it on your desktop.">
+  <meta name="twitter:image" content="https://www.momdyn.com/assets/og.png">
+  <meta name="twitter:image:alt" content="MOMDYN: a 3D diagram of a mechanism next to the text 'Mobile Multibody Dynamics'.">
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/noto-serif-bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured data. No price, rating or review fields: those are not confirmed yet. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Mobile Multibody Dynamics",
+    "alternateName": "MOMDYN",
+    "description": "Define a mechanism, derive its equations of motion, simulate it and animate it in 3D on iPhone and iPad. Export Python source code to run heavier analysis on a desktop.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "iOS 18, iPadOS 18",
+    "url": "https://www.momdyn.com/",
+    "downloadUrl": "https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780",
+    "installUrl": "https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780",
+    "image": "https://www.momdyn.com/assets/icon-512.png",
+    "inLanguage": "en",
+    "featureList": [
+      "Define symbols, reference frames, vectors, points, joints, bodies, loads and sensors",
+      "Derive equations of motion",
+      "Simulate and animate the mechanism in a 3D diagram",
+      "Plot the simulated states over time",
+      "Read a report of the math behind the model",
+      "Export Python source code that reproduces the model"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="MOMDYN home">
+        <img src="assets/icon-512.png" width="36" height="36" alt="">
+        MOMDYN
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#learn">Learn</a>
+        <a href="https://momdyn.github.io/html/index.html">Docs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div>
+          <p class="eyebrow">Mobile Multibody Dynamics</p>
+          <h1 id="hero-title">Derive the equations of motion. Watch the mechanism move.</h1>
+          <p class="lede">Model a mechanism on your iPhone or iPad, derive its equations of motion, then simulate and animate it in 3D. The math stays visible, and you can export Python to run bigger studies on your desktop.</p>
+          <div class="cta">
+            <!--
+              ASSET NEEDED: Apple's official "Download on the App Store" badge (SVG) from
+              https://developer.apple.com/app-store/marketing/guidelines/ . Save as
+              assets/app-store-badge.svg and replace this text button with
+              <a href="..."><img src="assets/app-store-badge.svg" width="156" height="52" alt="Download on the App Store"></a>
+            -->
+            <a class="btn" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780">
+              <span><small>Download on the</small>App Store</span>
+            </a>
+            <p class="cta-note">For iPhone and iPad, iOS 18 or later. An Android version is in progress.</p>
+          </div>
+        </div>
+        <figure class="figure">
+          <img src="assets/diagram.png" width="593" height="1200" alt="A 3D diagram of a mechanism: orange links with spring coils join small blue joints and green-and-black spheres, with red, green and blue coordinate-frame arrows.">
+          <figcaption>A mechanism shown in the app's 3D diagram.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <h2 id="features-title">From model to motion in one app</h2>
+        <p class="section-intro">The whole workflow lives on your phone or tablet: build the model, get its equations, run it, and read the math behind it.</p>
+        <ul class="features">
+          <li class="feature">
+            <h3>Build a mechanism</h3>
+            <p>Start from the built-in examples or define your own: symbols, reference frames, vectors and points, or ready-made joints. Add bodies, loads such as forces, moments and springs, and sensors.</p>
+            <!-- ASSET NEEDED: screenshot "05Build" (editing a model: joints, bodies, loads), portrait, PNG or WebP -->
+            <div class="shot" aria-hidden="true">Screenshot placeholder: building a model</div>
+          </li>
+          <li class="feature">
+            <h3>Derive the equations of motion</h3>
+            <p>One tap derives the equations of motion, runs the simulation and starts the animation. See exactly how the equations were assembled.</p>
+            <!-- ASSET NEEDED: screenshot "02Equations" (equations of motion view) -->
+            <div class="shot" aria-hidden="true">Screenshot placeholder: equations of motion</div>
+          </li>
+          <li class="feature">
+            <h3>Watch it move in 3D</h3>
+            <p>Orbit the diagram with one finger, pan with two, pinch to zoom, and scrub the timeline to any moment. Plot the simulated states over time.</p>
+            <!-- ASSET NEEDED: screenshot "01Diagram" (3D diagram) and optionally "04Plots" -->
+            <div class="shot" aria-hidden="true">Screenshot placeholder: 3D diagram and plots</div>
+          </li>
+          <li class="feature">
+            <h3>Read the math, export Python</h3>
+            <p>A report shows the symbols, kinematics, loads and equations behind your model. For heavier work, such as a Monte Carlo study, export Python source code that reproduces the model and run it on your desktop.</p>
+            <!-- ASSET NEEDED: screenshot "03Report" (report view) -->
+            <div class="shot" aria-hidden="true">Screenshot placeholder: the report view</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="who-title">
+      <div class="wrap">
+        <h2 id="who-title">Who it is for</h2>
+        <p class="section-intro">People who want to see the dynamics, not just the animation, without the cost of desktop software.</p>
+        <ul class="audience">
+          <li><strong>Students</strong><span>Learning dynamics, multibody dynamics, robotics or mechanisms.</span></li>
+          <li><strong>Educators</strong><span>Looking for a live demo tool that shows the equations as well as the motion.</span></li>
+          <li><strong>Practicing engineers</strong><span>Who want a quick model check away from the desktop.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="learn" aria-labelledby="learn-title">
+      <div class="wrap">
+        <h2 id="learn-title">Docs and tutorials</h2>
+        <p class="section-intro">Step-by-step guides live on the documentation site, including walkthroughs for a pendulum and an oscillator.</p>
+        <ul class="docs-links">
+          <li><a href="https://momdyn.github.io/html/index.html">Documentation</a></li>
+          <li><a href="https://momdyn.github.io/html/tutorials/pendulum.html">Pendulum tutorial</a></li>
+          <li><a href="https://momdyn.github.io/html/tutorials/oscillator.html">Oscillator tutorial</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ANDROID: when the Android build is ready, add a Google Play badge next to the App Store button in the hero
+         and update the note beside it. Package: com.badeyedea.momdyn -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <nav aria-label="Footer">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="https://momdyn.github.io/html/index.html">Docs</a>
+        <a href="https://www.youtube.com/@mobilemultibodydynamics8175">YouTube</a>
+        <a href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780">App Store</a>
+      </nav>
+      <p>Mobile Multibody Dynamics (MOMDYN), built by a practicing dynamics and structures engineer. Apple, iPhone, iPad and App Store are trademarks of Apple Inc.</p>
+    </div>
+  </footer>
+</body>
+</html>
