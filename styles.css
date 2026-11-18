@@ -260,6 +260,8 @@ details p { padding: 0 0 1.1rem; color: var(--muted); }
 .prose { max-width: 44rem; padding-bottom: 3rem; }
 .prose h1 { margin-bottom: 0.5rem; font-size: clamp(1.9rem, 6vw, 2.6rem); }
 .prose h2 { margin-top: 2.25rem; font-size: 1.35rem; }
+.prose h3 { margin-top: 1.5rem; font-size: 1.1rem; }
+.prose ul { padding-left: 1.25rem; }
 .prose p, .prose li { color: var(--text); margin-top: 0.6rem; }
 .prose .draft-banner { color: #4d3b00; }
 .prose .meta { color: var(--muted); font-size: 0.95rem; }
