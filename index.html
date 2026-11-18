@@ -31,6 +31,7 @@
   <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" as="image" href="assets/bezel-deep-blue.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="image" href="assets/screens/diagram.webp" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
 
@@ -91,13 +92,13 @@
           <h1 id="hero-title">Multibody dynamics, free on iPhone &amp; iPad.</h1>
 
           <div class="hero-visual">
-            <div class="device">
+            <div class="phone">
               <!--
                 TODO (asset): add media/hero.mp4 and media/hero.webm (under 3 MB, portrait, about 9:19, no essential info in it).
                 Until they exist the browser shows the poster, a device-framed screenshot of the app's 3D diagram view.
               -->
-              <video id="hero-video" autoplay muted loop playsinline preload="metadata"
-                     poster="assets/screens/diagram.webp" width="560" height="1139"
+              <video class="screen" id="hero-video" autoplay muted loop playsinline preload="metadata"
+                     poster="assets/screens/diagram.webp" width="640" height="1392"
                      aria-label="Preview of the MOMDYN app showing the 3D diagram of a mechanism">
                 <source src="media/hero.mp4" type="video/mp4">
                 <source src="media/hero.webm" type="video/webm">
@@ -129,8 +130,8 @@
     <section id="equations" class="split" aria-labelledby="eq-title">
       <div class="wrap">
         <div class="media">
-          <div class="device small">
-            <img src="assets/screens/equations.webp" width="560" height="1139" loading="lazy" alt="The Equations of Motion view of the app's report, showing a mass matrix and the vector of generalized speeds, followed by the start of the forcing vector.">
+          <div class="phone">
+            <img class="screen" src="assets/screens/equations.webp" width="640" height="1392" loading="lazy" alt="The Equations of Motion view of the app's report, showing a mass matrix and the vector of generalized speeds, followed by the start of the forcing vector.">
           </div>
         </div>
         <div class="text">
@@ -150,7 +151,7 @@
         <ol class="steps">
           <li>
             <figure>
-              <img src="assets/screens/export.webp" width="560" height="725" loading="lazy" alt="The Export screen of the app, with switches for Save File, Python File, Tabular Data and Plot Images, and an Export Now button.">
+              <div class="phone"><img class="screen" src="assets/screens/export.webp" width="640" height="1392" loading="lazy" alt="The Export screen of the app, with switches for Save File, Python File, Tabular Data and Plot Images, and an Export Now button."></div>
               <figcaption><b>1</b> Export from the app</figcaption>
             </figure>
           </li>
@@ -202,22 +203,22 @@ plt.savefig(<span class="tok-s">"</span><span class="tok-s">states.png</span><sp
         <h2 id="features-title">Model, derive, animate, export</h2>
         <ul class="cards">
           <li>
-            <img src="assets/screens/build.webp" width="560" height="1127" loading="lazy" alt="The Edit Frame screen of the app, with menus and fields for the frame's name, reference point, reference frame and rotation sequence.">
+            <div class="stage"><div class="phone"><img class="screen" src="assets/screens/build.webp" width="640" height="1392" loading="lazy" alt="The Edit Frame screen of the app, with menus and fields for the frame's name, reference point, reference frame and rotation sequence."></div></div>
             <h3>Build a mechanism</h3>
             <p>Frames, joints, bodies and loads, by touch.</p>
           </li>
           <li>
-            <img src="assets/screens/equations.webp" width="560" height="1139" loading="lazy" alt="The Equations of Motion view of the app's report, showing a mass matrix.">
+            <div class="stage"><div class="phone"><img class="screen" src="assets/screens/equations.webp" width="640" height="1392" loading="lazy" alt="The Equations of Motion view of the app's report, showing a mass matrix."></div></div>
             <h3>Derive the equations of motion</h3>
             <p>One tap derives them and runs the simulation.</p>
           </li>
           <li>
-            <img src="assets/screens/diagram.webp" width="560" height="1139" loading="lazy" alt="The app's 3D diagram of a chain of linked points with red, green and blue coordinate-frame arrows, above a play button and a timeline slider.">
+            <div class="stage"><div class="phone"><img class="screen" src="assets/screens/diagram.webp" width="640" height="1392" loading="lazy" alt="The app's 3D diagram of a chain of linked points with red, green and blue coordinate-frame arrows, above a play button and a timeline slider."></div></div>
             <h3>Watch it move in 3D</h3>
             <p>Orbit, pan, zoom and scrub the timeline.</p>
           </li>
           <li>
-            <img src="assets/screens/export.webp" width="560" height="725" loading="lazy" alt="The Export screen of the app, with switches for Save File, Python File, Tabular Data and Plot Images.">
+            <div class="stage"><div class="phone"><img class="screen" src="assets/screens/export.webp" width="640" height="1392" loading="lazy" alt="The Export screen of the app, with switches for Save File, Python File, Tabular Data and Plot Images."></div></div>
             <h3>Export Python</h3>
             <p>Take your model to the desktop.</p>
           </li>
