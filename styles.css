@@ -237,3 +237,15 @@ h2 { font-size: clamp(1.5rem, 4vw, 2rem); }
 .app-icon-badge svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .get-app .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem 2.5rem; }
 .get-app .section-intro { margin-bottom: 1.25rem; }
+
+/* App screenshots (cropped to hide the iOS status bar) */
+.shots { margin-top: auto; display: flex; justify-content: center; gap: 1rem; padding-top: 0.5rem; }
+.shots img {
+  width: min(100%, 14rem);
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+}
+.shots.two img { width: calc(50% - 0.5rem); max-width: 12rem; }
+.shots.wide img { width: min(100%, 20rem); }
