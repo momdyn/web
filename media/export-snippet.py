@@ -1,16 +1,20 @@
-# PLACEHOLDER: sample script, not real MOMDYN output. Replace with a real export.
-import numpy as np
-from scipy.integrate import solve_ivp
+# Generate the KanesMethod object
+kane = KanesMethod(inertial, q_ind=coords, u_ind=speeds, kd_eqs=kinematic_equations)
+fr, frstar = kane.kanes_equations(bodies, loads)
 
-m1, m2, l1, l2, g = 1.0, 1.0, 1.0, 1.0, 9.81
 
-def rhs(t, y):
-    th1, th2, w1, w2 = y
-    d = th1 - th2
-    M = np.array([[(m1 + m2) * l1**2, m2 * l1 * l2 * np.cos(d)],
-                  [m2 * l1 * l2 * np.cos(d), m2 * l2**2]])
-    F = np.array([-m2 * l1 * l2 * w2**2 * np.sin(d) - (m1 + m2) * g * l1 * np.sin(th1),
-                  m2 * l1 * l2 * w1**2 * np.sin(d) - m2 * g * l2 * np.sin(th2)])
-    return [w1, w2, *np.linalg.solve(M, F)]
+# Generate the lambdified equation
+states = coords + speeds
+rhs = lambdify([t]+states, kane.rhs().subs(parameters))
+def fun(t, x):
+    return list(rhs(t, *x)[:, 0])
 
-sol = solve_ivp(rhs, (0, 10), [1.0, 0.5, 0, 0], max_step=0.01)
+
+# Simulate and plot
+initial_conditions = list(initial_coords.values()) + list(initial_speeds.values())
+sol = solve_ivp(fun, tspan, initial_conditions, first_step=first_step, rtol=tol)
+plt.plot(sol.t, sol.y.transpose())
+plt.xlabel("Time [sec]")
+plt.ylabel("State")
+plt.legend([str(state) for state in states])
+plt.savefig("states.png")
