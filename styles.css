@@ -146,18 +146,13 @@ h2 { font-size: clamp(1.6rem, 5vw, 2.25rem); }
 /* ---------- 2. Equations ---------- */
 .split .wrap { display: flex; flex-direction: column; gap: 2rem; align-items: center; }
 .split .media { display: flex; justify-content: center; width: 100%; }
-.split .device.small { width: min(72vw, 17rem); }
+.split .device.small { width: min(76vw, 19rem); }
 .split .text { width: 100%; }
 @media (min-width: 56rem) {
   .split .wrap { flex-direction: row; gap: 4rem; align-items: center; }
   .split .media { width: auto; flex: none; }
   .split .text { flex: 1; min-width: 0; }
 }
-.math { margin: 1.5rem 0 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem; }
-.math figcaption { font-size: 0.85rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
-.math-scroll { overflow-x: auto; }
-.math-scroll .katex-display { margin: 0.6em 0; }
-.math-scroll .katex { font-size: 1.05em; }
 
 /* ---------- 3. Python steps ---------- */
 .steps-section { background: var(--tint); }
