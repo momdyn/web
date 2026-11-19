@@ -50,10 +50,22 @@
       <h3>Models, Calculations and Exports</h3>
       <ul>
         <li><strong>Local processing only:</strong> All calculations, including deriving the equations of motion and running the simulation, are performed exclusively on your device.</li>
-        <li><strong>Local storage:</strong> Models you create or import are saved in the App's folder on your iPhone or iPad, which also appears as a "MOMDYN" folder in the Files app. Preferences, such as the automatic-simulation switch, are also stored on your device.</li>
-        <li><strong>No transmission:</strong> Your models, results and exports (model files, Python source code, simulation data and plots) are NOT transmitted to DCDC LLC or any third party. Exports go only where you choose to send them. We never receive or store this data.</li>
+        <li><strong>Local storage:</strong> Models you create or import are saved in the App's folder on your iPhone or iPad, which also appears as a "MOMDYN" folder in the Files app. Preferences, such as the automatic-simulation switch, are also stored on your device. If you use iCloud sync (described below), your models are also kept in your own private iCloud.</li>
+        <li><strong>No transmission:</strong> Your models, results and exports (model files, Python source code, simulation data and plots) are NOT transmitted to DCDC LLC or any third party. With iCloud sync, copies of your models go only to your own private iCloud, which Apple manages. Exports and shared models go only where you choose to send them. We never receive or store this data.</li>
         <li><strong>No device permissions:</strong> The App does not request access to your camera, microphone, location, contacts or photo library.</li>
-        <li><strong>No personal identifiers:</strong> The App has no accounts. We do not collect names, email addresses, or phone numbers within the App itself.</li>
+        <li><strong>No personal identifiers:</strong> The App has no accounts of its own. iCloud sync uses your Apple ID, which Apple manages and which we never see. We do not collect names, email addresses, or phone numbers within the App itself.</li>
+      </ul>
+
+      <h3>iCloud Sync (new in version 2.3)</h3>
+      <p>MOMDYN can keep your library of models in sync across your own devices using Apple's iCloud (CloudKit).</p>
+      <ul>
+        <li><strong>What is synced:</strong> When sync is on, each model you create or open (its name, description, parameters, components, and settings) is stored in your private iCloud database, which is tied to your Apple ID and is accessible only to you.</li>
+        <li><strong>Developer access:</strong> DCDC LLC cannot see, read, or access this data. It is not sent to any server operated by us or to any third party, and it is not used for analytics or advertising.</li>
+        <li><strong>Handled by Apple:</strong> Sync is handled by Apple and is subject to <a href="https://www.apple.com/legal/privacy/">Apple's own privacy practices</a>.</li>
+        <li><strong>Turning sync off:</strong> Sync is on by default for people signed in to iCloud. You can turn it off at any time in the iCloud section of the MOMDYN sidebar. The change takes effect the next time the App opens.</li>
+        <li><strong>Deleting synced copies:</strong> Turning sync off stops further syncing but does not remove copies already stored in iCloud. You can delete them in the Settings app, under your name &rsaquo; iCloud &rsaquo; Manage Storage &rsaquo; MOMDYN.</li>
+        <li><strong>Sharing:</strong> Models you choose to share, for example as a .mbdz file by AirDrop, Mail, or Messages, are sent only to the recipients you pick.</li>
+        <li><strong>Please note:</strong> A model's name and description are text you type, so we recommend not putting sensitive personal information in them.</li>
       </ul>
 
       <h3>Analytics and Third-Party Services</h3>
@@ -63,7 +75,7 @@
       </ul>
 
       <h3>Network Use</h3>
-      <p>The App's help section shows pages from our documentation site at momdyn.github.io inside the App. That site is a static page. We receive no information about who opens it, and we see nothing about it through GitHub, which hosts it. As with any website, GitHub, as the host, receives standard connection information such as your IP address; see the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub privacy statement</a>. Apart from the help pages, the App does not send your data to us or to other servers.</p>
+      <p>The App's help section shows pages from our documentation site at momdyn.github.io inside the App. That site is a static page. We receive no information about who opens it, and we see nothing about it through GitHub, which hosts it. As with any website, GitHub, as the host, receives standard connection information such as your IP address; see the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub privacy statement</a>. Apart from the help pages and iCloud sync, which communicates with Apple's iCloud servers, the App does not send your data to us or to other servers.</p>
 
       <h3>This Website (momdyn.dc-engineer.com)</h3>
       <p>The sections above describe the App. This website is a static page. It does not use cookies, analytics, feedback forms or third-party fonts or scripts, and we collect nothing from its visitors. A few things to know:</p>
@@ -81,19 +93,19 @@
       </ul>
 
       <h2>3. Your Rights as a User (GDPR and CCPA/CPRA)</h2>
-      <p>Even though DCDC LLC does not possess your personal data, we recognize your legal rights regarding any data that might exist. The models you create are stored on your own device, under your control.</p>
+      <p>Even though DCDC LLC does not possess your personal data, we recognize your legal rights regarding any data that might exist. The models you create are stored on your own device, and in your private iCloud if you use sync, under your control.</p>
 
       <h3>EU/UK Users (GDPR Rights)</h3>
       <p>You have the right to request access to any personal data we may hold, to have it corrected, deleted ("Right to Erasure"), or to restrict its processing. Since we do not store your data, exercising these rights involves:</p>
       <ul>
-        <li><strong>Data access/erasure:</strong> Your user-generated data is stored on your device. To delete it, delete the models within the App or in the Files app, or delete the App, which removes the data it stores on your device.</li>
+        <li><strong>Data access/erasure:</strong> Your user-generated data is stored on your device and, if iCloud sync is on, in your private iCloud. To delete it, delete the models within the App or in the Files app. Deleting the App removes the data it stores on your device but not copies already in iCloud, which you can delete in the Settings app, under your name &rsaquo; iCloud &rsaquo; Manage Storage &rsaquo; MOMDYN.</li>
         <li><strong>Lodging a complaint:</strong> You have the right to lodge a complaint with a supervisory authority in your country regarding data protection.</li>
       </ul>
 
       <h3>California Users (CCPA/CPRA Rights)</h3>
       <p>California residents have the right to know what personal information is collected, the right to delete, and the right to opt out of the sale or sharing of personal information. Since DCDC LLC does not sell or share any user data and does not collect personal identifiers, these rights are affirmed:</p>
       <ul>
-        <li><strong>Right to know/delete:</strong> Your data is stored on your device, and you control it.</li>
+        <li><strong>Right to know/delete:</strong> Your data is stored on your device and, if iCloud sync is on, in your private iCloud, which is controlled by your Apple ID. You control it, and you can delete it as described above.</li>
         <li><strong>Right to opt out:</strong> An opt-out is unnecessary, as we do not sell or share personal data.</li>
       </ul>
 
@@ -108,7 +120,7 @@
       Eliott Radcliffe, Sole Proprietor, DCDC LLC<br>
       Email: <a href="mailto:Eliott.Radcliffe@DC-Engineer.com">Eliott.Radcliffe@DC-Engineer.com</a></p>
 
-      <p class="meta">This document was last updated on November 18, 2026.</p>
+      <p class="meta">This document was last updated on November 19, 2026.</p>
     </article>
   </main>
 
