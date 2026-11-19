@@ -6,8 +6,8 @@
   <title>Mobile Multibody Dynamics for iPhone &amp; iPad | MOMDYN</title>
   <meta name="description" content="Free multibody dynamics app for iPhone and iPad. Build a mechanism, see its symbolic equations of motion, and export Python for desktop analysis.">
   <link rel="canonical" href="https://momdyn.dc-engineer.com/">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0d1020" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#5856D6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#5E5CE6" media="(prefers-color-scheme: dark)">
 
   <!-- Apple smart app banner (Safari on iOS) -->
   <meta name="apple-itunes-app" content="app-id=1491149780">
@@ -31,9 +31,12 @@
   <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="preload" as="image" href="assets/bezel-deep-blue.webp" type="image/webp" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/screens/diagram.webp" type="image/webp" fetchpriority="high">
+  <link rel="preconnect" href="https://toolbox.marketingtools.apple.com">
+  <link rel="preload" as="image" href="media/icon-3d.webp" type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/bezel-deep-blue.webp" type="image/webp">
+  <link rel="preload" as="image" href="assets/screens/diagram.webp" type="image/webp">
   <link rel="stylesheet" href="styles.css">
+  <noscript><link rel="stylesheet" href="assets/katex/katex.min.css"></noscript>
 
   <script type="application/ld+json">
   {
@@ -84,38 +87,60 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="./" aria-label="MOMDYN home">
+        <!-- TODO (asset): media/logo-mono.svg is a temporary silhouette traced from the app icon; replace it with the designed mono logo. -->
+        <span class="logo" aria-hidden="true"></span>
+        <span class="wordmark">MOM<em>DYN</em></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#learn">Learn</a>
+        <a href="https://momdyn.github.io/html/index.html">Docs</a>
+      </nav>
+      <a class="pill" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780?itscg=30200&amp;itsct=apps_box_badge&amp;mttnsubad=1491149780">Get the app</a>
+    </div>
+  </header>
+
   <main id="main">
-    <!-- 1. HERO. First mobile screen = headline, device visual, badge. Nothing else. -->
-    <section class="hero" aria-labelledby="hero-title">
+    <!-- 1. HERO on the indigo band. Mobile order: 3D icon, headline, badge, then the phone and the secondary headline. -->
+    <section class="hero band" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
-        <div class="hero-first">
-          <h1 id="hero-title">Multibody dynamics, free on iPhone &amp; iPad.</h1>
+        <!--
+          TODO (asset): media/icon-3d.webp is a temporary stand-in built from the app icon layers. Replace it with the 3D render
+          (transparent background, about 640x640). If media/icon-3d-loop.mp4 exists, swap this <img> for:
+          <video class="icon3d" autoplay muted loop playsinline poster="media/icon-3d.webp" width="320" height="320" aria-label="Mobile Multibody Dynamics app icon"><source src="media/icon-3d-loop.mp4" type="video/mp4"></video>
+          (the existing reduced-motion script already shows only the poster for any <video class="icon3d">).
+        -->
+        <img class="icon3d" src="media/icon-3d.webp" width="320" height="320" alt="Mobile Multibody Dynamics app icon" fetchpriority="high">
 
-          <div class="hero-visual">
-            <div class="phone">
-              <!--
-                TODO (asset): add media/hero.mp4 and media/hero.webm (under 3 MB, portrait, about 9:19, no essential info in it).
-                Until they exist the browser shows the poster, a device-framed screenshot of the app's 3D diagram view.
-              -->
-              <video class="screen" id="hero-video" autoplay muted loop playsinline preload="metadata"
-                     poster="assets/screens/diagram.webp" width="640" height="1392"
-                     aria-label="Preview of the MOMDYN app showing the 3D diagram of a mechanism">
-                <source src="media/hero.mp4" type="video/mp4">
-                <source src="media/hero.webm" type="video/webm">
-              </video>
-            </div>
-          </div>
+        <h1 id="hero-title">Multibody dynamics, free on iPhone &amp; iPad.</h1>
 
-          <div class="hero-cta">
-            <!-- Official badge from Apple Marketing Tools (image is loaded from Apple's servers, as Apple's code intends). -->
-            <a class="store-badge" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780?itscg=30200&amp;itsct=apps_box_badge&amp;mttnsubad=1491149780">
-              <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1600214400" width="246" height="82" alt="Download on the App Store">
-            </a>
-            <p class="badge-note">Free &middot; iOS 18+</p>
-          </div>
-          <div class="qr">
-            <img src="assets/qr-app-store.svg" width="96" height="96" loading="lazy" alt="QR code that opens Mobile Multibody Dynamics on the App Store">
-            <span>Scan to open on your iPhone</span>
+        <div class="hero-cta">
+          <!-- Official badge from Apple Marketing Tools (image is loaded from Apple's servers, as Apple's code intends). -->
+          <a class="store-badge" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780?itscg=30200&amp;itsct=apps_box_badge&amp;mttnsubad=1491149780">
+            <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1600214400" width="246" height="82" alt="Download on the App Store">
+          </a>
+          <p class="badge-note"><b>Free</b> &middot; iOS 18+</p>
+        </div>
+        <div class="qr">
+          <img src="assets/qr-app-store.svg" width="96" height="96" loading="lazy" alt="QR code that opens Mobile Multibody Dynamics on the App Store">
+          <span>Scan to open on your iPhone</span>
+        </div>
+
+        <div class="hero-visual">
+          <div class="phone">
+            <!--
+              TODO (asset): add media/hero.mp4 and media/hero.webm (under 3 MB, portrait, about 9:19, no essential info in it).
+              Until they exist the browser shows the poster, a device-framed screenshot of the app's 3D diagram view.
+            -->
+            <video class="screen" id="hero-video" autoplay muted loop playsinline preload="metadata"
+                   poster="assets/screens/diagram.webp" width="640" height="1392"
+                   aria-label="Preview of the MOMDYN app showing the 3D diagram of a mechanism">
+              <source src="media/hero.mp4" type="video/mp4">
+              <source src="media/hero.webm" type="video/webm">
+            </video>
           </div>
         </div>
 
@@ -137,6 +162,14 @@
         <div class="text">
           <h2 id="eq-title">Real equations, not a black box</h2>
           <p>Unlike CAD-style tools that hide the math, MOMDYN shows every equation it derives.</p>
+          <figure class="eq">
+            <div class="eq-scroll" tabindex="0" role="group" aria-label="Equation of motion of a planar pendulum">
+<!-- EQUATION:START (rendered with KaTeX 0.16.11 at build time; source in scripts/equation.katex.html) -->
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mover accent="true"><mi>θ</mi><mo>¨</mo></mover><mo>+</mo><mfrac><mi>g</mi><mi>l</mi></mfrac><mtext> </mtext><mi>sin</mi><mo>⁡</mo><mi>θ</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\ddot{\theta} + \frac{g}{l}\,\sin\theta = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0146em;vertical-align:-0.0833em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9313em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">¨</span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.7936em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">sin</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span>
+<!-- EQUATION:END -->
+            </div>
+            <figcaption>Example: planar pendulum</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -208,7 +241,7 @@ plt.savefig(<span class="tok-s">"</span><span class="tok-s">states.png</span><sp
             <p>Frames, joints, bodies and loads, by touch.</p>
           </li>
           <li>
-            <div class="stage"><div class="phone"><img class="screen" src="assets/screens/equations.webp" width="640" height="1392" loading="lazy" alt="The Equations of Motion view of the app's report, showing a mass matrix."></div></div>
+            <div class="stage"><div class="phone"><img class="screen" src="assets/screens/plots.webp" width="640" height="1392" loading="lazy" alt="The Plots view of the app, with two line charts of generalized coordinates and generalized speeds against time."></div></div>
             <h3>Derive the equations of motion</h3>
             <p>One tap derives them and runs the simulation.</p>
           </li>
@@ -218,6 +251,7 @@ plt.savefig(<span class="tok-s">"</span><span class="tok-s">states.png</span><sp
             <p>Orbit, pan, zoom and scrub the timeline.</p>
           </li>
           <li>
+            <!-- TODO (asset): this card repeats the Export screen from the Python section. Replace it with assets/screens/welcome.webp (Welcome / examples screen) when it exists. -->
             <div class="stage"><div class="phone"><img class="screen" src="assets/screens/export.webp" width="640" height="1392" loading="lazy" alt="The Export screen of the app, with switches for Save File, Python File, Tabular Data and Plot Images."></div></div>
             <h3>Export Python</h3>
             <p>Take your model to the desktop.</p>
@@ -263,22 +297,16 @@ plt.savefig(<span class="tok-s">"</span><span class="tok-s">states.png</span><sp
       </div>
     </section>
 
-    <!-- 8. FINAL CTA (the only other download prompts are the hero badge and the mobile sticky button) -->
-    <section id="get" class="get-app" aria-labelledby="get-title">
+    <!-- 8. FINAL CTA on the indigo band (the only other download prompts are the nav pill, the hero badge and the mobile sticky button) -->
+    <section id="get" class="get-app band" aria-labelledby="get-title">
       <div class="wrap">
-        <!-- Official app icon badge from Apple Marketing Tools (icon image is loaded from Apple's servers). -->
-        <a class="app-icon-badge" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780?itscg=30200&amp;itsct=apps_box_artwork&amp;mttnsubad=1491149780">
-          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ab/98/c7/ab98c77e-8888-34fb-6097-dddc849c0b90/AppIcon-0-0-1x_U007epad-0-1-85-220.png/540x540bb.jpg" width="170" height="170" loading="lazy" alt="Mobile Multibody Dynamics app icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230.5 230.5" aria-hidden="true" focusable="false">
-            <path fill="none" stroke="#000" stroke-linejoin="round" stroke-miterlimit="1.4" stroke-opacity=".1" stroke-width="1" d="M158.2 230H64.1a320 320 0 0 1-7-.1c-5 0-10-.5-15-1.3a50.8 50.8 0 0 1-14.4-4.8 48.2 48.2 0 0 1-21-21 50.9 50.9 0 0 1-4.8-14.4 100.7 100.7 0 0 1-1.3-15v-7l-.1-8.2V64.1a320 320 0 0 1 .1-7c0-5 .5-10 1.3-15a50.7 50.7 0 0 1 4.8-14.4 48.2 48.2 0 0 1 21-21 51 51 0 0 1 14.4-4.8c5-.8 10-1.2 15-1.3a320 320 0 0 1 7 0l8.2-.1h94.1a320 320 0 0 1 7 .1c5 0 10 .5 15 1.3a52 52 0 0 1 14.4 4.8 48.2 48.2 0 0 1 21 21 50.9 50.9 0 0 1 4.8 14.4c.8 5 1.2 10 1.3 15a320 320 0 0 1 .1 7v102.3l-.1 7c0 5-.5 10-1.3 15a50.7 50.7 0 0 1-4.8 14.4 48.2 48.2 0 0 1-21 21 50.8 50.8 0 0 1-14.4 4.8c-5 .8-10 1.2-15 1.3a320 320 0 0 1-7 0l-8.2.1z" clip-rule="evenodd" vector-effect="non-scaling-stroke"/>
-          </svg>
-        </a>
+        <img class="icon3d" src="media/icon-3d.webp" width="320" height="320" loading="lazy" alt="Mobile Multibody Dynamics app icon">
         <div>
           <h2 id="get-title">Free on iPhone &amp; iPad</h2>
           <a class="store-badge" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780?itscg=30200&amp;itsct=apps_box_badge&amp;mttnsubad=1491149780">
             <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1600214400" width="246" height="82" loading="lazy" alt="Download on the App Store">
           </a>
-          <p class="badge-note">Free &middot; iOS 18+</p>
+          <p class="badge-note"><b>Free</b> &middot; iOS 18+</p>
         </div>
       </div>
     </section>
@@ -288,7 +316,7 @@ plt.savefig(<span class="tok-s">"</span><span class="tok-s">states.png</span><sp
   <footer class="site-footer">
     <div class="wrap">
       <p class="credit">Built by <a href="https://dc-engineer.com">Eliott Radcliffe</a>, a mechanical engineer specializing in dynamics. On the App Store since 2019.</p>
-      <p class="sisters">More from DC-Engineer:
+      <p class="sisters"><span>More from DC-Engineer:</span>
         <a href="https://armor.dc-engineer.com">ARMOR</a>
         <a href="https://twolinks.dc-engineer.com">TwoLinks</a>
         <a href="https://youkon.dc-engineer.com/">YouKon</a>
@@ -312,6 +340,7 @@ plt.savefig(<span class="tok-s">"</span><span class="tok-s">states.png</span><sp
   <script>
   (function () {
     var bar = document.getElementById('sticky');
+    var nav = document.getElementById('nav');
     var badge = document.querySelector('.hero .store-badge');
     var end = document.getElementById('get');
     var past = false, endVisible = false;
@@ -320,19 +349,31 @@ plt.savefig(<span class="tok-s">"</span><span class="tok-s">states.png</span><sp
       bar.classList.toggle('show', on);
       bar.setAttribute('aria-hidden', on ? 'false' : 'true');
     }
+    function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 4); }
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    function loadKatexCss() {
+      if (document.getElementById('katex-css')) return;
+      var l = document.createElement('link');
+      l.id = 'katex-css'; l.rel = 'stylesheet'; l.href = 'assets/katex/katex.min.css';
+      document.head.appendChild(l);
+    }
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (e) {
         past = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; update();
       }).observe(badge);
       new IntersectionObserver(function (e) { endVisible = e[0].isIntersecting; update(); }).observe(end);
-    }
+      new IntersectionObserver(function (e, o) {
+        if (e[0].isIntersecting) { loadKatexCss(); o.disconnect(); }
+      }, { rootMargin: '250px 0px' }).observe(document.getElementById('equations'));
+    } else { loadKatexCss(); }
 
-    // Reduced motion: show only the poster, never play the video.
+    // Reduced motion: show only the poster, never play a video.
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      var v = document.getElementById('hero-video');
-      v.removeAttribute('autoplay'); v.removeAttribute('loop'); v.preload = 'none';
-      Array.prototype.forEach.call(v.querySelectorAll('source'), function (s) { s.remove(); });
-      v.load();
+      Array.prototype.forEach.call(document.querySelectorAll('#hero-video, video.icon3d'), function (v) {
+        v.removeAttribute('autoplay'); v.removeAttribute('loop'); v.preload = 'none';
+        Array.prototype.forEach.call(v.querySelectorAll('source'), function (s) { s.remove(); });
+        v.load();
+      });
     }
   })();
   </script>
