@@ -6,8 +6,8 @@
   <title>Privacy Policy | MOMDYN</title>
   <meta name="description" content="Privacy policy for the Mobile Multibody Dynamics (MOMDYN) iPhone and iPad app and the momdyn.dc-engineer.com website.">
   <link rel="canonical" href="https://momdyn.dc-engineer.com/privacy.html">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0d1020" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#5856D6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#5E5CE6" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="favicon.ico" sizes="32x32">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -15,16 +15,18 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="wrap">
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
       <a class="brand" href="./" aria-label="MOMDYN home">
-        <img src="assets/icon-512.png" width="36" height="36" alt="">
-        MOMDYN
+        <span class="logo" aria-hidden="true"></span>
+        <span class="wordmark">MOM<em>DYN</em></span>
       </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="./">Home</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="./#features">Features</a>
+        <a href="./#learn">Learn</a>
         <a href="https://momdyn.github.io/html/index.html">Docs</a>
       </nav>
+      <a class="pill" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780?itscg=30200&amp;itsct=apps_box_badge&amp;mttnsubad=1491149780">Get the app</a>
     </div>
   </header>
 
@@ -66,7 +68,7 @@
       <h3>This Website (momdyn.dc-engineer.com)</h3>
       <p>The sections above describe the App. This website is a static page. It does not use cookies, analytics, feedback forms or third-party fonts or scripts, and we collect nothing from its visitors. A few things to know:</p>
       <ul>
-        <li><strong>Content from Apple:</strong> The App Store badge and the app icon on the home page are images loaded from Apple's servers (toolbox.marketingtools.apple.com and mzstatic.com). Your browser requests them directly from Apple, which receives the request your browser makes, including your IP address, browser type and the address of the page you are viewing. We do not control what Apple does with it, so please see <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>.</li>
+        <li><strong>Content from Apple:</strong> The App Store badge on the home page is an image loaded from Apple's servers (toolbox.marketingtools.apple.com). Your browser requests them directly from Apple, which receives the request your browser makes, including your IP address, browser type and the address of the page you are viewing. We do not control what Apple does with it, so please see <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>.</li>
         <li><strong>Hosting:</strong> The site is a static page hosted by GitHub Pages. We see nothing about visitors through GitHub. GitHub may keep ordinary server logs as described in its privacy statement.</li>
         <li><strong>Links to other sites:</strong> Links to the documentation, YouTube, our other apps and the App Store lead to sites with their own privacy policies.</li>
       </ul>
@@ -123,5 +125,12 @@
       <p class="legal">Apple, iPhone, iPad and App Store are trademarks of Apple Inc.</p>
     </div>
   </footer>
+<script>
+  (function () {
+    var nav = document.getElementById('nav');
+    function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 4); }
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  })();
+  </script>
 </body>
 </html>
