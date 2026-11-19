@@ -168,25 +168,16 @@ section h2 { font-size: clamp(1.7rem, 5vw, 2.4rem); }
   .split .text { flex: 1; min-width: 0; }
 }
 /* Lagrange's equation: bold and stand-alone (no card, no caption), under the heading and sentence.
-   Mostly the primary text color, with just a hint of indigo and pink toward the right end; where gradient
-   text or color-mix is unsupported it stays solid primary text. The size follows the column width. */
+   Mostly the primary text color, with just a hint of indigo and pink toward the right end, done with plain
+   per-part text colors (no gradient text: Safari cannot paint background-clip:text through KaTeX's nested spans).
+   Where color-mix is unsupported it stays solid primary text. The size follows the column width. */
 .eq { margin-top: 2rem; container-type: inline-size; text-align: left; --eq-a: var(--indigo); }
 .eq-scroll { overflow-x: auto; color: var(--label); padding: 0.25rem 0; }
 .eq .katex-display { margin: 0; text-align: left; }
 .eq .katex-display > .katex { text-align: left; }
 .eq .katex { font-size: clamp(1.17rem, 5.1vw, 2.35rem); font-size: clamp(1.1rem, 5.9cqw, 2.35rem); }
-@supports ((-webkit-background-clip: text) or (background-clip: text)) and (color: color-mix(in srgb, red, blue)) {
-  .eq .katex-display > .katex > .katex-html {
-    display: inline-block;
-    background-image: linear-gradient(90deg,
-      var(--label) 0%,
-      var(--label) 28%,
-      color-mix(in srgb, var(--eq-a) 40%, var(--label)) 62%,
-      color-mix(in srgb, var(--pink) 55%, var(--label)) 100%);
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
+.eq .eq-c1 { color: color-mix(in srgb, var(--eq-a) 35%, var(--label)); }
+.eq .eq-c2 { color: color-mix(in srgb, var(--pink) 55%, var(--label)); }
 @media (prefers-color-scheme: dark) { .eq { --eq-a: var(--indigo-deep); } }
 
 /* ---------- 3. Python steps ---------- */
