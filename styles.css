@@ -165,17 +165,18 @@ section h2 { font-size: clamp(1.7rem, 5vw, 2.4rem); }
 @media (min-width: 56rem) {
   .split .wrap { flex-direction: row; gap: 4rem; align-items: center; }
   .split .media { width: auto; flex: none; }
-  .split .text { flex: 1; min-width: 0; }
+  .split .text { flex: 0 1 auto; width: auto; min-width: 0; max-width: 100%; display: grid; }
+  .split .text p { width: 0; min-width: 100%; max-width: none; }   /* wraps to the heading's width, so the column is exactly as wide as the heading */
 }
-/* Lagrange's equation: bold and stand-alone (no card, no caption), under the heading and sentence.
+/* Lagrange's equation: bold and stand-alone (no card, no caption), centered under the heading and sentence.
    Mostly the primary text color, with just a hint of indigo and pink toward the right end, done with plain
    per-part text colors (no gradient text: Safari cannot paint background-clip:text through KaTeX's nested spans).
    Where color-mix is unsupported it stays solid primary text. The size follows the column width. */
-.eq { margin-top: 2rem; container-type: inline-size; text-align: left; --eq-a: var(--indigo); }
+.eq { margin-top: 2rem; container-type: inline-size; text-align: center; --eq-a: var(--indigo); }
 .eq-scroll { overflow-x: auto; color: var(--label); padding: 0.25rem 0; }
-.eq .katex-display { margin: 0; text-align: left; }
-.eq .katex-display > .katex { text-align: left; }
-.eq .katex { font-size: clamp(1.17rem, 5.1vw, 2.35rem); font-size: clamp(1.1rem, 5.9cqw, 2.35rem); }
+.eq .katex-display { margin: 0; text-align: center; }
+.eq .katex-display > .katex { text-align: center; }
+.eq .katex { font-size: clamp(1.17rem, 5.1vw, 2.35rem); font-size: clamp(1.1rem, 6.7cqw, 2.35rem); }
 .eq .eq-c1 { color: color-mix(in srgb, var(--eq-a) 35%, var(--label)); }
 .eq .eq-c2 { color: color-mix(in srgb, var(--pink) 55%, var(--label)); }
 @media (prefers-color-scheme: dark) { .eq { --eq-a: var(--indigo-deep); } }
