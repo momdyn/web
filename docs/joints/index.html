@@ -40,6 +40,10 @@
   </header>
 
   <div class="wrap docs-layout" id="layout">
+    <div class="doc-tools">
+      <button type="button" class="tool" id="toggle-side" aria-controls="side" aria-expanded="true" aria-label="Hide menu" title="Hide menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3.5"/><path d="M9 4v16"/></svg></button>
+      <button type="button" class="tool" id="toggle-toc" aria-controls="toc" aria-expanded="true" aria-label="Hide contents" title="Hide contents" hidden><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3.5"/><path d="M15 4v16"/></svg></button>
+    </div>
     <details class="docs-menu">
       <summary>Menu</summary>
       <nav aria-label="Documentation"><ul class="docs-tree"><li><a href="/docs/getting_started/">Getting Started</a><ul><li><details><summary>Tutorials</summary><ul><li><a href="/docs/tutorials/">Tutorials</a></li><li><a href="/docs/tutorials/pendulum/">Simple Pendulum</a></li><li><a href="/docs/tutorials/oscillator/">Mass-Spring-Damper</a></li></ul></details></li><li><a href="/docs/create_dialog/">Create / Settings Dialogs</a></li><li><a href="/docs/import_dialog/">Import Dialog</a></li><li><a href="/docs/on_screen_controls/">On-Screen Controls</a></li><li><a href="/docs/menu_dialog/">Menu Dialog</a></li><li><a href="/docs/save/">Import/Export</a></li></ul></li><li><a href="/docs/mechanism/">Mechanism Module</a><ul><li><details><summary>Classic</summary><ul><li><a href="/docs/classic/">Classic</a></li><li><a href="/docs/classic/parameter/">Parameter</a></li><li><a href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a></li><li><a href="/docs/classic/generalized_speed/">Generalized Speed</a></li><li><a href="/docs/classic/frame/">Frame</a></li><li><a href="/docs/classic/vector/">Vector</a></li><li><a href="/docs/classic/point/">Point</a></li></ul></details></li><li><details open><summary>Joints</summary><ul><li><a href="/docs/joints/" aria-current="page">Joints</a></li><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></details></li><li><details><summary>Bodies</summary><ul><li><a href="/docs/bodies/">Bodies</a></li><li><a href="/docs/bodies/particle/">Particle</a></li><li><a href="/docs/bodies/general_rigid_body/">General Rigid Body</a></li><li><a href="/docs/bodies/rigid_body_box/">Rigid Body Box</a></li><li><a href="/docs/bodies/rigid_body_cone/">Rigid Body Cone</a></li><li><a href="/docs/bodies/rigid_body_cylinder/">Rigid Body Cylinder</a></li></ul></details></li><li><details><summary>Loads</summary><ul><li><a href="/docs/loads/">Loads</a></li><li><a href="/docs/loads/external_force/">External Force</a></li><li><a href="/docs/loads/actuated_force/">Actuated Force</a></li><li><a href="/docs/loads/external_moment/">External Moment</a></li><li><a href="/docs/loads/actuated_moment/">Actuated Moment</a></li><li><a href="/docs/loads/translational_spring/">Translational Spring</a></li><li><a href="/docs/loads/rotational_spring/">Rotational Spring</a></li></ul></details></li><li><details><summary>Sensors</summary><ul><li><a href="/docs/sensors/">Sensors</a></li><li><a href="/docs/sensors/position_sensor/">Position Sensor</a></li><li><a href="/docs/sensors/velocity_sensor/">Velocity Sensor</a></li><li><a href="/docs/sensors/accelerometer/">Accelerometer</a></li><li><a href="/docs/sensors/dcm_sensor/">DCM Sensor</a></li><li><a href="/docs/sensors/rate_gyro/">Rate Gyro</a></li></ul></details></li></ul></li><li><a href="https://apps.apple.com/us/app/id1491149780" class="ext">Download on the App Store</a></li><li><a href="https://play.google.com/store/apps/details?id=com.badeyedea.momdyn" class="ext">Get it on Google Play</a></li><li><a href="https://www.momdyn.com/index.html" class="ext">Read our Blog</a></li><li><a href="https://www.facebook.com/Mobile-Multibody-Dynamics-102652851603623/" class="ext">Follow on Facebook</a></li><li><a href="https://www.youtube.com/channel/UC7ij1ezmh8a3Q7N3gF4zUkQ" class="ext">Watch on Youtube</a></li><li><a href="https://www.buymeacoffee.com/PLUQkDz" class="ext">Buy me a coffee</a></li></ul></nav>
@@ -49,10 +53,6 @@
     </aside>
 
     <main id="main" class="doc" data-pagefind-body>
-      <div class="doc-tools">
-        <button type="button" class="tool" id="toggle-side" aria-controls="side" aria-expanded="true">Hide menu</button>
-        <button type="button" class="tool" id="toggle-toc" aria-controls="toc" aria-expanded="true" hidden>Hide contents</button>
-      </div>
       <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/docs/">Docs</a></li><li><a href="/docs/mechanism/">Mechanism Module</a></li><li aria-current="page">Joints</li></ol></nav>
       <h1>Joints</h1>
 
@@ -112,7 +112,8 @@
       layout.classList.toggle('no-' + name, !open);
       var b = document.getElementById('toggle-' + name);
       b.setAttribute('aria-expanded', open);
-      b.textContent = (open ? 'Hide ' : 'Show ') + (name === 'side' ? 'menu' : 'contents');
+      var label = (open ? 'Hide ' : 'Show ') + (name === 'side' ? 'menu' : 'contents');
+      b.setAttribute('aria-label', label); b.title = label;
       if (save) { try { localStorage.setItem('docs-' + name, open ? '1' : '0'); } catch (e) {} }
     }
     ['side', 'toc'].forEach(function (name) {
