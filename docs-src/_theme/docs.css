@@ -5,13 +5,6 @@
 .docs-side, .docs-toc { display: none; }
 .skip { z-index: 60; }
 
-/* ---- Mobile menu ---- */
-.docs-menu { margin: 0 0 1.25rem; border-radius: 16px; background: var(--bg-secondary); }
-.docs-menu > summary { min-height: 3rem; padding: 0.7rem 1.1rem; font-weight: 650; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; border-bottom: 0; }
-.docs-menu > summary::after { content: "+"; position: static; font-size: 1.4rem; color: var(--green-text); }
-.docs-menu[open] > summary::after { content: "\2212"; }
-.docs-menu > nav { padding: 0 1rem 1rem; max-height: 60svh; overflow-y: auto; }
-
 /* ---- Sidebar tree (also used in the mobile menu) ---- */
 .docs-tree, .docs-tree ul { list-style: none; margin: 0; padding: 0; }
 .docs-tree ul { margin-left: 0.85rem; padding-left: 0.6rem; border-left: 1px solid var(--separator); }
@@ -25,12 +18,8 @@
 .docs-tree details { border: 0; }
 .docs-tree summary { cursor: pointer; list-style: none; font-weight: 650; display: flex; align-items: center; justify-content: space-between; min-height: 2.75rem; padding: 0.55rem 0.5rem; position: static; }
 .docs-tree summary::-webkit-details-marker { display: none; }
-.docs-tree summary::after { content: "\203A"; position: static; color: var(--label-secondary); font-size: 1.25rem; transition: transform 0.15s; }
-.docs-tree details[open] > summary::after { transform: rotate(90deg); }
-.docs-menu .docs-tree summary { border-bottom: 0; }
 
 @media (min-width: 56rem) {
-  .docs-menu { display: none; }
   .docs-layout { grid-template-columns: 17rem minmax(0, 1fr); }
   .docs-side { display: block; position: sticky; top: 4rem; align-self: start; max-height: calc(100svh - 5rem); overflow-y: auto; padding-right: 0.5rem; }
 }
@@ -141,3 +130,20 @@
 .doc section section h2 { font-size: 1.25rem; margin-top: 1.75rem; }
 .doc section:first-of-type > h2:first-child { margin-top: 0.5rem; }
 .doc .crumbs ol { padding: 0; }
+
+/* ---- Mobile: menu button in the nav bar opens a drawer from the left ---- */
+.nav-menu { flex: none; width: 2.75rem; height: 2.75rem; margin-left: -0.35rem; display: grid; place-items: center; padding: 0; border: 1px solid var(--separator); border-radius: 50%; background: var(--bg-secondary); color: var(--label); cursor: pointer; }
+.nav-menu[aria-expanded="true"] { color: var(--green-text); }
+.scrim { position: fixed; inset: 3.5rem 0 0; z-index: 44; background: rgb(0 0 0 / 0.4); opacity: 0; transition: opacity 0.3s ease; }
+body.drawer-open .scrim { opacity: 1; }
+@media (max-width: 55.99rem) {
+  .docs-side {
+    display: block; position: fixed; z-index: 45; top: 3.5rem; bottom: 0; left: 0; width: min(20rem, 86vw);
+    padding: 0.75rem 1rem 2rem; overflow-y: auto; background: var(--bg); border-right: 1px solid var(--separator);
+    transform: translateX(-100%); visibility: hidden; transition: transform 0.3s ease, visibility 0s 0.3s;
+  }
+  body.drawer-open .docs-side { transform: none; visibility: visible; transition: transform 0.3s ease, visibility 0s; }
+  body.drawer-open { overflow: hidden; }
+}
+@media (min-width: 56rem) { .nav-menu, .scrim { display: none; } }
+@media (prefers-reduced-motion: reduce) { .scrim, .docs-side { transition: none !important; } }

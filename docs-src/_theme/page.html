@@ -27,6 +27,7 @@
 
   <header class="nav" id="nav">
     <div class="wrap nav-inner">
+      <button type="button" class="nav-menu" id="nav-menu" aria-controls="side" aria-expanded="false" aria-label="Show menu" title="Show menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3.5"/><path d="M9 4v16"/></svg></button>
       <a class="brand" href="/" aria-label="MOMDYN home">
         <span class="logo" aria-hidden="true"></span>
         <span class="wordmark"><em>MOM</em>DYN</span>
@@ -44,10 +45,7 @@ $search_link      </nav>
       <button type="button" class="tool" id="toggle-side" aria-controls="side" aria-expanded="true" aria-label="Hide menu" title="Hide menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3.5"/><path d="M9 4v16"/></svg></button>
       <button type="button" class="tool" id="toggle-toc" aria-controls="toc" aria-expanded="true" aria-label="Hide contents" title="Hide contents"$toc_hidden><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3.5"/><path d="M15 4v16"/></svg></button>
     </div>
-    <details class="docs-menu">
-      <summary>Menu</summary>
-      <nav aria-label="Documentation">$tree</nav>
-    </details>
+    <div class="scrim" id="scrim" hidden></div>
     <aside class="docs-side" id="side" aria-label="Documentation">
       <nav aria-label="Documentation">$tree</nav>
     </aside>
@@ -100,6 +98,19 @@ $toc
         setPanel(name, layout.classList.contains('no-' + name), true);
       });
     });
+    // Mobile: the menu is a drawer opened from the nav bar.
+    var navMenu = document.getElementById('nav-menu'), scrim = document.getElementById('scrim');
+    function setDrawer(open) {
+      document.body.classList.toggle('drawer-open', open);
+      navMenu.setAttribute('aria-expanded', open);
+      var l = open ? 'Hide menu' : 'Show menu'; navMenu.setAttribute('aria-label', l); navMenu.title = l;
+      if (open) { scrim.hidden = false; } else { setTimeout(function () { if (!document.body.classList.contains('drawer-open')) scrim.hidden = true; }, 300); }
+    }
+    navMenu.addEventListener('click', function () { setDrawer(!document.body.classList.contains('drawer-open')); });
+    scrim.addEventListener('click', function () { setDrawer(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setDrawer(false); });
+    document.getElementById('side').addEventListener('click', function (e) { if (e.target.closest('a')) setDrawer(false); });
+    if (window.matchMedia) matchMedia('(min-width: 56rem)').addEventListener('change', function (e) { if (e.matches) setDrawer(false); });
     // Reduced motion: animated demos show only their poster frame.
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
       Array.prototype.forEach.call(document.querySelectorAll('video.anim'), function (v) {
