@@ -95,3 +95,30 @@
 .doc > section:first-of-type > h2:first-child, .doc > h1 + * > h2:first-child { margin-top: 1rem; }
 .docs-tree summary::after { content: ""; width: 0.5rem; height: 0.5rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); margin-right: 0.3rem; }
 .docs-tree details[open] > summary::after { transform: rotate(45deg); }
+
+/* ---- Collapsible side panels ---- */
+.doc-tools { display: none; gap: 0.5rem; margin: 0 0 0.75rem; }
+.doc-tools .tool { min-height: 2.75rem; padding: 0 1rem; border: 0; border-radius: 999px; background: var(--bg-secondary); color: var(--label); font: 600 0.9rem var(--font, inherit); cursor: pointer; }
+.doc-tools .tool:hover { filter: brightness(0.96); }
+.doc-tools [hidden] { display: none; }
+@media (min-width: 56rem) {
+  .doc-tools { display: flex; }
+  .doc-tools #toggle-toc { display: none; }
+  .docs-layout.no-side { grid-template-columns: minmax(0, 1fr); }
+  .docs-layout.no-side .docs-side { display: none; }
+}
+@media (min-width: 76rem) {
+  .doc-tools #toggle-toc:not([hidden]) { display: inline-block; }
+  .docs-layout.no-side { grid-template-columns: minmax(0, 46rem) 14rem; justify-content: center; }
+  .docs-layout.no-toc { grid-template-columns: 17rem minmax(0, 1fr); }
+  .docs-layout.no-toc .docs-toc { display: none; }
+  .docs-layout.no-side.no-toc { grid-template-columns: minmax(0, 52rem); justify-content: center; }
+  .docs-layout.no-side .doc, .docs-layout.no-toc .doc { max-width: 100%; }
+}
+
+/* Undo landing-page section styling inside docs content */
+.doc section { padding: 0; }
+.doc section h2 { font-size: 1.6rem; margin: 2.25rem 0 0.75rem; }
+.doc section section h2 { font-size: 1.25rem; margin-top: 1.75rem; }
+.doc section:first-of-type > h2:first-child { margin-top: 0.5rem; }
+.doc .crumbs ol { padding: 0; }

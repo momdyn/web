@@ -39,23 +39,27 @@ $search_link      </nav>
     </div>
   </header>
 
-  <div class="wrap docs-layout">
+  <div class="wrap docs-layout" id="layout">
     <details class="docs-menu">
       <summary>Menu</summary>
       <nav aria-label="Documentation">$tree</nav>
     </details>
-    <aside class="docs-side" aria-label="Documentation">
+    <aside class="docs-side" id="side" aria-label="Documentation">
       <nav aria-label="Documentation">$tree</nav>
     </aside>
 
     <main id="main" class="doc"$pagefind_body>
+      <div class="doc-tools">
+        <button type="button" class="tool" id="toggle-side" aria-controls="side" aria-expanded="true">Hide menu</button>
+        <button type="button" class="tool" id="toggle-toc" aria-controls="toc" aria-expanded="true"$toc_hidden>Hide contents</button>
+      </div>
 $breadcrumbs
       <h1>$title</h1>
 $content
 $pager
     </main>
 
-    <aside class="docs-toc"$toc_hidden>
+    <aside class="docs-toc" id="toc"$toc_hidden>
 $toc
     </aside>
   </div>
@@ -79,6 +83,22 @@ $toc
     var nav = document.getElementById('nav');
     function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 4); }
     addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    // Collapsible side panels (desktop), remembered between pages.
+    var layout = document.getElementById('layout');
+    function setPanel(name, open, save) {
+      layout.classList.toggle('no-' + name, !open);
+      var b = document.getElementById('toggle-' + name);
+      b.setAttribute('aria-expanded', open);
+      b.textContent = (open ? 'Hide ' : 'Show ') + (name === 'side' ? 'menu' : 'contents');
+      if (save) { try { localStorage.setItem('docs-' + name, open ? '1' : '0'); } catch (e) {} }
+    }
+    ['side', 'toc'].forEach(function (name) {
+      var saved = null; try { saved = localStorage.getItem('docs-' + name); } catch (e) {}
+      if (saved === '0') setPanel(name, false, false);
+      document.getElementById('toggle-' + name).addEventListener('click', function () {
+        setPanel(name, layout.classList.contains('no-' + name), true);
+      });
+    });
     // Reduced motion: animated demos show only their poster frame.
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
       Array.prototype.forEach.call(document.querySelectorAll('video.anim'), function (v) {
