@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>$title_tag</title>
+  <meta name="description" content="$description">
+  <link rel="canonical" href="$canonical">
+  <meta name="theme-color" content="#5856D6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#5E5CE6" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="MOMDYN">
+  <meta property="og:title" content="$og_title">
+  <meta property="og:description" content="$description">
+  <meta property="og:url" content="$canonical">
+  <meta property="og:image" content="https://momdyn.dc-engineer.com/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/docs/_static/docs.css">
+  <script type="application/ld+json">$jsonld</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/" aria-label="MOMDYN home">
+        <span class="logo" aria-hidden="true"></span>
+        <span class="wordmark"><em>MOM</em>DYN</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/docs/"$cur_home>Docs</a>
+        <a href="/docs/tutorials/"$cur_tut>Tutorials</a>
+        <a href="/docs/mechanism/"$cur_ref>Reference</a>
+$search_link      </nav>
+    </div>
+  </header>
+
+  <div class="wrap docs-layout">
+    <details class="docs-menu">
+      <summary>Menu</summary>
+      <nav aria-label="Documentation">$tree</nav>
+    </details>
+    <aside class="docs-side" aria-label="Documentation">
+      <nav aria-label="Documentation">$tree</nav>
+    </aside>
+
+    <main id="main" class="doc"$pagefind_body>
+$breadcrumbs
+      <h1>$title</h1>
+$content
+$pager
+    </main>
+
+    <aside class="docs-toc"$toc_hidden>
+$toc
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="credit">Built by <a href="https://dc-engineer.com">Eliott Radcliffe</a>, a mechanical engineer specializing in dynamics. On the App Store since 2019.</p>
+      <nav aria-label="Footer">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/">MOMDYN</a>
+        <a href="https://www.youtube.com/@DC-Engineer">YouTube</a>
+        <a href="mailto:Eliott.Radcliffe@DC-Engineer.com">Contact / Support</a>
+      </nav>
+      <p class="legal">Apple, iPhone, iPad and App Store are trademarks of Apple Inc.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var nav = document.getElementById('nav');
+    function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 4); }
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    // Reduced motion: animated demos show only their poster frame.
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      Array.prototype.forEach.call(document.querySelectorAll('video.anim'), function (v) {
+        v.removeAttribute('autoplay'); v.removeAttribute('loop'); v.pause();
+      });
+    }
+  })();
+  </script>
+</body>
+</html>

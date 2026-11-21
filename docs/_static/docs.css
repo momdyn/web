@@ -1,0 +1,97 @@
+/* MOMDYN docs: layout and content styles. Colors, fonts, the nav and the footer come from /styles.css. */
+
+.docs-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0 3rem; padding-top: 1.25rem; padding-bottom: 3rem; }
+.doc { min-width: 0; max-width: 46rem; }
+.docs-side, .docs-toc { display: none; }
+.skip { z-index: 60; }
+
+/* ---- Mobile menu ---- */
+.docs-menu { margin: 0 0 1.25rem; border-radius: 16px; background: var(--bg-secondary); }
+.docs-menu > summary { min-height: 3rem; padding: 0.7rem 1.1rem; font-weight: 650; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; border-bottom: 0; }
+.docs-menu > summary::after { content: "+"; position: static; font-size: 1.4rem; color: var(--green-text); }
+.docs-menu[open] > summary::after { content: "\2212"; }
+.docs-menu > nav { padding: 0 1rem 1rem; max-height: 60svh; overflow-y: auto; }
+
+/* ---- Sidebar tree (also used in the mobile menu) ---- */
+.docs-tree, .docs-tree ul { list-style: none; margin: 0; padding: 0; }
+.docs-tree ul { margin-left: 0.85rem; padding-left: 0.6rem; border-left: 1px solid var(--separator); }
+.docs-tree a, .docs-tree summary {
+  display: block; min-height: 2.75rem; padding: 0.55rem 0.5rem; border-radius: 10px;
+  color: var(--label); text-decoration: none; font-size: 0.97rem; line-height: 1.35;
+}
+.docs-tree a:hover, .docs-tree summary:hover { background: var(--bg-secondary); }
+.docs-tree a[aria-current="page"] { color: var(--green-text); font-weight: 700; background: var(--bg-secondary); }
+.docs-tree .ext { color: var(--label-secondary); }
+.docs-tree details { border: 0; }
+.docs-tree summary { cursor: pointer; list-style: none; font-weight: 650; display: flex; align-items: center; justify-content: space-between; min-height: 2.75rem; padding: 0.55rem 0.5rem; position: static; }
+.docs-tree summary::-webkit-details-marker { display: none; }
+.docs-tree summary::after { content: "\203A"; position: static; color: var(--label-secondary); font-size: 1.25rem; transition: transform 0.15s; }
+.docs-tree details[open] > summary::after { transform: rotate(90deg); }
+.docs-menu .docs-tree summary { border-bottom: 0; }
+
+@media (min-width: 56rem) {
+  .docs-menu { display: none; }
+  .docs-layout { grid-template-columns: 17rem minmax(0, 1fr); }
+  .docs-side { display: block; position: sticky; top: 4rem; align-self: start; max-height: calc(100svh - 5rem); overflow-y: auto; padding-right: 0.5rem; }
+  .doc { max-width: 100%; }
+}
+@media (min-width: 76rem) {
+  .docs-layout { grid-template-columns: 17rem minmax(0, 46rem) 14rem; }
+  .docs-toc { display: block; position: sticky; top: 4rem; align-self: start; max-height: calc(100svh - 5rem); overflow-y: auto; font-size: 0.9rem; }
+}
+
+/* ---- Right rail: on this page ---- */
+.docs-toc[hidden] { display: none !important; }
+.docs-toc .toc-title { margin: 0 0 0.5rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--label-secondary); }
+.docs-toc ul { list-style: none; margin: 0; padding: 0; }
+.docs-toc a { display: block; padding: 0.3rem 0; color: var(--label-secondary); text-decoration: none; line-height: 1.35; }
+.docs-toc a:hover { color: var(--green-text); }
+.docs-toc ul ul { margin-left: 0.8rem; }
+
+/* ---- Content ---- */
+.crumbs { margin: 0 0 0.75rem; font-size: 0.9rem; color: var(--label-secondary); }
+.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; margin: 0; padding: 0; }
+.crumbs li + li::before { content: "/"; margin-right: 0.5rem; color: var(--separator); }
+.crumbs a { color: var(--label-secondary); }
+.doc h1 { font-size: clamp(2rem, 6vw, 2.8rem); margin: 0 0 1.25rem; }
+.doc h2 { font-size: 1.6rem; margin: 2.5rem 0 0.75rem; scroll-margin-top: 4.5rem; }
+.doc h3 { font-size: 1.25rem; margin: 2rem 0 0.5rem; scroll-margin-top: 4.5rem; }
+.doc h4 { font-size: 1.05rem; margin: 1.5rem 0 0.4rem; }
+.doc p, .doc li { line-height: 1.65; }
+.doc p { margin: 0 0 1rem; }
+.doc ul, .doc ol { padding-left: 1.4rem; margin: 0 0 1rem; }
+.doc hr { border: 0; border-top: 1px solid var(--separator); margin: 2rem 0; }
+.doc code { font: 0.9em var(--mono); background: var(--bg-secondary); padding: 0.1em 0.35em; border-radius: 6px; }
+.doc sub { line-height: 0; }
+
+/* Sphinx toctree lists rendered inside a page */
+.toctree { margin: 0 0 1.25rem; padding: 0.9rem 1.1rem; background: var(--bg-secondary); border-radius: 16px; }
+.toctree .caption { margin: 0 0 0.4rem; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--label-secondary); }
+.toctree ul { margin: 0; padding-left: 1.1rem; }
+.toctree li { line-height: 1.7; }
+
+/* Images and animated demos */
+.shots { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: flex-start; margin: 0 0 1.25rem; }
+.shots img, .shots video { max-width: 100%; height: auto; border-radius: 14px; background: var(--bg-secondary); box-shadow: 0 0 0 1px var(--separator); }
+
+/* Parameter blocks (generated reference pages) */
+.param { padding: 0.9rem 0; border-top: 1px solid var(--separator); }
+.param:last-of-type { border-bottom: 1px solid var(--separator); }
+.param p { margin: 0.3rem 0 0; color: var(--label-secondary); }
+.param .pname { font: 700 1rem var(--mono); color: var(--label); }
+.param .ptype { margin-left: 0.6rem; font-size: 0.85rem; font-weight: 600; color: var(--green-text); }
+
+/* Previous / next */
+.pager { display: grid; gap: 0.75rem; margin-top: 3rem; }
+.pager a { display: flex; flex-direction: column; justify-content: center; min-height: 4rem; padding: 0.8rem 1.1rem; border-radius: 16px; background: var(--bg-secondary); color: var(--label); text-decoration: none; }
+.pager a span { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--label-secondary); }
+.pager a b { font-size: 1.05rem; }
+.pager .next { text-align: right; }
+.pager a:hover { filter: brightness(0.97); }
+@media (min-width: 40rem) { .pager { grid-template-columns: 1fr 1fr; } .pager .next { grid-column: 2; } }
+
+.site-footer { padding-bottom: 2.5rem; }
+
+.doc > section:first-of-type > h2:first-child, .doc > h1 + * > h2:first-child { margin-top: 1rem; }
+.docs-tree summary::after { content: ""; width: 0.5rem; height: 0.5rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); margin-right: 0.3rem; }
+.docs-tree details[open] > summary::after { transform: rotate(45deg); }

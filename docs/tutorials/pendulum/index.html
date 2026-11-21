@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Pendulum | MOMDYN Docs</title>
+  <meta name="description" content="This is a tutorial for creating a simple pendulum with a point mass attached to a rigid, mass-less beam, which has a single rotational...">
+  <link rel="canonical" href="https://momdyn.dc-engineer.com/docs/tutorials/pendulum/">
+  <meta name="theme-color" content="#5856D6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#5E5CE6" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="MOMDYN">
+  <meta property="og:title" content="Simple Pendulum | MOMDYN Docs">
+  <meta property="og:description" content="This is a tutorial for creating a simple pendulum with a point mass attached to a rigid, mass-less beam, which has a single rotational...">
+  <meta property="og:url" content="https://momdyn.dc-engineer.com/docs/tutorials/pendulum/">
+  <meta property="og:image" content="https://momdyn.dc-engineer.com/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/docs/_static/docs.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Docs", "item": "https://momdyn.dc-engineer.com/docs/"}, {"@type": "ListItem", "position": 2, "name": "Getting Started", "item": "https://momdyn.dc-engineer.com/docs/getting_started/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://momdyn.dc-engineer.com/docs/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "Simple Pendulum", "item": "https://momdyn.dc-engineer.com/docs/tutorials/pendulum/"}]}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/" aria-label="MOMDYN home">
+        <span class="logo" aria-hidden="true"></span>
+        <span class="wordmark"><em>MOM</em>DYN</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/docs/">Docs</a>
+        <a href="/docs/tutorials/" aria-current="page">Tutorials</a>
+        <a href="/docs/mechanism/">Reference</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap docs-layout">
+    <details class="docs-menu">
+      <summary>Menu</summary>
+      <nav aria-label="Documentation"><ul class="docs-tree"><li><a href="/docs/getting_started/">Getting Started</a><ul><li><details open><summary>Tutorials</summary><ul><li><a href="/docs/tutorials/">Tutorials</a></li><li><a href="/docs/tutorials/pendulum/" aria-current="page">Simple Pendulum</a></li><li><a href="/docs/tutorials/oscillator/">Mass-Spring-Damper</a></li></ul></details></li><li><a href="/docs/create_dialog/">Create / Settings Dialogs</a></li><li><a href="/docs/import_dialog/">Import Dialog</a></li><li><a href="/docs/on_screen_controls/">On-Screen Controls</a></li><li><a href="/docs/menu_dialog/">Menu Dialog</a></li><li><a href="/docs/save/">Import/Export</a></li></ul></li><li><a href="/docs/mechanism/">Mechanism Module</a><ul><li><details><summary>Classic</summary><ul><li><a href="/docs/classic/">Classic</a></li><li><a href="/docs/classic/parameter/">Parameter</a></li><li><a href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a></li><li><a href="/docs/classic/generalized_speed/">Generalized Speed</a></li><li><a href="/docs/classic/frame/">Frame</a></li><li><a href="/docs/classic/vector/">Vector</a></li><li><a href="/docs/classic/point/">Point</a></li></ul></details></li><li><details><summary>Joints</summary><ul><li><a href="/docs/joints/">Joints</a></li><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></details></li><li><details><summary>Bodies</summary><ul><li><a href="/docs/bodies/">Bodies</a></li><li><a href="/docs/bodies/particle/">Particle</a></li><li><a href="/docs/bodies/general_rigid_body/">General Rigid Body</a></li><li><a href="/docs/bodies/rigid_body_box/">Rigid Body Box</a></li><li><a href="/docs/bodies/rigid_body_cone/">Rigid Body Cone</a></li><li><a href="/docs/bodies/rigid_body_cylinder/">Rigid Body Cylinder</a></li></ul></details></li><li><details><summary>Loads</summary><ul><li><a href="/docs/loads/">Loads</a></li><li><a href="/docs/loads/external_force/">External Force</a></li><li><a href="/docs/loads/actuated_force/">Actuated Force</a></li><li><a href="/docs/loads/external_moment/">External Moment</a></li><li><a href="/docs/loads/actuated_moment/">Actuated Moment</a></li><li><a href="/docs/loads/translational_spring/">Translational Spring</a></li><li><a href="/docs/loads/rotational_spring/">Rotational Spring</a></li></ul></details></li><li><details><summary>Sensors</summary><ul><li><a href="/docs/sensors/">Sensors</a></li><li><a href="/docs/sensors/position_sensor/">Position Sensor</a></li><li><a href="/docs/sensors/velocity_sensor/">Velocity Sensor</a></li><li><a href="/docs/sensors/accelerometer/">Accelerometer</a></li><li><a href="/docs/sensors/dcm_sensor/">DCM Sensor</a></li><li><a href="/docs/sensors/rate_gyro/">Rate Gyro</a></li></ul></details></li></ul></li><li><a href="https://apps.apple.com/us/app/id1491149780" class="ext">Download on the App Store</a></li><li><a href="https://play.google.com/store/apps/details?id=com.badeyedea.momdyn" class="ext">Get it on Google Play</a></li><li><a href="https://www.momdyn.com/index.html" class="ext">Read our Blog</a></li><li><a href="https://www.facebook.com/Mobile-Multibody-Dynamics-102652851603623/" class="ext">Follow on Facebook</a></li><li><a href="https://www.youtube.com/channel/UC7ij1ezmh8a3Q7N3gF4zUkQ" class="ext">Watch on Youtube</a></li><li><a href="https://www.buymeacoffee.com/PLUQkDz" class="ext">Buy me a coffee</a></li></ul></nav>
+    </details>
+    <aside class="docs-side" aria-label="Documentation">
+      <nav aria-label="Documentation"><ul class="docs-tree"><li><a href="/docs/getting_started/">Getting Started</a><ul><li><details open><summary>Tutorials</summary><ul><li><a href="/docs/tutorials/">Tutorials</a></li><li><a href="/docs/tutorials/pendulum/" aria-current="page">Simple Pendulum</a></li><li><a href="/docs/tutorials/oscillator/">Mass-Spring-Damper</a></li></ul></details></li><li><a href="/docs/create_dialog/">Create / Settings Dialogs</a></li><li><a href="/docs/import_dialog/">Import Dialog</a></li><li><a href="/docs/on_screen_controls/">On-Screen Controls</a></li><li><a href="/docs/menu_dialog/">Menu Dialog</a></li><li><a href="/docs/save/">Import/Export</a></li></ul></li><li><a href="/docs/mechanism/">Mechanism Module</a><ul><li><details><summary>Classic</summary><ul><li><a href="/docs/classic/">Classic</a></li><li><a href="/docs/classic/parameter/">Parameter</a></li><li><a href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a></li><li><a href="/docs/classic/generalized_speed/">Generalized Speed</a></li><li><a href="/docs/classic/frame/">Frame</a></li><li><a href="/docs/classic/vector/">Vector</a></li><li><a href="/docs/classic/point/">Point</a></li></ul></details></li><li><details><summary>Joints</summary><ul><li><a href="/docs/joints/">Joints</a></li><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></details></li><li><details><summary>Bodies</summary><ul><li><a href="/docs/bodies/">Bodies</a></li><li><a href="/docs/bodies/particle/">Particle</a></li><li><a href="/docs/bodies/general_rigid_body/">General Rigid Body</a></li><li><a href="/docs/bodies/rigid_body_box/">Rigid Body Box</a></li><li><a href="/docs/bodies/rigid_body_cone/">Rigid Body Cone</a></li><li><a href="/docs/bodies/rigid_body_cylinder/">Rigid Body Cylinder</a></li></ul></details></li><li><details><summary>Loads</summary><ul><li><a href="/docs/loads/">Loads</a></li><li><a href="/docs/loads/external_force/">External Force</a></li><li><a href="/docs/loads/actuated_force/">Actuated Force</a></li><li><a href="/docs/loads/external_moment/">External Moment</a></li><li><a href="/docs/loads/actuated_moment/">Actuated Moment</a></li><li><a href="/docs/loads/translational_spring/">Translational Spring</a></li><li><a href="/docs/loads/rotational_spring/">Rotational Spring</a></li></ul></details></li><li><details><summary>Sensors</summary><ul><li><a href="/docs/sensors/">Sensors</a></li><li><a href="/docs/sensors/position_sensor/">Position Sensor</a></li><li><a href="/docs/sensors/velocity_sensor/">Velocity Sensor</a></li><li><a href="/docs/sensors/accelerometer/">Accelerometer</a></li><li><a href="/docs/sensors/dcm_sensor/">DCM Sensor</a></li><li><a href="/docs/sensors/rate_gyro/">Rate Gyro</a></li></ul></details></li></ul></li><li><a href="https://apps.apple.com/us/app/id1491149780" class="ext">Download on the App Store</a></li><li><a href="https://play.google.com/store/apps/details?id=com.badeyedea.momdyn" class="ext">Get it on Google Play</a></li><li><a href="https://www.momdyn.com/index.html" class="ext">Read our Blog</a></li><li><a href="https://www.facebook.com/Mobile-Multibody-Dynamics-102652851603623/" class="ext">Follow on Facebook</a></li><li><a href="https://www.youtube.com/channel/UC7ij1ezmh8a3Q7N3gF4zUkQ" class="ext">Watch on Youtube</a></li><li><a href="https://www.buymeacoffee.com/PLUQkDz" class="ext">Buy me a coffee</a></li></ul></nav>
+    </aside>
+
+    <main id="main" class="doc" data-pagefind-body>
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/docs/">Docs</a></li><li><a href="/docs/getting_started/">Getting Started</a></li><li><a href="/docs/tutorials/">Tutorials</a></li><li aria-current="page">Simple Pendulum</li></ol></nav>
+      <h1>Simple Pendulum</h1>
+
+
+
+<section id="introduction">
+<h2>Introduction</h2>
+<p>This is a tutorial for creating a simple pendulum with a point mass attached to a rigid, mass-less beam, which has a
+single rotational degree-of-freedom (DOF), and in a uniform gravitational field. The animation below is generated in
+MOMDYN at the completion of the tutorial. You can also watch a video demonstration of this tutorial on
+<a class="reference external" href="https://youtu.be/JSzmP5InGek">Youtube</a>.</p>
+<div class="shots"><video class="anim" width="400" height="225" autoplay muted loop playsinline preload="metadata" poster="/docs/_media/img/simplePendulum2p0.webp" aria-label="Animation of the pendulum in a 2-D diagram view"><source src="/docs/_media/img/simplePendulum2p0.mp4" type="video/mp4"><source src="/docs/_media/img/simplePendulum2p0.webm" type="video/webm"></video></div><p>A depiction of this system is shown below, which shows the inertial reference frame with unit vectors <strong>n</strong><sub>x</sub> and <strong>n</strong><sub>y</sub>, single angular degree-of-freedom θ, the rotated reference frame with unit vectors
+<strong>e</strong><sub>x</sub> and <strong>e</strong><sub>y</sub> , the mass <em>m</em>, length <em>l</em>, and gravitational vector <strong>g</strong>.</p>
+<div class="shots"><img src="/docs/_media/img/pendulum_diagram.webp" width="400" height="300" alt="Schematic depiction of the pendulum" loading="lazy" decoding="async"></div><p>The model is generated using two variations on the kinematics interface, “Classic,” and “Joints.” The former is akin to
+a pencil-and-paper approach, each symbolic parameter is individually named by the user, and each frame, vector, and
+point is created using these parameters. The latter is closer to the approach used in modern mulitibody dynamics
+software, where lower-level modeling attributes are consolidated into the joint object, reducing the total number of
+steps.</p>
+<section id="create-the-new-model">
+<span id="create-new"></span><h3>Create the New Model</h3>
+<div class="shots"><img src="/docs/_media/tutorials/pendulum/01-1.webp" width="108" height="222" alt="Welcome screen" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/01-2.webp" width="108" height="222" alt="Create screen" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/01-3.webp" width="108" height="222" alt="Create screen, bottom" loading="lazy" decoding="async"></div><p>To begin, from the welcome screen tap the “Create” button, which will bring up a dialog with the title
+“Create - Specify Settings.” Many of the settings in this dialog can remain with their defaults. The modified
+specifications give a model name and description, and creates gravitational force, time, and tolerance. Enter the
+following:</p>
+<blockquote>
+<ul class="simple">
+<li><p><em>model_name</em>: Pendulum</p></li>
+<li><p><em>model_description</em>: A simple pendulum with a point mass and single angular degree of freedom</p></li>
+<li><p><em>gravity_method</em>: Uniform</p></li>
+<li><p><em>gravity_constant</em>: 9.8</p></li>
+<li><p><em>gravity_direction</em>: -Y</p></li>
+<li><p><em>time_duration</em>: 5</p></li>
+<li><p><em>tol</em>: 0.00001</p></li>
+</ul>
+</blockquote>
+<p>Tap the green check in the lower right, which will bring up a blank diagram. Tap the save button, as we will be
+returning to this stage later in the tutorial.</p>
+<hr></section>
+</section>
+<section id="classic-interface">
+<h2>Classic Interface</h2>
+<div class="shots"><img src="/docs/_media/tutorials/pendulum/02a-1.webp" width="108" height="222" alt="Diagram view, prior to creating symbols" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/02a-2.webp" width="108" height="222" alt="Navigation drawer, highlighting classic menu" loading="lazy" decoding="async"></div><p>Here we will use the classic interface, which allows for more direct control over the fundamental building blocks of
+the kinematics. The joints interface is more convenient for many applications, as it consolidates functionality of the
+building block components into common mechanical joints, and doesn’t require individually defining all of the symbols,
+reference frames, vectors, and points in the model. If you are interested in using the joints interface, you may
+proceed to the <a class="reference external" href="/docs/tutorials/pendulum/#joints">joints section</a>.</p>
+<section id="symbols">
+<h3>Symbols</h3>
+<section id="length">
+<h4>Length</h4>
+<div class="shots"><img src="/docs/_media/tutorials/pendulum/02a-3.webp" width="108" height="222" alt="Classic menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/02a-4.webp" width="108" height="222" alt="New parameter" loading="lazy" decoding="async"></div><p>Tap the navigation button (three horizontal bars) in the upper left to open the navigation drawer. We will first create
+the pendulum using the classic interface. Open the classic menu, and tap the plus sign under <strong>Parameter</strong>, which
+will bring up the new parameter dialog. Create a constant for pendulum length with the following specifications</p>
+<blockquote>
+<ul class="simple">
+<li><p><em>name</em>: l</p></li>
+<li><p><em>value</em>: 1</p></li>
+<li><p><em>description</em>: length</p></li>
+</ul>
+</blockquote>
+<p>then tap <strong>Ok</strong> after entering the values for each parameter to create it.</p>
+</section>
+<section id="angular-degree-of-freedom">
+<h4>Angular Degree-of-Freedom</h4>
+<div class="shots"><img src="/docs/_media/tutorials/pendulum/02a-3.webp" width="108" height="222" alt="Classic menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/03a-2.webp" width="108" height="222" alt="New generalized coordinate" loading="lazy" decoding="async"></div><p>Next create the generalized coordinate, <em>θ</em>, corresponding to the angular degree of freedom. With the classic menu
+open, tap the plus sign under <strong>Generalized Coordinate</strong>, and enter the following specifications</p>
+<blockquote>
+<ul class="simple">
+<li><p><em>name</em>: theta</p></li>
+<li><p><em>initial</em>: 1</p></li>
+<li><p><em>description</em>: angle</p></li>
+</ul>
+</blockquote>
+<p>noting that when theta is entered as the name, it will be replaced by the unicode character θ.</p>
+</section>
+</section>
+<section id="kinematics">
+<h3>Kinematics</h3>
+<section id="orientation">
+<h4>Orientation</h4>
+<div class="shots"><img src="/docs/_media/tutorials/pendulum/02a-3.webp" width="108" height="222" alt="Classic menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/04a-2.webp" width="108" height="222" alt="New frame" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/04a-3.webp" width="108" height="222" alt="Created frame in the diagram view" loading="lazy" decoding="async"></div><p>Once again, with the classic menu open, tap the plus sign under <strong>Frame</strong>, and enter the following (noting that
+line items that are not listed below can retain their default values)</p>
+<blockquote>
+<ul class="simple">
+<li><p><em>first_angle</em>: θ(t)</p></li>
+</ul>
+</blockquote>
+<p>tap <strong>Ok* to create the frame. This will create the new frame rotated by the angle *θ* measured about
+the out of plane axis **k</strong>.</p>
+</section>
+<section id="vector">
+<h4>Vector</h4>
+<div class="shots"><img src="/docs/_media/tutorials/pendulum/02a-3.webp" width="108" height="222" alt="Classic menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/05a-2.webp" width="108" height="222" alt="New vector" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/05a-3.webp" width="108" height="222" alt="Created vector in the diagram view" loading="lazy" decoding="async"></div><p>Next, tap the plus sign under <strong>vector</strong>, and enter the following</p>
+<blockquote>
+<ul class="simple">
+<li><p><em>name</em>: r</p></li>
+<li><p><em>ref_frame_key</em>: E</p></li>
+<li><p><em>x</em>: l</p></li>
+</ul>
+</blockquote>
+<p>and tap <strong>Ok</strong> to create the vector named <strong>r</strong>, aligned with the <strong>e</strong><sub>x</sub> axis of the rotated
+frame, with constant length <em>l</em>.</p>
+</section>
+<section id="point">
+<h4>Point</h4>
+<div class="shots"><img src="/docs/_media/tutorials/pendulum/02a-3.webp" width="108" height="222" alt="Classic menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/06a-2.webp" width="108" height="222" alt="New point" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/06a-3.webp" width="108" height="222" alt="Created point in the diagram view" loading="lazy" decoding="async"></div><p>Finally, tap the plus sign under <strong>Point</strong>, and enter the following</p>
+<blockquote>
+<ul class="simple">
+<li><p>vector_key: r</p></li>
+</ul>
+</blockquote>
+<p>and tap <strong>Ok</strong> to create the point a at the end of the vector <em>r</em>. Minimize the edit menu by tapping
+the three horizontal lines, at which point you should see the diagram updated to include the frame, vector, and point.</p>
+<hr></section>
+</section>
+</section>
+<section id="joints-interface">
+<span id="joints"></span><h2>Joints Interface</h2>
+<section id="angular-degree-of-freedom-1">
+<h3>Angular Degree of Freedom</h3>
+<div class="shots"><img src="/docs/_media/tutorials/pendulum/02b-1.webp" width="108" height="222" alt="Navigation drawer, highlighting joints menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/02b-2.webp" width="108" height="222" alt="Joints menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/02b-3.webp" width="108" height="222" alt="New revolute joint" loading="lazy" decoding="async"></div><p>Tap on the welcome tab on the bottom of the screen, then the import button, and select the saved <cite>Pendulum</cite> file,
+which will return the model to its state after <a class="reference external" href="/docs/tutorials/pendulum/#create-new">creating the model</a>. Open the navigation drawer, and
+the joints menu, then tap the plus sign under <strong>Revolute.</strong> Add the following specifications, leaving line items that
+are unlisted at their default value,</p>
+<blockquote>
+<ul class="simple">
+<li><p><em>name</em>: E</p></li>
+<li><p><em>motion_axis</em>: +Z</p></li>
+<li><p><em>value</em>: 1</p></li>
+</ul>
+</blockquote>
+<p>and then tap <strong>Ok</strong> to create the joint. This will create a new frame rotated about the out-of-plane
+<strong>k</strong> axis by an angle θ<sub>E</sub> , similar to the output of step (5a). Notably, the creation of the generalized
+coordinate is combined with the generation of a reference frame in a single joint object.</p>
+</section>
+<section id="rigid-massless-beam">
+<h3>Rigid, Massless Beam</h3>
+<div class="shots"><img src="/docs/_media/tutorials/pendulum/02b-2.webp" width="108" height="222" alt="Joints menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/03b-2.webp" width="108" height="222" alt="New rigid translation" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/06a-3.webp" width="108" height="222" alt="Created revolute joint and rigid translation in the diagram view" loading="lazy" decoding="async"></div><p>Next, tap the plus sign under <strong>Rigid Translation</strong>, and add the following specifications</p>
+<blockquote>
+<ul class="simple">
+<li><p><em>ref_frame_key</em>: E</p></li>
+<li><p><em>x</em>: 1</p></li>
+</ul>
+</blockquote>
+<p>once again tapping <strong>Ok</strong> to create the joint. This will create a new vector ra aligned with the
+<strong>e</strong><sub>x</sub>axis with length 1, and a new point <em>a</em>, similar to the output of step (7a). Thus, in this example,
+the same kinematics definition requiring 5 steps using the classic interface, is completed using two joints.</p>
+<hr></section>
+</section>
+<section id="bodies">
+<h2>Bodies</h2>
+<section id="point-mass">
+<h3>Point Mass</h3>
+<div class="shots"><img src="/docs/_media/tutorials/pendulum/07-1.webp" width="108" height="222" alt="Navigation drawer, highlighting the bodies menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/07-2.webp" width="108" height="222" alt="Bodies menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/07-3.webp" width="108" height="222" alt="New particle" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/07-4.webp" width="108" height="222" alt="Created particle in the diagram view" loading="lazy" decoding="async"></div><p>Expand the bodies panel. Tap on the plus sign under <strong>particle</strong>, and enter the following.</p>
+<blockquote>
+<ul class="simple">
+<li><p><em>name</em>: bob</p></li>
+<li><p><em>ref_point_key</em>: a</p></li>
+<li><p><em>mass</em>: 1</p></li>
+</ul>
+</blockquote>
+<p>which will create the pendulum bob with mass <em>1</em> represented by the symbol <em>m</em><sub>bob</sub>attached to the point <em>a</em>,
+as shown above.</p>
+<hr></section>
+</section>
+<section id="analysis">
+<h2>Analysis</h2>
+<section id="simulation">
+<h3>Simulation</h3>
+<p>To generate equations of motion, tap the right-arrow button in the lower left corner of the diagram. Since this is a
+very simple model, the derivation run nearly instantaneously. Once complete, the icon will change to the outline of a
+play button. Tap again to run the simulation, once again this will be nearly instantaneous. Tap again to play the
+animation, which will show the pendulum swinging from right to left with around a 3 second period, as seen previously
+at the top of this page.</p>
+</section>
+<section id="model-export">
+<h3>Model Export</h3>
+<p>Open the edit menu by tapping the three horizontal lines in the upper left corner, and then tap on the export button.
+Tap each of the three line items, Model, Simulation, and Python, to activate them, and then tap the check button in the
+lower right to export the files. The Model file (momdyn_model.py) is the format used to import to the MOMDYN app. The
+Simulation file (simulation.csv) are the time-series reflecting the generalized coordinates and speeds that are
+animated. The Python file (py_model.py) contains code that can be executed and further manipulated on a desktop Python
+environment.</p>
+<div class="shots"><img src="/docs/_media/tutorials/pendulum/export-1.webp" width="108" height="222" alt="Press the export button in the menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/export-2.webp" width="108" height="222" alt="Select to export model, simulation, and python" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/export-3.webp" width="108" height="192" alt="Exported Python code, shown in the Pyto app" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/export-states.webp" width="640" height="480" alt="Plotted states" loading="lazy" decoding="async"></div></section>
+<section id="report">
+<h3>Report</h3>
+<p>Tap on the report tab in the lower right to open up the report view showing text, equations and plots. The buttons at
+the top specify which section of the report to view. From left to right these are symbols, frames, points, bodies,
+loads, equations, and plots. The images below show these sections for the Pendulum model, omitting loads as there are
+none (except for gravity).</p>
+<div class="shots"><img src="/docs/_media/tutorials/pendulum/report-symbols.webp" width="108" height="222" alt="Symbols in the report view" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/report-frames.webp" width="108" height="222" alt="Frames in the report view" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/report-points.webp" width="108" height="222" alt="Points in the report view" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/report-bodies.webp" width="108" height="222" alt="Bodies in the report view" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/report-equations.webp" width="108" height="222" alt="Equations in the report view" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/pendulum/report-plots.webp" width="108" height="222" alt="Plots in the report view" loading="lazy" decoding="async"></div></section>
+</section>
+
+      <nav class="pager" aria-label="Pages"><a class="prev" href="/docs/tutorials/"><span>Previous</span><b>Tutorials</b></a><a class="next" href="/docs/tutorials/oscillator/"><span>Next</span><b>Mass-Spring-Damper</b></a></nav>
+    </main>
+
+    <aside class="docs-toc">
+      <nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#introduction">Introduction</a></li><li><a href="#classic-interface">Classic Interface</a></li><li><a href="#joints-interface">Joints Interface</a></li><li><a href="#bodies">Bodies</a></li><li><a href="#analysis">Analysis</a></li></ul></nav>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="credit">Built by <a href="https://dc-engineer.com">Eliott Radcliffe</a>, a mechanical engineer specializing in dynamics. On the App Store since 2019.</p>
+      <nav aria-label="Footer">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/">MOMDYN</a>
+        <a href="https://www.youtube.com/@DC-Engineer">YouTube</a>
+        <a href="mailto:Eliott.Radcliffe@DC-Engineer.com">Contact / Support</a>
+      </nav>
+      <p class="legal">Apple, iPhone, iPad and App Store are trademarks of Apple Inc.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var nav = document.getElementById('nav');
+    function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 4); }
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    // Reduced motion: animated demos show only their poster frame.
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      Array.prototype.forEach.call(document.querySelectorAll('video.anim'), function (v) {
+        v.removeAttribute('autoplay'); v.removeAttribute('loop'); v.pause();
+      });
+    }
+  })();
+  </script>
+</body>
+</html>
