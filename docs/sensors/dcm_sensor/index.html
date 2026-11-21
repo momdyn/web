@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DCM Sensor | MOMDYN Docs</title>
-  <meta name="description" content="DCM Sensor: MOMDYN documentation.">
+  <meta name="description" content="A direction cosine matrix (DCM) sensor records the orientation of a frame relative to a reference frame, as the nine elements of the rotation matrix...">
   <link rel="canonical" href="https://momdyn.dc-engineer.com/docs/sensors/dcm_sensor/">
   <meta name="theme-color" content="#5856D6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#5E5CE6" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="MOMDYN">
   <meta property="og:title" content="DCM Sensor | MOMDYN Docs">
-  <meta property="og:description" content="DCM Sensor: MOMDYN documentation.">
+  <meta property="og:description" content="A direction cosine matrix (DCM) sensor records the orientation of a frame relative to a reference frame, as the nine elements of the rotation matrix...">
   <meta property="og:url" content="https://momdyn.dc-engineer.com/docs/sensors/dcm_sensor/">
   <meta property="og:image" content="https://momdyn.dc-engineer.com/assets/og.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -54,7 +54,18 @@
 
 
 
-<p>Create a direction cosine matrix sensor</p>
+<p>A direction cosine matrix (DCM) sensor records the orientation of a frame relative to a reference frame, as the nine elements of the rotation matrix that transforms components from the reference frame to the sensed frame.</p>
+<section id="keyword-arguments">
+<h2>Keyword arguments</h2>
+<div class="param docutils container">
+<p><span class="pname docutils literal">frame_key</span><span class="ptype">str</span></p>
+<p>The frame whose orientation is sensed.</p>
+</div>
+<div class="param docutils container">
+<p><span class="pname docutils literal">ref_frame_key</span><span class="ptype">str</span></p>
+<p>The frame that the orientation is measured relative to.</p>
+</div>
+</section>
 
       <nav class="pager" aria-label="Pages"><a class="prev" href="/docs/sensors/accelerometer/"><span>Previous</span><b>Accelerometer</b></a><a class="next" href="/docs/sensors/rate_gyro/"><span>Next</span><b>Rate Gyro</b></a></nav>
     </main>
@@ -74,7 +85,7 @@
         <a href="https://www.youtube.com/@DC-Engineer">YouTube</a>
         <a href="mailto:Eliott.Radcliffe@DC-Engineer.com">Contact / Support</a>
       </nav>
-      <p class="legal">Apple, iPhone, iPad and App Store are trademarks of Apple Inc.</p>
+      <p class="legal">&copy; 2019&ndash;2026 DCDC LLC. Apple, iPhone, iPad and App Store are trademarks of Apple Inc.</p>
     </div>
   </footer>
 

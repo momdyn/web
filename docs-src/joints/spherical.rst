@@ -31,17 +31,17 @@ Keyword arguments
 .. param:: initial_r0
    :type: numeric
 
-   Initial value for the 0^{th} rotation angle in the Euler sequence
+   Initial value for the 0th rotation angle in the Euler sequence
 
 .. param:: initial_r1
    :type: numeric
 
-   Initial value for the 1^{st} rotation angle in the Euler sequence
+   Initial value for the 1st rotation angle in the Euler sequence
 
 .. param:: initial_r2
    :type: numeric
 
-   Initial value for the 2^{nd} rotation angle in the Euler sequence
+   Initial value for the 2nd rotation angle in the Euler sequence
 
 .. param:: rate_r0
    :type: numeric

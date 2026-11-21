@@ -21,7 +21,7 @@ Keyword arguments
 .. param:: ref_frame_key
    :type: str
 
-   ey of the frame to which this body orientation is defined.
+   Key of the frame to which this body orientation is defined.
 
 .. param:: mass
    :type: numeric

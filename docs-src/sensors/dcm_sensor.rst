@@ -3,4 +3,17 @@
 DCM Sensor
 ==========
 
-Create a direction cosine matrix sensor
+A direction cosine matrix (DCM) sensor records the orientation of a frame relative to a reference frame, as the nine elements of the rotation matrix that transforms components from the reference frame to the sensed frame.
+
+Keyword arguments
+-----------------
+
+.. param:: frame_key
+   :type: str
+
+   The frame whose orientation is sensed.
+
+.. param:: ref_frame_key
+   :type: str
+
+   The frame that the orientation is measured relative to.

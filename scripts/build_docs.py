@@ -356,7 +356,7 @@ def main():
         cur = ' aria-current="page"'
         page_title = f"{title} documentation | MOMDYN" if pid == "index" else f"{title} | MOMDYN Docs"
         html_out = template.substitute(
-            title_tag=html.escape(page_title), og_title=html.escape(page_title), description=html.escape(desc, quote=True),
+            year=TODAY[:4], title_tag=html.escape(page_title), og_title=html.escape(page_title), description=html.escape(desc, quote=True),
             canonical=SITE + url(pid), jsonld=json.dumps(ld), title=html.escape(title),
             cur_home=cur if pid == "index" else "", cur_tut=cur if in_tut else "", cur_ref=cur if in_ref else "",
             search_link="", pagefind_body=" data-pagefind-body", tree=tree_html(tree_nav, pid).replace("<ul>", '<ul class="docs-tree">', 1),

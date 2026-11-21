@@ -31,32 +31,32 @@ Keyword arguments
 .. param:: initial_r0
    :type: numeric
 
-   Initial value for the 0^{th} rotation angle in the Euler sequence
+   Initial value for the 0th rotation angle in the Euler sequence
 
 .. param:: initial_r1
    :type: numeric
 
-   Initial value for the 1^{st} rotation angle in the Euler sequence
+   Initial value for the 1st rotation angle in the Euler sequence
 
 .. param:: rate_r0
    :type: numeric
 
-   Initial value for angular rotation rate of the 0^{th} angle
+   Initial value for angular rotation rate of the 0th angle
 
 .. param:: rate_r1
    :type: numeric
 
-   Initial value for angular rotation rate of the 1^{st} angle Optional stiffness, damping, and equilibrium coefficients can be used to include rotational spring-damper physics in the joint.
+   Initial value for angular rotation rate of the 1st angle Optional stiffness, damping, and equilibrium coefficients can be used to include rotational spring-damper physics in the joint.
 
 .. param:: kr0
    :type: numeric
 
-   Stiffness corresponding to the 0^{th} rotation angle in the Euler sequence
+   Stiffness corresponding to the 0th rotation angle in the Euler sequence
 
 .. param:: kr1
    :type: numeric
 
-   Stiffness corresponding to the 1^{st} rotation angle in the Euler sequence
+   Stiffness corresponding to the 1st rotation angle in the Euler sequence
 
 .. param:: cr0
    :type: numeric
@@ -71,9 +71,9 @@ Keyword arguments
 .. param:: equilibrium_r0
    :type: numeric
 
-   Equilibrium corresponding to the 0^{th} rotation angle in the Euler sequence
+   Equilibrium corresponding to the 0th rotation angle in the Euler sequence
 
 .. param:: equilibrium_r1
    :type: numeric
 
-   Equilibrium corresponding to the 1^{st} rotation angle in the Euler sequence
+   Equilibrium corresponding to the 1st rotation angle in the Euler sequence

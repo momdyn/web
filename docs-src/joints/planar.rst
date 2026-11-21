@@ -36,12 +36,12 @@ Keyword arguments
 .. param:: initial_t0
    :type: numeric
 
-   Initial value in the 0^{th} translational coordinate
+   Initial value in the 0th translational coordinate
 
 .. param:: initial_t1
    :type: numeric
 
-   Initial value in the 1^{st} translational coordinate
+   Initial value in the 1st translational coordinate
 
 .. param:: initial_r
    :type: numeric
@@ -51,12 +51,12 @@ Keyword arguments
 .. param:: rate_t0
    :type: numeric
 
-   Initial speed in the 0^{th} translational coordinate
+   Initial speed in the 0th translational coordinate
 
 .. param:: rate_t1
    :type: numeric
 
-   Initial speed in the 1^{st} translational coordinate
+   Initial speed in the 1st translational coordinate
 
 .. param:: rate_r
    :type: numeric
@@ -66,12 +66,12 @@ Keyword arguments
 .. param:: kt0
    :type: numeric
 
-   Stiffness in the 0^{th} translational coordinate
+   Stiffness in the 0th translational coordinate
 
 .. param:: kt1
    :type: numeric
 
-   Stiffness in the 1^{st} translational coordinate
+   Stiffness in the 1st translational coordinate
 
 .. param:: kr
    :type: numeric
@@ -81,12 +81,12 @@ Keyword arguments
 .. param:: ct0
    :type: numeric
 
-   Damping in the 0^{th} translational coordinate
+   Damping in the 0th translational coordinate
 
 .. param:: ct1
    :type: numeric
 
-   Damping in the 1^{st} translational coordinate
+   Damping in the 1st translational coordinate
 
 .. param:: cr
    :type: numeric
@@ -96,12 +96,12 @@ Keyword arguments
 .. param:: equilibrium_t0
    :type: numeric
 
-   Equilibrium distance in the 0^{th} translational coordinate
+   Equilibrium distance in the 0th translational coordinate
 
 .. param:: equilibrium_t1
    :type: numeric
 
-   Equilibrium distance in the 1^{st} translational coordinate
+   Equilibrium distance in the 1st translational coordinate
 
 .. param:: equilibrium_r
    :type: numeric

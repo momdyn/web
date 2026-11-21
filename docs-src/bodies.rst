@@ -63,7 +63,7 @@ A rigid body box is a rectangular prism of uniform density. The box has length d
    :width: 128
    :alt: Depiction of a rigid body cylinder
 
-A rigid body cylinder is a circular rod of uniform density. The cylinder has length defined in the X-axis, and radius for the Y- anc Z-axes, where (X, Y, Z) are the basis vectors of the body fixed frame.
+A rigid body cylinder is a circular rod of uniform density. The cylinder has length defined in the X-axis, and radius for the Y- and Z-axes, where (X, Y, Z) are the basis vectors of the body fixed frame.
 
 .. raw:: html
 
@@ -76,7 +76,7 @@ A rigid body cylinder is a circular rod of uniform density. The cylinder has len
    :width: 128
    :alt: Depiction of a rigid body cone
 
-A rigid body cone is a circular cone of uniform density. The cone has length defined in the X-axis, and radius for the Y- anc Z-axes, where (X, Y, Z) are the basis vectors of the body fixed frame.
+A rigid body cone is a circular cone of uniform density. The cone has length defined in the X-axis, and radius for the Y- and Z-axes, where (X, Y, Z) are the basis vectors of the body fixed frame.
 
 .. raw:: html
 

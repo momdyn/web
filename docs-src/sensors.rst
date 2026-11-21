@@ -43,7 +43,7 @@ An accelerometer records the acceleration of a point expressed in a reference fr
 
 `DCM Sensor <sensors/dcm_sensor.html>`_
 
-A direction cosine matrix (DCM) sensor records a direction cosine matrix.
+A direction cosine matrix (DCM) sensor records the orientation of a frame relative to a reference frame, as the nine elements of the rotation matrix between them.
 
 .. raw:: html
 
@@ -51,7 +51,7 @@ A direction cosine matrix (DCM) sensor records a direction cosine matrix.
 
 `Rate Gyro <sensors/rate_gyro.html>`_
 
-A rate_gyro records the angular velocity of a frame expressed in a reference frame.
+A rate gyro records the angular velocity of a frame expressed in a reference frame.
 
 .. raw:: html
 
