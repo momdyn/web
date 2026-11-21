@@ -33,7 +33,6 @@
   .docs-menu { display: none; }
   .docs-layout { grid-template-columns: 17rem minmax(0, 1fr); }
   .docs-side { display: block; position: sticky; top: 4rem; align-self: start; max-height: calc(100svh - 5rem); overflow-y: auto; padding-right: 0.5rem; }
-  .doc { max-width: 100%; }
 }
 @media (min-width: 76rem) {
   .docs-layout { grid-template-columns: 17rem minmax(0, 46rem) 14rem; }
@@ -96,27 +95,44 @@
 .docs-tree summary::after { content: ""; width: 0.5rem; height: 0.5rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); margin-right: 0.3rem; }
 .docs-tree details[open] > summary::after { transform: rotate(45deg); }
 
-/* ---- Collapsible side panels: icon buttons, top left (menu) and top right (contents) ---- */
+/* ---- Collapsible side panels: round icon buttons fixed at the page edges, animated column widths ---- */
 .doc-tools { display: none; }
 @media (min-width: 56rem) {
-  .docs-layout { padding-top: 3.5rem; }
+  .docs-layout {
+    --side: 17rem; --toc: 0rem; column-gap: 0; padding-top: 3.5rem;
+    grid-template-columns: var(--side) minmax(0, 1fr) var(--toc);
+    transition: grid-template-columns 0.3s ease;
+  }
+  .docs-layout.no-side { --side: 0rem; }
+  .docs-layout.no-toc, .docs-layout:has(.docs-toc[hidden]) { --toc: 0rem; }
+  .doc { max-width: none; }
+
   .doc-tools { display: block; grid-column: 1 / -1; position: sticky; top: 4.25rem; height: 0; z-index: 20; margin-top: -2.75rem; }
-  .doc-tools .tool { position: absolute; top: 0; width: 2.75rem; height: 2.75rem; padding: 0; display: grid; place-items: center; border: 1px solid var(--separator); border-radius: 50%; background: var(--bg-secondary); color: var(--label); cursor: pointer; }
+  .doc-tools .tool { position: absolute; top: 0; width: 2.75rem; height: 2.75rem; padding: 0; display: grid; place-items: center; border: 1px solid var(--separator); border-radius: 50%; background: var(--bg-secondary); color: var(--label); cursor: pointer; transition: background 0.2s; }
   .doc-tools #toggle-side { left: 0; }
   .doc-tools #toggle-toc { right: 0; display: none; }
   .doc-tools .tool:hover { color: var(--green-text); }
   .doc-tools .tool[aria-expanded="false"] { background: var(--bg); }
-  .docs-side, .docs-toc { top: 4.5rem; max-height: calc(100svh - 5.5rem); }
-  .docs-layout.no-side { grid-template-columns: minmax(0, 1fr); }
-  .docs-layout.no-side .docs-side { display: none; }
+
+  /* Panels keep their width while the track animates; they are clipped, then faded. */
+  .docs-side, .docs-toc {
+    display: block; position: sticky; top: 4.5rem; align-self: start; max-height: calc(100svh - 5.5rem);
+    min-width: 0; overflow-x: hidden; overflow-y: auto; opacity: 1; visibility: visible;
+    transition: opacity 0.2s ease, visibility 0s;
+  }
+  .docs-side > nav { width: 15rem; }
+  .docs-toc > nav { width: 14rem; margin-left: 2rem; }
+  .docs-layout.no-side .docs-side, .docs-layout.no-toc .docs-toc { opacity: 0; visibility: hidden; transition: opacity 0.15s ease, visibility 0s 0.3s; }
+  .docs-toc { display: none; }
 }
 @media (min-width: 76rem) {
+  .docs-layout { --toc: 16rem; }
+  .docs-toc:not([hidden]) { display: block; }
+  .docs-layout.no-toc, .docs-layout:has(.docs-toc[hidden]) { --toc: 0rem; }
   .doc-tools #toggle-toc:not([hidden]) { display: grid; }
-  .docs-layout.no-side { grid-template-columns: minmax(0, 46rem) 14rem; justify-content: center; }
-  .docs-layout.no-toc { grid-template-columns: 17rem minmax(0, 1fr); }
-  .docs-layout.no-toc .docs-toc { display: none; }
-  .docs-layout.no-side.no-toc { grid-template-columns: minmax(0, 52rem); justify-content: center; }
-  .docs-layout.no-side .doc, .docs-layout.no-toc .doc { max-width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .docs-layout, .docs-side, .docs-toc { transition: none !important; }
 }
 
 /* Undo landing-page section styling inside docs content */
