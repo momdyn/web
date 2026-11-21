@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frame | MOMDYN Docs</title>
+  <meta name="description" content="A reference frame is a set of three orthonormal basis vectors which are rotated relative to the inertial frame, or some intermediate frame.">
+  <link rel="canonical" href="https://momdyn.dc-engineer.com/docs/classic/frame/">
+  <meta name="theme-color" content="#5856D6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#5E5CE6" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="MOMDYN">
+  <meta property="og:title" content="Frame | MOMDYN Docs">
+  <meta property="og:description" content="A reference frame is a set of three orthonormal basis vectors which are rotated relative to the inertial frame, or some intermediate frame.">
+  <meta property="og:url" content="https://momdyn.dc-engineer.com/docs/classic/frame/">
+  <meta property="og:image" content="https://momdyn.dc-engineer.com/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/docs/_static/docs.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Docs", "item": "https://momdyn.dc-engineer.com/docs/"}, {"@type": "ListItem", "position": 2, "name": "Mechanism Module", "item": "https://momdyn.dc-engineer.com/docs/mechanism/"}, {"@type": "ListItem", "position": 3, "name": "Classic", "item": "https://momdyn.dc-engineer.com/docs/classic/"}, {"@type": "ListItem", "position": 4, "name": "Frame", "item": "https://momdyn.dc-engineer.com/docs/classic/frame/"}]}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/" aria-label="MOMDYN home">
+        <span class="logo" aria-hidden="true"></span>
+        <span class="wordmark"><em>MOM</em>DYN</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/docs/">Docs</a>
+        <a href="/docs/tutorials/">Tutorials</a>
+        <a href="/docs/mechanism/" aria-current="page">Reference</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap docs-layout">
+    <details class="docs-menu">
+      <summary>Menu</summary>
+      <nav aria-label="Documentation"><ul class="docs-tree"><li><a href="/docs/getting_started/">Getting Started</a><ul><li><details><summary>Tutorials</summary><ul><li><a href="/docs/tutorials/">Tutorials</a></li><li><a href="/docs/tutorials/pendulum/">Simple Pendulum</a></li><li><a href="/docs/tutorials/oscillator/">Mass-Spring-Damper</a></li></ul></details></li><li><a href="/docs/create_dialog/">Create / Settings Dialogs</a></li><li><a href="/docs/import_dialog/">Import Dialog</a></li><li><a href="/docs/on_screen_controls/">On-Screen Controls</a></li><li><a href="/docs/menu_dialog/">Menu Dialog</a></li><li><a href="/docs/save/">Import/Export</a></li></ul></li><li><a href="/docs/mechanism/">Mechanism Module</a><ul><li><details open><summary>Classic</summary><ul><li><a href="/docs/classic/">Classic</a></li><li><a href="/docs/classic/parameter/">Parameter</a></li><li><a href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a></li><li><a href="/docs/classic/generalized_speed/">Generalized Speed</a></li><li><a href="/docs/classic/frame/" aria-current="page">Frame</a></li><li><a href="/docs/classic/vector/">Vector</a></li><li><a href="/docs/classic/point/">Point</a></li></ul></details></li><li><details><summary>Joints</summary><ul><li><a href="/docs/joints/">Joints</a></li><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></details></li><li><details><summary>Bodies</summary><ul><li><a href="/docs/bodies/">Bodies</a></li><li><a href="/docs/bodies/particle/">Particle</a></li><li><a href="/docs/bodies/general_rigid_body/">General Rigid Body</a></li><li><a href="/docs/bodies/rigid_body_box/">Rigid Body Box</a></li><li><a href="/docs/bodies/rigid_body_cone/">Rigid Body Cone</a></li><li><a href="/docs/bodies/rigid_body_cylinder/">Rigid Body Cylinder</a></li></ul></details></li><li><details><summary>Loads</summary><ul><li><a href="/docs/loads/">Loads</a></li><li><a href="/docs/loads/external_force/">External Force</a></li><li><a href="/docs/loads/actuated_force/">Actuated Force</a></li><li><a href="/docs/loads/external_moment/">External Moment</a></li><li><a href="/docs/loads/actuated_moment/">Actuated Moment</a></li><li><a href="/docs/loads/translational_spring/">Translational Spring</a></li><li><a href="/docs/loads/rotational_spring/">Rotational Spring</a></li></ul></details></li><li><details><summary>Sensors</summary><ul><li><a href="/docs/sensors/">Sensors</a></li><li><a href="/docs/sensors/position_sensor/">Position Sensor</a></li><li><a href="/docs/sensors/velocity_sensor/">Velocity Sensor</a></li><li><a href="/docs/sensors/accelerometer/">Accelerometer</a></li><li><a href="/docs/sensors/dcm_sensor/">DCM Sensor</a></li><li><a href="/docs/sensors/rate_gyro/">Rate Gyro</a></li></ul></details></li></ul></li><li><a href="https://apps.apple.com/us/app/id1491149780" class="ext">Download on the App Store</a></li><li><a href="https://play.google.com/store/apps/details?id=com.badeyedea.momdyn" class="ext">Get it on Google Play</a></li><li><a href="https://www.momdyn.com/index.html" class="ext">Read our Blog</a></li><li><a href="https://www.facebook.com/Mobile-Multibody-Dynamics-102652851603623/" class="ext">Follow on Facebook</a></li><li><a href="https://www.youtube.com/channel/UC7ij1ezmh8a3Q7N3gF4zUkQ" class="ext">Watch on Youtube</a></li><li><a href="https://www.buymeacoffee.com/PLUQkDz" class="ext">Buy me a coffee</a></li></ul></nav>
+    </details>
+    <aside class="docs-side" aria-label="Documentation">
+      <nav aria-label="Documentation"><ul class="docs-tree"><li><a href="/docs/getting_started/">Getting Started</a><ul><li><details><summary>Tutorials</summary><ul><li><a href="/docs/tutorials/">Tutorials</a></li><li><a href="/docs/tutorials/pendulum/">Simple Pendulum</a></li><li><a href="/docs/tutorials/oscillator/">Mass-Spring-Damper</a></li></ul></details></li><li><a href="/docs/create_dialog/">Create / Settings Dialogs</a></li><li><a href="/docs/import_dialog/">Import Dialog</a></li><li><a href="/docs/on_screen_controls/">On-Screen Controls</a></li><li><a href="/docs/menu_dialog/">Menu Dialog</a></li><li><a href="/docs/save/">Import/Export</a></li></ul></li><li><a href="/docs/mechanism/">Mechanism Module</a><ul><li><details open><summary>Classic</summary><ul><li><a href="/docs/classic/">Classic</a></li><li><a href="/docs/classic/parameter/">Parameter</a></li><li><a href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a></li><li><a href="/docs/classic/generalized_speed/">Generalized Speed</a></li><li><a href="/docs/classic/frame/" aria-current="page">Frame</a></li><li><a href="/docs/classic/vector/">Vector</a></li><li><a href="/docs/classic/point/">Point</a></li></ul></details></li><li><details><summary>Joints</summary><ul><li><a href="/docs/joints/">Joints</a></li><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></details></li><li><details><summary>Bodies</summary><ul><li><a href="/docs/bodies/">Bodies</a></li><li><a href="/docs/bodies/particle/">Particle</a></li><li><a href="/docs/bodies/general_rigid_body/">General Rigid Body</a></li><li><a href="/docs/bodies/rigid_body_box/">Rigid Body Box</a></li><li><a href="/docs/bodies/rigid_body_cone/">Rigid Body Cone</a></li><li><a href="/docs/bodies/rigid_body_cylinder/">Rigid Body Cylinder</a></li></ul></details></li><li><details><summary>Loads</summary><ul><li><a href="/docs/loads/">Loads</a></li><li><a href="/docs/loads/external_force/">External Force</a></li><li><a href="/docs/loads/actuated_force/">Actuated Force</a></li><li><a href="/docs/loads/external_moment/">External Moment</a></li><li><a href="/docs/loads/actuated_moment/">Actuated Moment</a></li><li><a href="/docs/loads/translational_spring/">Translational Spring</a></li><li><a href="/docs/loads/rotational_spring/">Rotational Spring</a></li></ul></details></li><li><details><summary>Sensors</summary><ul><li><a href="/docs/sensors/">Sensors</a></li><li><a href="/docs/sensors/position_sensor/">Position Sensor</a></li><li><a href="/docs/sensors/velocity_sensor/">Velocity Sensor</a></li><li><a href="/docs/sensors/accelerometer/">Accelerometer</a></li><li><a href="/docs/sensors/dcm_sensor/">DCM Sensor</a></li><li><a href="/docs/sensors/rate_gyro/">Rate Gyro</a></li></ul></details></li></ul></li><li><a href="https://apps.apple.com/us/app/id1491149780" class="ext">Download on the App Store</a></li><li><a href="https://play.google.com/store/apps/details?id=com.badeyedea.momdyn" class="ext">Get it on Google Play</a></li><li><a href="https://www.momdyn.com/index.html" class="ext">Read our Blog</a></li><li><a href="https://www.facebook.com/Mobile-Multibody-Dynamics-102652851603623/" class="ext">Follow on Facebook</a></li><li><a href="https://www.youtube.com/channel/UC7ij1ezmh8a3Q7N3gF4zUkQ" class="ext">Watch on Youtube</a></li><li><a href="https://www.buymeacoffee.com/PLUQkDz" class="ext">Buy me a coffee</a></li></ul></nav>
+    </aside>
+
+    <main id="main" class="doc" data-pagefind-body>
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/docs/">Docs</a></li><li><a href="/docs/mechanism/">Mechanism Module</a></li><li><a href="/docs/classic/">Classic</a></li><li aria-current="page">Frame</li></ol></nav>
+      <h1>Frame</h1>
+
+
+
+<p>A reference frame is a set of three orthonormal basis vectors which are rotated relative to the inertial frame, or some intermediate frame.</p>
+<section id="keyword-arguments">
+<h2>Keyword arguments</h2>
+<div class="param docutils container">
+<p><span class="pname docutils literal">ref_point_key</span><span class="ptype">str</span></p>
+<p>Name of the point where the frame will be centered, for visualization in the diagram.</p>
+</div>
+<div class="param docutils container">
+<p><span class="pname docutils literal">ref_frame_key</span><span class="ptype">str</span></p>
+<p>Name of the reference frame from which the relative orientation angles are measured.</p>
+</div>
+<div class="param docutils container">
+<p><span class="pname docutils literal">rotation_sequence</span><span class="ptype">str</span></p>
+<p>Euler angle sequence, for example, ‘ZYX’ corresponds to a yaw-pitch-roll sequence, where the first_angle is a rotation about the Z-axis of the original reference frame, the second_angle is a rotation about the Y’-axis of an intermediate frame, and the third_angle is a rotation about the X’’-axis of a second intermediate frame.</p>
+</div>
+<div class="param docutils container">
+<p><span class="pname docutils literal">first_angle</span><span class="ptype">str or numeric</span></p>
+<p>First rotation angle (i.e. yaw rotation in the ‘ZYX’ example).</p>
+</div>
+<div class="param docutils container">
+<p><span class="pname docutils literal">second_angle</span><span class="ptype">str or numeric</span></p>
+<p>Second rotation angle (i.e. pitch rotation in the ‘ZYX’ example).</p>
+</div>
+<div class="param docutils container">
+<p><span class="pname docutils literal">third_angle</span><span class="ptype">str or numeric</span></p>
+<p>Third rotation angle (i.e. roll rotation in the ‘ZYX’ example.</p>
+</div>
+</section>
+<section id="returns">
+<h2>Returns</h2>
+<p><span class="docutils literal">str</span>: Message about the created frame</p>
+</section>
+
+      <nav class="pager" aria-label="Pages"><a class="prev" href="/docs/classic/generalized_speed/"><span>Previous</span><b>Generalized Speed</b></a><a class="next" href="/docs/classic/vector/"><span>Next</span><b>Vector</b></a></nav>
+    </main>
+
+    <aside class="docs-toc" hidden>
+
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="credit">Built by <a href="https://dc-engineer.com">Eliott Radcliffe</a>, a mechanical engineer specializing in dynamics. On the App Store since 2019.</p>
+      <nav aria-label="Footer">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/">MOMDYN</a>
+        <a href="https://www.youtube.com/@DC-Engineer">YouTube</a>
+        <a href="mailto:Eliott.Radcliffe@DC-Engineer.com">Contact / Support</a>
+      </nav>
+      <p class="legal">&copy; 2019&ndash;2026 DCDC LLC. Apple, iPhone, iPad and App Store are trademarks of Apple Inc.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var nav = document.getElementById('nav');
+    function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 4); }
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    // Reduced motion: animated demos show only their poster frame.
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      Array.prototype.forEach.call(document.querySelectorAll('video.anim'), function (v) {
+        v.removeAttribute('autoplay'); v.removeAttribute('loop'); v.pause();
+      });
+    }
+  })();
+  </script>
+</body>
+</html>

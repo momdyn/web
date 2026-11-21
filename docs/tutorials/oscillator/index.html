@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mass-Spring-Damper | MOMDYN Docs</title>
+  <meta name="description" content="This is a tutorial for creating a mass-spring-damper system in a uniform gravitational field, which is the fundamental problem used in study of linear...">
+  <link rel="canonical" href="https://momdyn.dc-engineer.com/docs/tutorials/oscillator/">
+  <meta name="theme-color" content="#5856D6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#5E5CE6" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="MOMDYN">
+  <meta property="og:title" content="Mass-Spring-Damper | MOMDYN Docs">
+  <meta property="og:description" content="This is a tutorial for creating a mass-spring-damper system in a uniform gravitational field, which is the fundamental problem used in study of linear...">
+  <meta property="og:url" content="https://momdyn.dc-engineer.com/docs/tutorials/oscillator/">
+  <meta property="og:image" content="https://momdyn.dc-engineer.com/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/docs/_static/docs.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Docs", "item": "https://momdyn.dc-engineer.com/docs/"}, {"@type": "ListItem", "position": 2, "name": "Getting Started", "item": "https://momdyn.dc-engineer.com/docs/getting_started/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://momdyn.dc-engineer.com/docs/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "Mass-Spring-Damper", "item": "https://momdyn.dc-engineer.com/docs/tutorials/oscillator/"}]}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/" aria-label="MOMDYN home">
+        <span class="logo" aria-hidden="true"></span>
+        <span class="wordmark"><em>MOM</em>DYN</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/docs/">Docs</a>
+        <a href="/docs/tutorials/" aria-current="page">Tutorials</a>
+        <a href="/docs/mechanism/">Reference</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap docs-layout">
+    <details class="docs-menu">
+      <summary>Menu</summary>
+      <nav aria-label="Documentation"><ul class="docs-tree"><li><a href="/docs/getting_started/">Getting Started</a><ul><li><details open><summary>Tutorials</summary><ul><li><a href="/docs/tutorials/">Tutorials</a></li><li><a href="/docs/tutorials/pendulum/">Simple Pendulum</a></li><li><a href="/docs/tutorials/oscillator/" aria-current="page">Mass-Spring-Damper</a></li></ul></details></li><li><a href="/docs/create_dialog/">Create / Settings Dialogs</a></li><li><a href="/docs/import_dialog/">Import Dialog</a></li><li><a href="/docs/on_screen_controls/">On-Screen Controls</a></li><li><a href="/docs/menu_dialog/">Menu Dialog</a></li><li><a href="/docs/save/">Import/Export</a></li></ul></li><li><a href="/docs/mechanism/">Mechanism Module</a><ul><li><details><summary>Classic</summary><ul><li><a href="/docs/classic/">Classic</a></li><li><a href="/docs/classic/parameter/">Parameter</a></li><li><a href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a></li><li><a href="/docs/classic/generalized_speed/">Generalized Speed</a></li><li><a href="/docs/classic/frame/">Frame</a></li><li><a href="/docs/classic/vector/">Vector</a></li><li><a href="/docs/classic/point/">Point</a></li></ul></details></li><li><details><summary>Joints</summary><ul><li><a href="/docs/joints/">Joints</a></li><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></details></li><li><details><summary>Bodies</summary><ul><li><a href="/docs/bodies/">Bodies</a></li><li><a href="/docs/bodies/particle/">Particle</a></li><li><a href="/docs/bodies/general_rigid_body/">General Rigid Body</a></li><li><a href="/docs/bodies/rigid_body_box/">Rigid Body Box</a></li><li><a href="/docs/bodies/rigid_body_cone/">Rigid Body Cone</a></li><li><a href="/docs/bodies/rigid_body_cylinder/">Rigid Body Cylinder</a></li></ul></details></li><li><details><summary>Loads</summary><ul><li><a href="/docs/loads/">Loads</a></li><li><a href="/docs/loads/external_force/">External Force</a></li><li><a href="/docs/loads/actuated_force/">Actuated Force</a></li><li><a href="/docs/loads/external_moment/">External Moment</a></li><li><a href="/docs/loads/actuated_moment/">Actuated Moment</a></li><li><a href="/docs/loads/translational_spring/">Translational Spring</a></li><li><a href="/docs/loads/rotational_spring/">Rotational Spring</a></li></ul></details></li><li><details><summary>Sensors</summary><ul><li><a href="/docs/sensors/">Sensors</a></li><li><a href="/docs/sensors/position_sensor/">Position Sensor</a></li><li><a href="/docs/sensors/velocity_sensor/">Velocity Sensor</a></li><li><a href="/docs/sensors/accelerometer/">Accelerometer</a></li><li><a href="/docs/sensors/dcm_sensor/">DCM Sensor</a></li><li><a href="/docs/sensors/rate_gyro/">Rate Gyro</a></li></ul></details></li></ul></li><li><a href="https://apps.apple.com/us/app/id1491149780" class="ext">Download on the App Store</a></li><li><a href="https://play.google.com/store/apps/details?id=com.badeyedea.momdyn" class="ext">Get it on Google Play</a></li><li><a href="https://www.momdyn.com/index.html" class="ext">Read our Blog</a></li><li><a href="https://www.facebook.com/Mobile-Multibody-Dynamics-102652851603623/" class="ext">Follow on Facebook</a></li><li><a href="https://www.youtube.com/channel/UC7ij1ezmh8a3Q7N3gF4zUkQ" class="ext">Watch on Youtube</a></li><li><a href="https://www.buymeacoffee.com/PLUQkDz" class="ext">Buy me a coffee</a></li></ul></nav>
+    </details>
+    <aside class="docs-side" aria-label="Documentation">
+      <nav aria-label="Documentation"><ul class="docs-tree"><li><a href="/docs/getting_started/">Getting Started</a><ul><li><details open><summary>Tutorials</summary><ul><li><a href="/docs/tutorials/">Tutorials</a></li><li><a href="/docs/tutorials/pendulum/">Simple Pendulum</a></li><li><a href="/docs/tutorials/oscillator/" aria-current="page">Mass-Spring-Damper</a></li></ul></details></li><li><a href="/docs/create_dialog/">Create / Settings Dialogs</a></li><li><a href="/docs/import_dialog/">Import Dialog</a></li><li><a href="/docs/on_screen_controls/">On-Screen Controls</a></li><li><a href="/docs/menu_dialog/">Menu Dialog</a></li><li><a href="/docs/save/">Import/Export</a></li></ul></li><li><a href="/docs/mechanism/">Mechanism Module</a><ul><li><details><summary>Classic</summary><ul><li><a href="/docs/classic/">Classic</a></li><li><a href="/docs/classic/parameter/">Parameter</a></li><li><a href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a></li><li><a href="/docs/classic/generalized_speed/">Generalized Speed</a></li><li><a href="/docs/classic/frame/">Frame</a></li><li><a href="/docs/classic/vector/">Vector</a></li><li><a href="/docs/classic/point/">Point</a></li></ul></details></li><li><details><summary>Joints</summary><ul><li><a href="/docs/joints/">Joints</a></li><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></details></li><li><details><summary>Bodies</summary><ul><li><a href="/docs/bodies/">Bodies</a></li><li><a href="/docs/bodies/particle/">Particle</a></li><li><a href="/docs/bodies/general_rigid_body/">General Rigid Body</a></li><li><a href="/docs/bodies/rigid_body_box/">Rigid Body Box</a></li><li><a href="/docs/bodies/rigid_body_cone/">Rigid Body Cone</a></li><li><a href="/docs/bodies/rigid_body_cylinder/">Rigid Body Cylinder</a></li></ul></details></li><li><details><summary>Loads</summary><ul><li><a href="/docs/loads/">Loads</a></li><li><a href="/docs/loads/external_force/">External Force</a></li><li><a href="/docs/loads/actuated_force/">Actuated Force</a></li><li><a href="/docs/loads/external_moment/">External Moment</a></li><li><a href="/docs/loads/actuated_moment/">Actuated Moment</a></li><li><a href="/docs/loads/translational_spring/">Translational Spring</a></li><li><a href="/docs/loads/rotational_spring/">Rotational Spring</a></li></ul></details></li><li><details><summary>Sensors</summary><ul><li><a href="/docs/sensors/">Sensors</a></li><li><a href="/docs/sensors/position_sensor/">Position Sensor</a></li><li><a href="/docs/sensors/velocity_sensor/">Velocity Sensor</a></li><li><a href="/docs/sensors/accelerometer/">Accelerometer</a></li><li><a href="/docs/sensors/dcm_sensor/">DCM Sensor</a></li><li><a href="/docs/sensors/rate_gyro/">Rate Gyro</a></li></ul></details></li></ul></li><li><a href="https://apps.apple.com/us/app/id1491149780" class="ext">Download on the App Store</a></li><li><a href="https://play.google.com/store/apps/details?id=com.badeyedea.momdyn" class="ext">Get it on Google Play</a></li><li><a href="https://www.momdyn.com/index.html" class="ext">Read our Blog</a></li><li><a href="https://www.facebook.com/Mobile-Multibody-Dynamics-102652851603623/" class="ext">Follow on Facebook</a></li><li><a href="https://www.youtube.com/channel/UC7ij1ezmh8a3Q7N3gF4zUkQ" class="ext">Watch on Youtube</a></li><li><a href="https://www.buymeacoffee.com/PLUQkDz" class="ext">Buy me a coffee</a></li></ul></nav>
+    </aside>
+
+    <main id="main" class="doc" data-pagefind-body>
+      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/docs/">Docs</a></li><li><a href="/docs/getting_started/">Getting Started</a></li><li><a href="/docs/tutorials/">Tutorials</a></li><li aria-current="page">Mass-Spring-Damper</li></ol></nav>
+      <h1>Mass-Spring-Damper</h1>
+
+
+
+<section id="introduction">
+<h2>Introduction</h2>
+<p>This is a tutorial for creating a mass-spring-damper system in a uniform gravitational field, which is the fundamental
+problem used in study of linear vibration. The animation below is generated in MOMDYN at the completion of the tutorial.
+You can also watch a video demonstration of this tutorial on <a class="reference external" href="https://youtu.be/XwqVYjrp25U">Youtube</a>.</p>
+<div class="shots"><video class="anim" width="400" height="225" autoplay muted loop playsinline preload="metadata" poster="/docs/_media/tutorials/oscillator/oscillator.webp" aria-label="Animation of the oscillator in a 2-D diagram view"><source src="/docs/_media/tutorials/oscillator/oscillator.mp4" type="video/mp4"><source src="/docs/_media/tutorials/oscillator/oscillator.webm" type="video/webm"></video></div><p>The model is generated using two variations on the kinematics interface, “Classic,” and “Joints.” The former is akin to
+a pencil-and-paper approach, each symbolic parameter is individually named by the user, and each frame, vector, and
+point is created using these parameters. The latter is closer to the approach used in modern multibody dynamics software,
+where lower-level modeling attributes are consolidated into a prismatic joint object, reducing the total number of steps.</p>
+<section id="new-model">
+<h3>New Model</h3>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/01-1.webp" width="108" height="222" alt="Welcome screen" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/01-2.webp" width="108" height="222" alt="Create screen" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/01-3.webp" width="108" height="222" alt="Create screen, bottom" loading="lazy" decoding="async"></div><p>To begin, from the welcome screen tap the “Create” button, which will bring up a dialog with the title “Create -
+Specify Settings.” Many of the settings in this dialog can remain with their defaults. The modified specifications give
+a model name and description, and creates gravitational force, time, and tolerance. Enter the following:</p>
+<blockquote>
+<ul class="simple">
+<li><p><em>model_name</em>: Oscillator</p></li>
+<li><p><em>model_description</em>: Simple mass-spring-damper as is common in linear vibration analysis</p></li>
+<li><p><em>gravity_method</em>: Uniform</p></li>
+<li><p><em>gravity_constant</em>: 9.8</p></li>
+<li><p><em>gravity_direction</em>: -Y</p></li>
+<li><p><em>time_duration</em>: 5</p></li>
+<li><p><em>tol</em>: 0.00001</p></li>
+</ul>
+</blockquote>
+<p>Tap the “Ok” button to create the model. Open the navigation drawer by tapping the button in the upper left, and then
+tap the export menu option. Tap the “Export Now” button to save the model. as we will be returning to this stage later
+in the tutorial.</p>
+<hr></section>
+</section>
+<section id="classic-interface">
+<h2>Classic Interface</h2>
+<p>Here we will use the classic interface, which allows for more direct control over the fundamental building blocks of
+the kinematics. Here we will define a generalized coordinate for displacement, attach that generalized coordinate to a
+vector, and create a point defined relative to the origin by the vector. The spring is defined that connects the origin
+and created point, with stiffness, damping, and equilibrium properties.</p>
+<section id="create-symbols">
+<h3>Create Symbols</h3>
+<p>For this model, a single time-varying generalized coordinate is defined representing displacement. The creation of
+constants for spring stiffness, damping, and equilibrium is done automatically in the translational spring object which
+will be created later in this tutorial.</p>
+<section id="generalized-coordinate">
+<h4>Generalized Coordinate</h4>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/02a-1.webp" width="108" height="222" alt="Navigation drawer with classic menu highlighted" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/02a-2.webp" width="108" height="222" alt="Classic menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/02a-3.webp" width="108" height="222" alt="New displacement coordinate" loading="lazy" decoding="async"></div><p>Open the navigation drawer, and then select the classic menu option. Tap the plus sign under generalized coordinate, and
+enter the following specifications for a translational degree of freedom.</p>
+<blockquote>
+<ul class="simple">
+<li><p>name: h</p></li>
+<li><p>initial: 1</p></li>
+<li><p>description: displacement</p></li>
+</ul>
+</blockquote>
+<p>Tap “Ok” to create the displacement coordinate.</p>
+</section>
+</section>
+<section id="kinematics">
+<h3>Kinematics</h3>
+<p>The kinematics in this tutorial are established using a single vector and point that is positioned relative to the
+origin by the created vector.</p>
+<section id="vector">
+<h4>Vector</h4>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/02a-1.webp" width="108" height="222" alt="Navigation drawer with classic menu highlighted" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/06a-2.webp" width="108" height="222" alt="New vector" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/06a-3.webp" width="108" height="222" alt="Created vector in the diagram view" loading="lazy" decoding="async"></div><p>Next, with the classic panel open, tap the plus sign under vector, and enter the following</p>
+<blockquote>
+<ul class="simple">
+<li><p><em>name</em>: h</p></li>
+<li><p><em>y</em>: h(t)</p></li>
+</ul>
+</blockquote>
+<p>and tap the “Ok” button to create the vector named h, aligned with the j axis of the inertial frame, with length
+equal to the generalized coordinate h. Return to the diagram view to see the vector rendered as a gray line.</p>
+</section>
+<section id="point">
+<h4>Point</h4>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/07a-1.webp" width="108" height="222" alt="Classic menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/07a-2.webp" width="108" height="222" alt="New point" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/07a-3.webp" width="108" height="222" alt="Created point in the diagram view" loading="lazy" decoding="async"></div><p>Next, tap the plus sign under point, and enter the following</p>
+<blockquote>
+<ul class="simple">
+<li><p><em>vector_key</em>: h(t)</p></li>
+</ul>
+</blockquote>
+<p>and tap the “Ok” button to create the point a at the end of the vector h. Return to the diagram view, where you will
+see the diagram updated to include the new vector and point, with the latter rendered as a blue sphere.</p>
+</section>
+</section>
+<section id="loads">
+<h3>Loads</h3>
+<p>A single load is applied in this model as a spring force applied equally and in opposite directions to the origin and
+the created point. The spring force is proportional to stiffness times the point’s displacement relative to its
+equilibrium, and damping times the velocity of the point.</p>
+<section id="translational-spring">
+<h4>Translational Spring</h4>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/08a-1.webp" width="108" height="222" alt="Navigation drawer with loads menu highlighted" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/08a-2.webp" width="108" height="222" alt="Loads menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/08a-3.webp" width="108" height="222" alt="New translational spring" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/08a-4.webp" width="108" height="222" alt="Created spring in the diagram view" loading="lazy" decoding="async"></div><p>From the navigation drawer, tap the loads menu option, and then tap the plus icon under translational spring.
+Enter the following</p>
+<blockquote>
+<ul class="simple">
+<li><p><em>end_point</em>: a</p></li>
+<li><p><em>k</em>: 50</p></li>
+<li><p><em>c</em>: 1</p></li>
+<li><p><em>equilibrium</em>: 1</p></li>
+</ul>
+</blockquote>
+<p>then tap the “Ok” button to create the spring. This will additionally create the parameters <em>k</em><sub>O/a</sub>,
+<em>c</em><sub>O/a</sub>, and <em>e</em><sub>O/a</sub>, for stiffness, damping, and equilibrium, respectively. Return to the diagram,
+where you will see the spring rendered between the two points.</p>
+<hr></section>
+</section>
+</section>
+<section id="joints-interface">
+<h2>Joints Interface</h2>
+<p>The joints interface is more convenient for many applications, as it consolidates functionality of the building block
+components into common mechanical joints, and doesn’t require individually defining all of the symbols, vectors, and
+points in the model. In this case, the displacement coordinate, vector, point, and spring are all contained in a single
+prismatic joint object.</p>
+<section id="prismatic-joint">
+<h3>Prismatic Joint</h3>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/02b-1.webp" width="108" height="222" alt="Navigation drawer with loads menu highlighted" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/02b-2.webp" width="108" height="222" alt="Joints menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/02b-3.webp" width="108" height="222" alt="New prismatic joint" loading="lazy" decoding="async"></div><p>Tap on the welcome tab on the bottom of the screen, then the import button, and select the saved Oscillator file,
+which will return the model to its original state. Open the navigation drawer, and tap the joints menu item, then tap
+the plus sign under prismatic. Add the following specifications, leaving line items that are unlisted at their default
+value,</p>
+<blockquote>
+<ul class="simple">
+<li><p><em>y</em>: 1</p></li>
+<li><p><em>value</em>: 1</p></li>
+<li><p><em>k</em>: 50</p></li>
+<li><p><em>c</em>: 1</p></li>
+<li><p><em>equilibrium</em>: 1</p></li>
+</ul>
+</blockquote>
+<p>and then tap the “Ok” button to create the joint. Return to the diagram to see the created point and spring in the same
+configuration as defined after completion of the classic procedure.</p>
+<hr></section>
+</section>
+<section id="bodies">
+<h2>Bodies</h2>
+<p>A single particle (or point mass) is defined and attached to the created point. The inertial (or internal) force on this
+body will be proportional to its mass times acceleration.</p>
+<section id="particle">
+<h3>Particle</h3>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/10-1.webp" width="108" height="222" alt="Navigation drawer with bodies menu highlighted" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/10-2.webp" width="108" height="222" alt="Bodies menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/10-3.webp" width="108" height="222" alt="New particle" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/10-4.webp" width="108" height="222" alt="Created particle in the diagram view" loading="lazy" decoding="async"></div><p>Open the navigation drawer and select the bodies menu. Tap on the plus sign under particle, and enter the following.</p>
+<blockquote>
+<ul class="simple">
+<li><p><em>name</em>: bob</p></li>
+<li><p><em>ref_point_key</em>: a</p></li>
+<li><p><em>mass</em>: 1</p></li>
+</ul>
+</blockquote>
+<p>which will create the bob with mass of 1 attached to the point <em>a</em>, as shown. Additionally, the parameter
+<em>m</em><sub>bob</sub>will be created. Return to the diagram to see the created particle rendered as a green and black sphere.</p>
+<hr></section>
+</section>
+<section id="analysis">
+<h2>Analysis</h2>
+<p>Here we will demonstrate the simulation and animation features, as well as the report containing documentation of the
+modeling parameters, system equations, and plots of the motion states. We will also show the export feature, which will
+save the model for future use, and create output data, plots, and Python code.</p>
+<section id="simulation">
+<h3>Simulation</h3>
+<p>To generate equations of motion, tap the right-arrow button in the lower left corner of the diagram. Since this is a
+very simple model, the derivation runs nearly instantaneously. Once complete, the icon will change to the outline of a
+play button. Tap again to run the simulation, once again this will be nearly instantaneous. Tap again to play the
+animation, which will show the mass bouncing with around a 1 second period, as seen previously at the top of this page.</p>
+</section>
+<section id="model-export">
+<h3>Model Export</h3>
+<p>Open the navigation drawer by tapping the three horizontal lines in the upper left corner, and then tap on the export
+button. Keep each of the items selected, as is default, then tap the “Export Now” button to export the files. The Model
+file (momdyn_model.py) is the format used to import to the MOMDYN app. The Simulation file (simulation.csv) are the
+time-series reflecting the generalized coordinates and speeds that are animated. The Python file (py_model.py) contains
+code that can be executed and further manipulated on a desktop Python environment.</p>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/export-1.webp" width="108" height="222" alt="Press the export button in the menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/export-2.webp" width="108" height="222" alt="Select to export model, simulation, and python" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/export-3.webp" width="108" height="192" alt="Exported Python code, shown in the Pyto app" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/export-states.webp" width="640" height="480" alt="Plotted states" loading="lazy" decoding="async"></div><hr></section>
+<section id="report">
+<h3>Report</h3>
+<p>Tap on the report tab in the lower right to open up the report view showing text, equations and plots. The buttons at
+the top specify which section of the report to view. From left to right these are symbols, frames, points, bodies,
+loads, equations, and plots. The images below show these sections for the Oscillator model, omitting frames as there
+are none (except for the inertial frame).</p>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/report-symbols.webp" width="108" height="222" alt="Symbols in the report view" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/report-points.webp" width="108" height="222" alt="Points in the report view" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/report-bodies.webp" width="108" height="222" alt="Bodies in the report view" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/report-loads.webp" width="108" height="222" alt="Loads in the report view" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/report-equations.webp" width="108" height="222" alt="Equations in the report view" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/report-plots.webp" width="108" height="222" alt="Plots in the report view" loading="lazy" decoding="async"></div></section>
+</section>
+
+      <nav class="pager" aria-label="Pages"><a class="prev" href="/docs/tutorials/pendulum/"><span>Previous</span><b>Simple Pendulum</b></a><a class="next" href="/docs/create_dialog/"><span>Next</span><b>Create / Settings Dialogs</b></a></nav>
+    </main>
+
+    <aside class="docs-toc">
+      <nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#introduction">Introduction</a></li><li><a href="#classic-interface">Classic Interface</a></li><li><a href="#joints-interface">Joints Interface</a></li><li><a href="#bodies">Bodies</a></li><li><a href="#analysis">Analysis</a></li></ul></nav>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="credit">Built by <a href="https://dc-engineer.com">Eliott Radcliffe</a>, a mechanical engineer specializing in dynamics. On the App Store since 2019.</p>
+      <nav aria-label="Footer">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/">MOMDYN</a>
+        <a href="https://www.youtube.com/@DC-Engineer">YouTube</a>
+        <a href="mailto:Eliott.Radcliffe@DC-Engineer.com">Contact / Support</a>
+      </nav>
+      <p class="legal">&copy; 2019&ndash;2026 DCDC LLC. Apple, iPhone, iPad and App Store are trademarks of Apple Inc.</p>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var nav = document.getElementById('nav');
+    function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 4); }
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    // Reduced motion: animated demos show only their poster frame.
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      Array.prototype.forEach.call(document.querySelectorAll('video.anim'), function (v) {
+        v.removeAttribute('autoplay'); v.removeAttribute('loop'); v.pause();
+      });
+    }
+  })();
+  </script>
+</body>
+</html>
