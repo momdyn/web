@@ -96,19 +96,22 @@
 .docs-tree summary::after { content: ""; width: 0.5rem; height: 0.5rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); margin-right: 0.3rem; }
 .docs-tree details[open] > summary::after { transform: rotate(45deg); }
 
-/* ---- Collapsible side panels ---- */
-.doc-tools { display: none; gap: 0.5rem; margin: 0 0 0.75rem; }
-.doc-tools .tool { min-height: 2.75rem; padding: 0 1rem; border: 0; border-radius: 999px; background: var(--bg-secondary); color: var(--label); font: 600 0.9rem var(--font, inherit); cursor: pointer; }
-.doc-tools .tool:hover { filter: brightness(0.96); }
-.doc-tools [hidden] { display: none; }
+/* ---- Collapsible side panels: icon buttons, top left (menu) and top right (contents) ---- */
+.doc-tools { display: none; }
 @media (min-width: 56rem) {
-  .doc-tools { display: flex; }
-  .doc-tools #toggle-toc { display: none; }
+  .docs-layout { padding-top: 3.5rem; }
+  .doc-tools { display: block; grid-column: 1 / -1; position: sticky; top: 4.25rem; height: 0; z-index: 20; margin-top: -2.75rem; }
+  .doc-tools .tool { position: absolute; top: 0; width: 2.75rem; height: 2.75rem; padding: 0; display: grid; place-items: center; border: 1px solid var(--separator); border-radius: 50%; background: var(--bg-secondary); color: var(--label); cursor: pointer; }
+  .doc-tools #toggle-side { left: 0; }
+  .doc-tools #toggle-toc { right: 0; display: none; }
+  .doc-tools .tool:hover { color: var(--green-text); }
+  .doc-tools .tool[aria-expanded="false"] { background: var(--bg); }
+  .docs-side, .docs-toc { top: 4.5rem; max-height: calc(100svh - 5.5rem); }
   .docs-layout.no-side { grid-template-columns: minmax(0, 1fr); }
   .docs-layout.no-side .docs-side { display: none; }
 }
 @media (min-width: 76rem) {
-  .doc-tools #toggle-toc:not([hidden]) { display: inline-block; }
+  .doc-tools #toggle-toc:not([hidden]) { display: grid; }
   .docs-layout.no-side { grid-template-columns: minmax(0, 46rem) 14rem; justify-content: center; }
   .docs-layout.no-toc { grid-template-columns: 17rem minmax(0, 1fr); }
   .docs-layout.no-toc .docs-toc { display: none; }
