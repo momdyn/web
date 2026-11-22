@@ -217,7 +217,7 @@ M["create_particle"] = dict(
     units={"mass": "kg"},
     equations=[("The inertial force of a particle of mass m with acceleration a, and its weight in uniform gravity g:", r"\mathbf{F}^{*} = -m\,\mathbf{a}, \qquad \mathbf{F}_g = m\,\mathbf{g}")],
     notes=["MOMDYN creates a parameter for the mass, named `m_` plus the particle name (for a particle named `bob`, the symbol is m_bob).",
-           "`color` sets the color drawn in the diagram. It does not change the physics. TODO: list the allowed color names in the docs (the app offers Black, Gray, White, Red, Brown, Orange, Yellow, Mint, Green, Cyan, Blue, Teal, Pink, Indigo and Purple)."],
+           "`color` sets the color drawn in the diagram and does not change the physics. Options: Black, Gray, White, Red, Brown, Orange, Yellow, Mint, Green (default), Cyan, Blue, Teal, Pink, Indigo or Purple.",
     related=[("classic/point", "Point"), ("bodies/rigid_body_box", "Rigid Body Box"), ("loads/external_force", "External Force"),
              ("loads/translational_spring", "Translational Spring")])
 _ATTACH = ("`attach_to` is `'CG'`, `'fore'` or `'aft'` and selects which place on the body sits at the point `ref_point_key`: its center of gravity, or one end of its length.")
