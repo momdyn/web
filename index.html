@@ -296,10 +296,10 @@ plt.savefig(<span class="tok-s">"</span><span class="tok-s">states.png</span><sp
       </div>
     </section>
 
-    <!-- 8. FINAL CTA on the indigo band (the only other download prompts are the nav pill, the hero badge and the mobile sticky button) -->
+    <!-- 8. FINAL CTA on the indigo band (the only other download prompts are the nav pill and the hero badge) -->
     <section id="get" class="get-app band" aria-labelledby="get-title">
       <div class="wrap">
-        <img class="icon3d" src="media/icon-3d.webp" width="320" height="320" loading="lazy" alt="Mobile Multibody Dynamics app icon">
+        <img class="app-icon" src="assets/icon-512.png" width="512" height="512" loading="lazy" alt="Mobile Multibody Dynamics app icon">
         <div>
           <h2 id="get-title">Free on iPhone &amp; iPad</h2>
           <a class="store-badge" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780">
@@ -331,24 +331,9 @@ plt.savefig(<span class="tok-s">"</span><span class="tok-s">states.png</span><sp
     </div>
   </footer>
 
-  <!-- Sticky mobile button: shown after the hero badge scrolls away, hidden while the final CTA is on screen. -->
-  <div class="sticky-cta" id="sticky" aria-hidden="true">
-    <a class="btn" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780">Download free</a>
-  </div>
-
   <script>
   (function () {
-    var bar = document.getElementById('sticky');
     var nav = document.getElementById('nav');
-    var badge = document.querySelector('.hero .store-badge');
-    var end = document.getElementById('get');
-    var past = false, endVisible = false;
-    function update() {
-      var on = past && !endVisible;
-      bar.classList.toggle('show', on);
-      document.body.classList.toggle('sticky-on', on);
-      bar.setAttribute('aria-hidden', on ? 'false' : 'true');
-    }
     function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 4); }
     addEventListener('scroll', onScroll, { passive: true }); onScroll();
     function loadKatexCss() {
@@ -358,10 +343,6 @@ plt.savefig(<span class="tok-s">"</span><span class="tok-s">states.png</span><sp
       document.head.appendChild(l);
     }
     if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (e) {
-        past = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; update();
-      }).observe(badge);
-      new IntersectionObserver(function (e) { endVisible = e[0].isIntersecting; update(); }).observe(end);
       new IntersectionObserver(function (e, o) {
         if (e[0].isIntersecting) { loadKatexCss(); o.disconnect(); }
       }, { rootMargin: '250px 0px' }).observe(document.getElementById('equations'));
