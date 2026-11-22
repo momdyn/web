@@ -3,7 +3,7 @@
 
 :root {
   color-scheme: light dark;
-  --indigo: #5856D6;          /* brand backgrounds: hero band, final CTA band, sticky download button */
+  --indigo: #5856D6;          /* brand backgrounds: final CTA band, hero tint, step icons */
   --indigo-deep: #3634A3;     /* gradient end */
   --pink: #FF2D55;            /* branding only: wordmark accent */
   --green: #34C759;           /* non-text accents: step circles, arrows, icons; the nav "Get the app" pill */
@@ -98,7 +98,6 @@ section h2 { font-size: clamp(1.7rem, 5vw, 2.4rem); }
 }
 .pill:hover { filter: brightness(1.08); }
 @media (min-width: 48rem) { .nav-links { display: flex; } .pill { margin-left: 0.5rem; } }
-@media (max-width: 47.99rem) { body.sticky-on .nav .pill { visibility: hidden; } }  /* the sticky Download bar is showing */
 
 /* ---------- Buttons, Apple badges ---------- */
 .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 3.25rem; padding: 0.75rem 1.75rem; background: var(--indigo); color: #fff; border-radius: 999px; font-weight: 700; font-size: 1.05rem; text-decoration: none; }
@@ -282,10 +281,11 @@ details p { padding: 0 0 1.2rem; color: var(--label-secondary); }
 /* ---------- 8. Final CTA band ---------- */
 .get-app .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.5rem 2.5rem; text-align: center; }
 .get-app h2 { margin-bottom: 1rem; }
-@media (min-width: 48rem) { .get-app .wrap { text-align: left; } .get-app .icon3d { width: 9rem; height: 9rem; } }
+.app-icon { width: 8rem; height: 8rem; flex: none; filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.3)); }
+@media (min-width: 48rem) { .get-app .wrap { text-align: left; } .get-app .app-icon { width: 9rem; height: 9rem; } }
 
 /* ---------- 9. Footer ---------- */
-.site-footer { border-top: 1px solid var(--separator); padding: 2.25rem 0 6rem; font-size: 0.95rem; color: var(--label-secondary); }
+.site-footer { border-top: 1px solid var(--separator); padding: 2.25rem 0 2.5rem; font-size: 0.95rem; color: var(--label-secondary); }
 .site-footer .wrap { display: grid; gap: 0.5rem; }
 .site-footer a { display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0 0.1rem; margin-right: 1rem; }
 .credit a { min-height: 0; margin: 0; display: inline; }
@@ -294,18 +294,7 @@ details p { padding: 0 0 1.2rem; color: var(--label-secondary); }
 .legal { font-size: 0.85rem; margin-top: 0.75rem; }
 
 /* ---------- Sticky mobile CTA ---------- */
-.sticky-cta {
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
-  padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
-  background: var(--bg);
-  border-top: 1px solid var(--separator);
-  transform: translateY(110%); visibility: hidden;
-  transition: transform 0.25s ease, visibility 0.25s;
-}
-.sticky-cta.show { transform: none; visibility: visible; }
-.sticky-cta .btn { width: 100%; }
-@media (min-width: 48rem) { .sticky-cta { display: none; } .site-footer { padding-bottom: 2.5rem; } }
-@media (prefers-reduced-motion: reduce) { .sticky-cta, .nav { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .nav { transition: none; } }
 
 /* ---------- Legal pages (privacy, terms) ---------- */
 .prose { max-width: 44rem; padding-bottom: 3rem; }
