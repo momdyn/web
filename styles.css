@@ -115,7 +115,11 @@ section h2 { font-size: clamp(1.7rem, 5vw, 2.4rem); }
 .band .badge-note b { font-weight: 800; }
 .icon3d { width: 8rem; height: 8rem; object-fit: contain; }
 
-.hero { padding: 0; }
+.hero { padding: 0; color: var(--label); }
+/* The hero is a faint indigo tint at the top that fades into the page color (white in light mode, black in dark mode). */
+.hero.tint { --tint: 26%; background: linear-gradient(180deg, color-mix(in srgb, var(--indigo) var(--tint), var(--bg)) 0%, var(--bg) 100%); }
+@media (prefers-color-scheme: dark) { .hero.tint { --tint: 48%; } }
+.hero .badge-note b { font-weight: 800; }
 .hero-grid { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 1.5rem; padding-bottom: 3rem; }
 .hero h1 { font-size: clamp(1.75rem, 8.2vw, 2rem); text-wrap: balance; letter-spacing: -0.03em; margin-top: 0.9rem; }
 .hero-cta { display: flex; flex-direction: column; align-items: center; margin-top: 1.1rem; }
@@ -133,7 +137,7 @@ section h2 { font-size: clamp(1.7rem, 5vw, 2.4rem); }
     grid-template-rows: auto auto auto auto; text-align: left;
     min-height: min(100svh, 52rem); padding-top: 3rem; padding-bottom: 3rem;
   }
-  .icon3d { grid-area: icon; width: 12rem; height: 12rem; margin: -1rem 0 -2rem -1rem; }
+  .icon3d { grid-area: icon; width: 18rem; height: 18rem; margin: -2rem 0 -3.5rem; justify-self: center; }
   .hero h1 { grid-area: title; font-size: clamp(2.6rem, 4.6vw, 3.6rem); }
   .hero-sub { grid-area: sub; margin-top: 1.5rem; }
   .hero-sub .sub-title { display: none; }
@@ -150,7 +154,7 @@ section h2 { font-size: clamp(1.7rem, 5vw, 2.4rem); }
 /* Short desktop viewports (e.g. 1280x640): keep the badge and the "Free" line on the first screen */
 @media (min-width: 56rem) and (max-height: 760px) {
   .hero-grid { min-height: 0; padding-top: 1.25rem; padding-bottom: 1.25rem; }
-  .icon3d { width: 9rem; height: 9rem; margin: -0.75rem 0 -1.5rem -0.75rem; }
+  .icon3d { width: 13.5rem; height: 13.5rem; margin: -1.5rem 0 -3rem; }
   .hero h1 { font-size: clamp(2.2rem, 3.6vw, 2.9rem); margin-top: 0.6rem; }
   .hero-sub { margin-top: 0; }
   .hero h1 { margin-bottom: 0; }
