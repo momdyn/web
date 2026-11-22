@@ -113,7 +113,7 @@ section h2 { font-size: clamp(1.7rem, 5vw, 2.4rem); }
 .band a.store-badge, .band .pill { text-decoration: none; }
 .band :focus-visible { outline-color: #fff; }
 .band .badge-note b { font-weight: 800; }
-.icon3d { width: 8rem; height: 8rem; object-fit: contain; filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.28)); }
+.icon3d { width: 8rem; height: 8rem; object-fit: contain; }
 
 .hero { padding: 0; }
 .hero-grid { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 1.5rem; padding-bottom: 3rem; }
@@ -133,7 +133,7 @@ section h2 { font-size: clamp(1.7rem, 5vw, 2.4rem); }
     grid-template-rows: auto auto auto auto; text-align: left;
     min-height: min(100svh, 52rem); padding-top: 3rem; padding-bottom: 3rem;
   }
-  .icon3d { grid-area: icon; width: 6rem; height: 6rem; }
+  .icon3d { grid-area: icon; width: 12rem; height: 12rem; margin: -1rem 0 -2rem -1rem; }
   .hero h1 { grid-area: title; font-size: clamp(2.6rem, 4.6vw, 3.6rem); }
   .hero-sub { grid-area: sub; margin-top: 1.5rem; }
   .hero-sub .sub-title { display: none; }
@@ -150,7 +150,7 @@ section h2 { font-size: clamp(1.7rem, 5vw, 2.4rem); }
 /* Short desktop viewports (e.g. 1280x640): keep the badge and the "Free" line on the first screen */
 @media (min-width: 56rem) and (max-height: 760px) {
   .hero-grid { min-height: 0; padding-top: 1.25rem; padding-bottom: 1.25rem; }
-  .icon3d { width: 4.5rem; height: 4.5rem; }
+  .icon3d { width: 9rem; height: 9rem; margin: -0.75rem 0 -1.5rem -0.75rem; }
   .hero h1 { font-size: clamp(2.2rem, 3.6vw, 2.9rem); margin-top: 0.6rem; }
   .hero-sub { margin-top: 0; }
   .hero h1 { margin-bottom: 0; }
