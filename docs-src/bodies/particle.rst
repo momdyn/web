@@ -39,7 +39,7 @@ Sign conventions & notes
 ------------------------
 
 * MOMDYN creates a parameter for the mass, named ``m_`` plus the particle name (for a particle named ``bob``, the symbol is m\_bob).
-* ``color`` sets the color drawn in the diagram. It does not change the physics. TODO: list the allowed color names in the docs (the app offers Black, Gray, White, Red, Brown, Orange, Yellow, Mint, Green, Cyan, Blue, Teal, Pink, Indigo and Purple).
+* ``color`` sets the color drawn in the diagram and does not change the physics. Options: Black, Gray, White, Red, Brown, Orange, Yellow, Mint, Green (default), Cyan, Blue, Teal, Pink, Indigo or Purple.
 
 Related
 -------
