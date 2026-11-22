@@ -1,7 +1,12 @@
+.. seo::
+   :title: Getting Started with MOMDYN – Multibody Dynamics on iPhone & iPad
+   :description: A tour of MOMDYN on iPhone and iPad: the Welcome, Diagram and Report screens, plus where to find the tutorials, dialogs and component reference.
+   :type: article
+
 Getting Started
 ===============
 
-Welcome to the help documentation for MOMDYN. This page gives an overview of the user interface in the app. Here we
+Welcome to the help documentation for Mobile Multibody Dynamics (MOMDYN), the first multibody dynamics app for iOS. This page gives an overview of the user interface in the app. Here we
 will introduce tutorials that demonstrate the basics of building a dynamics model. This is followed by a discussion of
 the screens in the app, and some of the details of the interface. For detail on the physical components, check out the
 section on the `Mechanism Module <mechanism.html>`_.
@@ -14,10 +19,7 @@ dynamics and vibration coursework, and are used to teach the fundamentals of kin
 translational and rotational motion, and equation of motion generation for specified bodies and loads. The tutorials
 introduce definition kinematics using the classic interface, followed by mechanical joints.
 
-.. toctree::
-   :maxdepth: 2
-
-   tutorials
+Start with the `tutorials <tutorials.html>`_.
 
 Welcome Screen
 --------------
@@ -32,12 +34,7 @@ the first button to bring up the settings dialog, where you will configure a new
 bring up the import dialog, with a list of pre-created examples that are packaged with MOMDYN, as well as any models
 you have saved as a user. Lastly, tap on the third button to open a popup with a link to this site, and two tutorials.
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Welcome Menu
-
-   create_dialog
-   import_dialog
+Details on the dialogs: `Create / Settings Dialogs <create_dialog.html>`_ and `Import Dialog <import_dialog.html>`_.
 
 
 Diagram View
@@ -54,13 +51,7 @@ the upper left opens the navigation drawer, with options to modify settings or e
 panels for each of the dynamics modeling components. The play button in the lower left is used to derive equations of
 motion (EOM), simulate, and start animations. Tap on the slider bar on the bottom to reposition the animation in time.
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Contents:
-
-   on_screen_controls
-   menu_dialog
-   save
+Details: `On-Screen Controls <on_screen_controls.html>`_, `Menu Dialog <menu_dialog.html>`_ and `Import/Export <save.html>`_.
 
 
 Report View

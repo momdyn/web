@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mass-Spring-Damper | MOMDYN Docs</title>
-  <meta name="description" content="This is a tutorial for creating a mass-spring-damper system in a uniform gravitational field, which is the fundamental problem used in study of linear...">
+  <title>Mass-Spring-Damper Tutorial – Equation of Motion | MOMDYN</title>
+  <meta name="description" content="Build a mass-spring-damper in MOMDYN on iPhone or iPad, the basic model of linear vibration, then derive its equation of motion and export Python.">
   <link rel="canonical" href="https://momdyn.dc-engineer.com/docs/tutorials/oscillator/">
   <meta name="theme-color" content="#5856D6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#5E5CE6" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="MOMDYN">
-  <meta property="og:title" content="Mass-Spring-Damper | MOMDYN Docs">
-  <meta property="og:description" content="This is a tutorial for creating a mass-spring-damper system in a uniform gravitational field, which is the fundamental problem used in study of linear...">
+  <meta property="og:title" content="Mass-Spring-Damper Tutorial – Equation of Motion | MOMDYN">
+  <meta property="og:description" content="Build a mass-spring-damper in MOMDYN on iPhone or iPad, the basic model of linear vibration, then derive its equation of motion and export Python.">
   <meta property="og:url" content="https://momdyn.dc-engineer.com/docs/tutorials/oscillator/">
   <meta property="og:image" content="https://momdyn.dc-engineer.com/assets/og.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -20,7 +20,9 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/docs/_static/docs.css">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Docs", "item": "https://momdyn.dc-engineer.com/docs/"}, {"@type": "ListItem", "position": 2, "name": "Getting Started", "item": "https://momdyn.dc-engineer.com/docs/getting_started/"}, {"@type": "ListItem", "position": 3, "name": "Tutorials", "item": "https://momdyn.dc-engineer.com/docs/tutorials/"}, {"@type": "ListItem", "position": 4, "name": "Mass-Spring-Damper", "item": "https://momdyn.dc-engineer.com/docs/tutorials/oscillator/"}]}</script>
+  <link rel="stylesheet" href="/assets/katex/katex.min.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Docs", "item": "https://momdyn.dc-engineer.com/docs/"}, {"@type": "ListItem", "position": 2, "name": "Tutorials", "item": "https://momdyn.dc-engineer.com/docs/tutorials/"}, {"@type": "ListItem", "position": 3, "name": "Mass-Spring-Damper", "item": "https://momdyn.dc-engineer.com/docs/tutorials/oscillator/"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "Mass-Spring-Damper", "description": "Build a mass-spring-damper in MOMDYN on iPhone or iPad, the basic model of linear vibration, then derive its equation of motion and export Python.", "inLanguage": "en", "author": {"@type": "Person", "name": "Eliott Radcliffe", "url": "https://dc-engineer.com"}, "publisher": {"@type": "Organization", "name": "DCDC LLC", "url": "https://momdyn.dc-engineer.com/"}, "dateModified": "2026-11-22", "tool": [{"@type": "HowToTool", "name": "MOMDYN app for iPhone and iPad"}], "step": [{"@type": "HowToStep", "position": 1, "name": "Create the new model", "text": "From the Welcome screen, tap Create. A dialog titled “Create - Specify Settings” opens (see the settings reference). Most settings can keep their defaults. Enter the following:", "url": "https://momdyn.dc-engineer.com/docs/tutorials/oscillator/#step-1-create-the-new-model"}, {"@type": "HowToStep", "position": 2, "name": "Create the displacement coordinate", "text": "Open the navigation drawer, then the Classic menu. Tap the plus sign under Generalized Coordinate and enter", "url": "https://momdyn.dc-engineer.com/docs/tutorials/oscillator/#step-2-create-the-displacement-coordinate"}, {"@type": "HowToStep", "position": 3, "name": "Create the vector", "text": "With the Classic panel open, tap the plus sign under Vector and enter", "url": "https://momdyn.dc-engineer.com/docs/tutorials/oscillator/#step-3-create-the-vector"}, {"@type": "HowToStep", "position": 4, "name": "Create the point", "text": "Tap the plus sign under Point and enter", "url": "https://momdyn.dc-engineer.com/docs/tutorials/oscillator/#step-4-create-the-point"}, {"@type": "HowToStep", "position": 5, "name": "Add the translational spring", "text": "The only load in this model is a spring-damper between the origin and the point. Open the navigation drawer, then the Loads menu, and tap the plus sign under Translational Spring. Enter", "url": "https://momdyn.dc-engineer.com/docs/tutorials/oscillator/#step-5-add-the-translational-spring"}, {"@type": "HowToStep", "position": 6, "name": "Add the point mass", "text": "A single particle (a point mass) is attached to the created point. Its inertial force is proportional to its mass times its acceleration. Open the navigation drawer and the Bodies menu, tap the plus sign under Particle, and enter", "url": "https://momdyn.dc-engineer.com/docs/tutorials/oscillator/#step-6-add-the-point-mass"}, {"@type": "HowToStep", "position": 7, "name": "Derive the equations and simulate", "text": "On the Diagram tab, tap the right-arrow button in the lower left to derive the equations of motion. This model is small, so the derivation runs nearly instantly, and the icon changes to the outline of a play button. Tap again to run the simulation, and once more to play the animation. The mass bounc", "url": "https://momdyn.dc-engineer.com/docs/tutorials/oscillator/#step-7-derive-the-equations-and-simulate"}, {"@type": "HowToStep", "position": 8, "name": "Export the model", "text": "Open the menu drawer and tap Export. Switch on the items you want, then export:", "url": "https://momdyn.dc-engineer.com/docs/tutorials/oscillator/#step-8-export-the-model"}, {"@type": "HowToStep", "position": 9, "name": "Read the report", "text": "Tap the Report tab to see the model as text, equations and plots. The buttons at the top choose the section: symbols, frames, points, bodies, loads, equations and plots. The images show these sections for the oscillator (there are no frames other than the inertial frame).", "url": "https://momdyn.dc-engineer.com/docs/tutorials/oscillator/#step-9-read-the-report"}]}</script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -37,6 +39,10 @@
         <a href="/docs/tutorials/" aria-current="page">Tutorials</a>
         <a href="/docs/mechanism/">Reference</a>
       </nav>
+      <button type="button" class="search-btn" id="search-open" aria-label="Search the docs" aria-keyshortcuts="Meta+K Control+K /">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+        <span class="search-label">Search</span><kbd class="search-kbd" aria-hidden="true">&#8984;K</kbd>
+      </button>
     </div>
   </header>
 
@@ -47,29 +53,36 @@
     </div>
     <div class="scrim" id="scrim" hidden></div>
     <aside class="docs-side" id="side" aria-label="Documentation">
-      <nav aria-label="Documentation"><ul class="docs-tree"><li><a href="/docs/getting_started/">Getting Started</a><ul><li><details open><summary>Tutorials</summary><ul><li><a href="/docs/tutorials/">Tutorials</a></li><li><a href="/docs/tutorials/pendulum/">Simple Pendulum</a></li><li><a href="/docs/tutorials/oscillator/" aria-current="page">Mass-Spring-Damper</a></li></ul></details></li><li><a href="/docs/create_dialog/">Create / Settings Dialogs</a></li><li><a href="/docs/import_dialog/">Import Dialog</a></li><li><a href="/docs/on_screen_controls/">On-Screen Controls</a></li><li><a href="/docs/menu_dialog/">Menu Dialog</a></li><li><a href="/docs/save/">Import/Export</a></li></ul></li><li><a href="/docs/mechanism/">Mechanism Module</a><ul><li><details><summary>Classic</summary><ul><li><a href="/docs/classic/">Classic</a></li><li><a href="/docs/classic/parameter/">Parameter</a></li><li><a href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a></li><li><a href="/docs/classic/generalized_speed/">Generalized Speed</a></li><li><a href="/docs/classic/frame/">Frame</a></li><li><a href="/docs/classic/vector/">Vector</a></li><li><a href="/docs/classic/point/">Point</a></li></ul></details></li><li><details><summary>Joints</summary><ul><li><a href="/docs/joints/">Joints</a></li><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></details></li><li><details><summary>Bodies</summary><ul><li><a href="/docs/bodies/">Bodies</a></li><li><a href="/docs/bodies/particle/">Particle</a></li><li><a href="/docs/bodies/general_rigid_body/">General Rigid Body</a></li><li><a href="/docs/bodies/rigid_body_box/">Rigid Body Box</a></li><li><a href="/docs/bodies/rigid_body_cone/">Rigid Body Cone</a></li><li><a href="/docs/bodies/rigid_body_cylinder/">Rigid Body Cylinder</a></li></ul></details></li><li><details><summary>Loads</summary><ul><li><a href="/docs/loads/">Loads</a></li><li><a href="/docs/loads/external_force/">External Force</a></li><li><a href="/docs/loads/actuated_force/">Actuated Force</a></li><li><a href="/docs/loads/external_moment/">External Moment</a></li><li><a href="/docs/loads/actuated_moment/">Actuated Moment</a></li><li><a href="/docs/loads/translational_spring/">Translational Spring</a></li><li><a href="/docs/loads/rotational_spring/">Rotational Spring</a></li></ul></details></li><li><details><summary>Sensors</summary><ul><li><a href="/docs/sensors/">Sensors</a></li><li><a href="/docs/sensors/position_sensor/">Position Sensor</a></li><li><a href="/docs/sensors/velocity_sensor/">Velocity Sensor</a></li><li><a href="/docs/sensors/accelerometer/">Accelerometer</a></li><li><a href="/docs/sensors/dcm_sensor/">DCM Sensor</a></li><li><a href="/docs/sensors/rate_gyro/">Rate Gyro</a></li></ul></details></li></ul></li><li><a href="https://apps.apple.com/us/app/id1491149780" class="ext">Download on the App Store</a></li><li><a href="https://play.google.com/store/apps/details?id=com.badeyedea.momdyn" class="ext">Get it on Google Play</a></li><li><a href="https://www.momdyn.com/index.html" class="ext">Read our Blog</a></li><li><a href="https://www.facebook.com/Mobile-Multibody-Dynamics-102652851603623/" class="ext">Follow on Facebook</a></li><li><a href="https://www.youtube.com/channel/UC7ij1ezmh8a3Q7N3gF4zUkQ" class="ext">Watch on Youtube</a></li><li><a href="https://www.buymeacoffee.com/PLUQkDz" class="ext">Buy me a coffee</a></li></ul></nav>
+      <nav aria-label="Documentation"><ul class="docs-tree"><li><a href="/docs/getting_started/">Getting Started</a></li><li><details open><summary>Tutorials</summary><ul><li><a href="/docs/tutorials/">Overview</a></li><li><a href="/docs/tutorials/pendulum/">Simple Pendulum</a></li><li><a href="/docs/tutorials/oscillator/" aria-current="page">Mass-Spring-Damper</a></li></ul></details></li><li><details><summary>Interface</summary><ul><li><a href="/docs/interface/">Overview</a></li><li><a href="/docs/create_dialog/">Create / Settings Dialogs</a></li><li><a href="/docs/import_dialog/">Import Dialog</a></li><li><a href="/docs/on_screen_controls/">On-Screen Controls</a></li><li><a href="/docs/menu_dialog/">Menu Dialog</a></li><li><a href="/docs/save/">Import/Export</a></li></ul></details></li><li><details><summary>Reference</summary><ul><li><a href="/docs/mechanism/">Overview</a></li><li><details><summary>Classic</summary><ul><li><a href="/docs/classic/">Overview</a></li><li><a href="/docs/classic/parameter/">Parameter</a></li><li><a href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a></li><li><a href="/docs/classic/generalized_speed/">Generalized Speed</a></li><li><a href="/docs/classic/frame/">Frame</a></li><li><a href="/docs/classic/vector/">Vector</a></li><li><a href="/docs/classic/point/">Point</a></li></ul></details></li><li><details><summary>Joints</summary><ul><li><a href="/docs/joints/">Overview</a></li><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></details></li><li><details><summary>Bodies</summary><ul><li><a href="/docs/bodies/">Overview</a></li><li><a href="/docs/bodies/particle/">Particle</a></li><li><a href="/docs/bodies/general_rigid_body/">General Rigid Body</a></li><li><a href="/docs/bodies/rigid_body_box/">Rigid Body Box</a></li><li><a href="/docs/bodies/rigid_body_cone/">Rigid Body Cone</a></li><li><a href="/docs/bodies/rigid_body_cylinder/">Rigid Body Cylinder</a></li></ul></details></li><li><details><summary>Loads</summary><ul><li><a href="/docs/loads/">Overview</a></li><li><a href="/docs/loads/external_force/">External Force</a></li><li><a href="/docs/loads/actuated_force/">Actuated Force</a></li><li><a href="/docs/loads/external_moment/">External Moment</a></li><li><a href="/docs/loads/actuated_moment/">Actuated Moment</a></li><li><a href="/docs/loads/translational_spring/">Translational Spring</a></li><li><a href="/docs/loads/rotational_spring/">Rotational Spring</a></li></ul></details></li><li><details><summary>Sensors</summary><ul><li><a href="/docs/sensors/">Overview</a></li><li><a href="/docs/sensors/position_sensor/">Position Sensor</a></li><li><a href="/docs/sensors/velocity_sensor/">Velocity Sensor</a></li><li><a href="/docs/sensors/accelerometer/">Accelerometer</a></li><li><a href="/docs/sensors/dcm_sensor/">DCM Sensor</a></li><li><a href="/docs/sensors/rate_gyro/">Rate Gyro</a></li></ul></details></li></ul></details></li></ul></nav>
+      <div class="side-cta">
+        <a class="store-badge" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1600214400" width="132" height="44" alt="Download on the App Store" loading="lazy"></a>
+        <p>Free on iPhone &amp; iPad</p>
+      </div>
     </aside>
 
     <main id="main" class="doc" data-pagefind-body>
-      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/docs/">Docs</a></li><li><a href="/docs/getting_started/">Getting Started</a></li><li><a href="/docs/tutorials/">Tutorials</a></li><li aria-current="page">Mass-Spring-Damper</li></ol></nav>
+      <nav class="crumbs" aria-label="Breadcrumb" data-pagefind-ignore><ol><li><a href="/docs/">Docs</a></li><li><a href="/docs/tutorials/">Tutorials</a></li><li aria-current="page">Mass-Spring-Damper</li></ol></nav>
       <h1>Mass-Spring-Damper</h1>
+<details class="toc-mobile" data-pagefind-ignore><summary>On this page</summary><nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#introduction">Introduction</a></li><li><a href="#set-up-the-model">Set up the model</a><ul><li><a href="#step-1-create-the-new-model">Step 1: Create the new model</a></li></ul></li><li><a href="#path-a-classic-interface">Path A: Classic interface</a><ul><li><a href="#step-2-create-the-displacement-coordinate">Step 2: Create the displacement coordinate</a></li><li><a href="#step-3-create-the-vector">Step 3: Create the vector</a></li><li><a href="#step-4-create-the-point">Step 4: Create the point</a></li><li><a href="#step-5-add-the-translational-spring">Step 5: Add the translational spring</a></li></ul></li><li><a href="#path-b-joints-interface">Path B: Joints interface</a><ul><li><a href="#step-2-joints-path-add-a-prismatic-joint">Step 2 (Joints path): Add a prismatic joint</a></li></ul></li><li><a href="#add-the-mass">Add the mass</a><ul><li><a href="#step-6-add-the-point-mass">Step 6: Add the point mass</a></li></ul></li><li><a href="#simulate-and-analyze">Simulate and analyze</a><ul><li><a href="#step-7-derive-the-equations-and-simulate">Step 7: Derive the equations and simulate</a></li><li><a href="#step-8-export-the-model">Step 8: Export the model</a></li><li><a href="#step-9-read-the-report">Step 9: Read the report</a></li></ul></li><li><a href="#what-you-built">What you built</a></li><li><a href="#exported-python">Exported Python</a></li><li><a href="#next-steps">Next steps</a></li></ul></nav></details>
 
 
 
 <section id="introduction">
-<h2>Introduction</h2>
-<p>This is a tutorial for creating a mass-spring-damper system in a uniform gravitational field, which is the fundamental
-problem used in study of linear vibration. The animation below is generated in MOMDYN at the completion of the tutorial.
-You can also watch a video demonstration of this tutorial on <a class="reference external" href="https://youtu.be/XwqVYjrp25U">Youtube</a>.</p>
-<div class="shots"><video class="anim" width="400" height="225" autoplay muted loop playsinline preload="metadata" poster="/docs/_media/tutorials/oscillator/oscillator.webp" aria-label="Animation of the oscillator in a 2-D diagram view"><source src="/docs/_media/tutorials/oscillator/oscillator.mp4" type="video/mp4"><source src="/docs/_media/tutorials/oscillator/oscillator.webm" type="video/webm"></video></div><p>The model is generated using two variations on the kinematics interface, “Classic,” and “Joints.” The former is akin to
-a pencil-and-paper approach, each symbolic parameter is individually named by the user, and each frame, vector, and
-point is created using these parameters. The latter is closer to the approach used in modern multibody dynamics software,
-where lower-level modeling attributes are consolidated into a prismatic joint object, reducing the total number of steps.</p>
-<section id="new-model">
-<h3>New Model</h3>
-<div class="shots"><img src="/docs/_media/tutorials/oscillator/01-1.webp" width="108" height="222" alt="Welcome screen" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/01-2.webp" width="108" height="222" alt="Create screen" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/01-3.webp" width="108" height="222" alt="Create screen, bottom" loading="lazy" decoding="async"></div><p>To begin, from the welcome screen tap the “Create” button, which will bring up a dialog with the title “Create -
-Specify Settings.” Many of the settings in this dialog can remain with their defaults. The modified specifications give
-a model name and description, and creates gravitational force, time, and tolerance. Enter the following:</p>
+<h2>Introduction<a class="anchor" href="#introduction" aria-label="Link to section: Introduction"></a></h2>
+<p>This tutorial builds a mass-spring-damper in a uniform gravitational field, the fundamental problem of linear vibration. By the end you will have derived its equation of motion, simulated it and exported it as Python.</p>
+<div class="shots"><video class="demo" controls muted playsinline preload="none" width="400" height="225" poster="/docs/_media/tutorials/oscillator/oscillator.webp" aria-label="Animation of the finished mass bouncing on its spring in the 2-D diagram view"><source src="/docs/_media/tutorials/oscillator/oscillator.mp4" type="video/mp4"><source src="/docs/_media/tutorials/oscillator/oscillator.webm" type="video/webm">Your browser cannot play this video.</video></div><div class="admonition admonition-two-ways-to-build-the-same-model">
+<p class="admonition-title">Two ways to build the same model</p>
+<p>MOMDYN has two kinematics interfaces, and they build exactly the same oscillator. You only need one of them.
+<a class="reference external" href="#path-a-classic-interface">Path A: Classic</a> is like a pencil-and-paper derivation: you create a coordinate, a vector, a point and a spring one at a time.
+<a class="reference external" href="#path-b-joints-interface">Path B: Joints</a> replaces those four steps with one prismatic joint.
+Both paths start at <a class="reference external" href="#step-1-create-the-new-model">Step 1</a> and continue at <a class="reference external" href="#step-6-add-the-point-mass">Step 6</a>.</p>
+</div>
+</section>
+<section id="set-up-the-model">
+<h2>Set up the model<a class="anchor" href="#set-up-the-model" aria-label="Link to section: Set up the model"></a></h2>
+<section id="step-1-create-the-new-model">
+<h3>Step 1: Create the new model<a class="anchor" href="#step-1-create-the-new-model" aria-label="Link to section: Step 1: Create the new model"></a></h3>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/01-1.webp" width="108" height="222" alt="The Welcome screen with the Create, Import and Help buttons" loading="eager" decoding="async"><img src="/docs/_media/tutorials/oscillator/01-2.webp" width="108" height="222" alt="The top of the Create settings dialog with the model name and description fields" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/01-3.webp" width="108" height="222" alt="The bottom of the Create settings dialog with the gravity, time and tolerance fields" loading="lazy" decoding="async"></div><p>From the Welcome screen, tap <strong>Create</strong>. A dialog titled “Create - Specify Settings” opens (see the <a class="reference external" href="/docs/create_dialog/">settings reference</a>). Most settings can keep their defaults. Enter the following:</p>
 <blockquote>
 <ul class="simple">
 <li><p><em>model_name</em>: Oscillator</p></li>
@@ -81,73 +94,48 @@ a model name and description, and creates gravitational force, time, and toleran
 <li><p><em>tol</em>: 0.00001</p></li>
 </ul>
 </blockquote>
-<p>Tap the “Ok” button to create the model. Open the navigation drawer by tapping the button in the upper left, and then
-tap the export menu option. Tap the “Export Now” button to save the model. as we will be returning to this stage later
-in the tutorial.</p>
-<hr></section>
+<p>Tap the green check in the lower right to create the model. Then save it (menu drawer, then Export, with <strong>Save File</strong> on), because the Joints path returns to this point.</p>
 </section>
-<section id="classic-interface">
-<h2>Classic Interface</h2>
-<p>Here we will use the classic interface, which allows for more direct control over the fundamental building blocks of
-the kinematics. Here we will define a generalized coordinate for displacement, attach that generalized coordinate to a
-vector, and create a point defined relative to the origin by the vector. The spring is defined that connects the origin
-and created point, with stiffness, damping, and equilibrium properties.</p>
-<section id="create-symbols">
-<h3>Create Symbols</h3>
-<p>For this model, a single time-varying generalized coordinate is defined representing displacement. The creation of
-constants for spring stiffness, damping, and equilibrium is done automatically in the translational spring object which
-will be created later in this tutorial.</p>
-<section id="generalized-coordinate">
-<h4>Generalized Coordinate</h4>
-<div class="shots"><img src="/docs/_media/tutorials/oscillator/02a-1.webp" width="108" height="222" alt="Navigation drawer with classic menu highlighted" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/02a-2.webp" width="108" height="222" alt="Classic menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/02a-3.webp" width="108" height="222" alt="New displacement coordinate" loading="lazy" decoding="async"></div><p>Open the navigation drawer, and then select the classic menu option. Tap the plus sign under generalized coordinate, and
-enter the following specifications for a translational degree of freedom.</p>
+</section>
+<section id="path-a-classic-interface">
+<h2>Path A: Classic interface<a class="anchor" href="#path-a-classic-interface" aria-label="Link to section: Path A: Classic interface"></a></h2>
+<p>The Classic interface gives direct control over the building blocks of the kinematics. Here you define a generalized coordinate for the displacement, attach it to a vector, create a point at the end of that vector, and connect the origin and that point with a spring. If you prefer fewer steps, jump to <a class="reference external" href="#path-b-joints-interface">Path B: Joints</a>.</p>
+<section id="step-2-create-the-displacement-coordinate">
+<h3>Step 2: Create the displacement coordinate<a class="anchor" href="#step-2-create-the-displacement-coordinate" aria-label="Link to section: Step 2: Create the displacement coordinate"></a></h3>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/02a-1.webp" width="108" height="222" alt="The navigation drawer with the Classic menu highlighted" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/02a-2.webp" width="108" height="222" alt="The Classic menu with a plus button under Generalized Coordinate" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/02a-3.webp" width="108" height="222" alt="The New Generalized Coordinate dialog filled in with name h, initial value 1 and description displacement" loading="lazy" decoding="async"></div><p>Open the navigation drawer, then the <strong>Classic</strong> menu. Tap the plus sign under <strong>Generalized Coordinate</strong> and enter</p>
 <blockquote>
 <ul class="simple">
-<li><p>name: h</p></li>
-<li><p>initial: 1</p></li>
-<li><p>description: displacement</p></li>
+<li><p><em>name</em>: h</p></li>
+<li><p><em>initial</em>: 1</p></li>
+<li><p><em>description</em>: displacement</p></li>
 </ul>
 </blockquote>
-<p>Tap “Ok” to create the displacement coordinate.</p>
+<p>and tap <strong>Ok</strong>. This creates the displacement <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">h(t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">h</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></span>, the model’s one translational DOF. The spring’s stiffness, damping and equilibrium constants are created automatically with the spring in Step 5. See <a class="reference external" href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a>.</p>
 </section>
-</section>
-<section id="kinematics">
-<h3>Kinematics</h3>
-<p>The kinematics in this tutorial are established using a single vector and point that is positioned relative to the
-origin by the created vector.</p>
-<section id="vector">
-<h4>Vector</h4>
-<div class="shots"><img src="/docs/_media/tutorials/oscillator/02a-1.webp" width="108" height="222" alt="Navigation drawer with classic menu highlighted" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/06a-2.webp" width="108" height="222" alt="New vector" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/06a-3.webp" width="108" height="222" alt="Created vector in the diagram view" loading="lazy" decoding="async"></div><p>Next, with the classic panel open, tap the plus sign under vector, and enter the following</p>
+<section id="step-3-create-the-vector">
+<h3>Step 3: Create the vector<a class="anchor" href="#step-3-create-the-vector" aria-label="Link to section: Step 3: Create the vector"></a></h3>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/02a-1.webp" width="108" height="222" alt="The navigation drawer with the Classic menu highlighted" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/06a-2.webp" width="108" height="222" alt="The New Vector dialog with name h and y set to h(t)" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/06a-3.webp" width="108" height="222" alt="The new vector drawn as a gray line along the vertical axis of the diagram" loading="lazy" decoding="async"></div><p>With the Classic panel open, tap the plus sign under <strong>Vector</strong> and enter</p>
 <blockquote>
 <ul class="simple">
 <li><p><em>name</em>: h</p></li>
 <li><p><em>y</em>: h(t)</p></li>
 </ul>
 </blockquote>
-<p>and tap the “Ok” button to create the vector named h, aligned with the j axis of the inertial frame, with length
-equal to the generalized coordinate h. Return to the diagram view to see the vector rendered as a gray line.</p>
+<p>and tap <strong>Ok</strong>. This creates the vector <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">h</mi></mrow><annotation encoding="application/x-tex">\mathbf{h}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathbf">h</span></span></span></span></span> along the <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">j</mi></mrow><annotation encoding="application/x-tex">\mathbf{j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathbf">j</span></span></span></span></span> (y) axis of the inertial frame, with a length equal to the coordinate <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi></mrow><annotation encoding="application/x-tex">h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span></span>. Return to the diagram to see it as a gray line. See <a class="reference external" href="/docs/classic/vector/">Vector</a>.</p>
 </section>
-<section id="point">
-<h4>Point</h4>
-<div class="shots"><img src="/docs/_media/tutorials/oscillator/07a-1.webp" width="108" height="222" alt="Classic menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/07a-2.webp" width="108" height="222" alt="New point" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/07a-3.webp" width="108" height="222" alt="Created point in the diagram view" loading="lazy" decoding="async"></div><p>Next, tap the plus sign under point, and enter the following</p>
+<section id="step-4-create-the-point">
+<h3>Step 4: Create the point<a class="anchor" href="#step-4-create-the-point" aria-label="Link to section: Step 4: Create the point"></a></h3>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/07a-1.webp" width="108" height="222" alt="The Classic menu with a plus button under Point" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/07a-2.webp" width="108" height="222" alt="The New Point dialog with vector_key set to h" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/07a-3.webp" width="108" height="222" alt="The new point drawn as a blue sphere at the end of the vector" loading="lazy" decoding="async"></div><p>Tap the plus sign under <strong>Point</strong> and enter</p>
 <blockquote>
 <ul class="simple">
-<li><p><em>vector_key</em>: h(t)</p></li>
+<li><p><em>vector_key</em>: h</p></li>
 </ul>
 </blockquote>
-<p>and tap the “Ok” button to create the point a at the end of the vector h. Return to the diagram view, where you will
-see the diagram updated to include the new vector and point, with the latter rendered as a blue sphere.</p>
+<p>and tap <strong>Ok</strong> to create point <em>a</em> at the end of the vector <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">h</mi></mrow><annotation encoding="application/x-tex">\mathbf{h}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathbf">h</span></span></span></span></span>. In the diagram, the point is a blue sphere. See <a class="reference external" href="/docs/classic/point/">Point</a>.</p>
 </section>
-</section>
-<section id="loads">
-<h3>Loads</h3>
-<p>A single load is applied in this model as a spring force applied equally and in opposite directions to the origin and
-the created point. The spring force is proportional to stiffness times the point’s displacement relative to its
-equilibrium, and damping times the velocity of the point.</p>
-<section id="translational-spring">
-<h4>Translational Spring</h4>
-<div class="shots"><img src="/docs/_media/tutorials/oscillator/08a-1.webp" width="108" height="222" alt="Navigation drawer with loads menu highlighted" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/08a-2.webp" width="108" height="222" alt="Loads menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/08a-3.webp" width="108" height="222" alt="New translational spring" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/08a-4.webp" width="108" height="222" alt="Created spring in the diagram view" loading="lazy" decoding="async"></div><p>From the navigation drawer, tap the loads menu option, and then tap the plus icon under translational spring.
-Enter the following</p>
+<section id="step-5-add-the-translational-spring">
+<h3>Step 5: Add the translational spring<a class="anchor" href="#step-5-add-the-translational-spring" aria-label="Link to section: Step 5: Add the translational spring"></a></h3>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/08a-1.webp" width="108" height="222" alt="The navigation drawer with the Loads menu highlighted" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/08a-2.webp" width="108" height="222" alt="The Loads menu with a plus button under Translational Spring" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/08a-3.webp" width="108" height="222" alt="The New Translational Spring dialog with end_point a, k 50, c 1 and equilibrium 1" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/08a-4.webp" width="108" height="222" alt="The spring drawn between the origin and the point in the diagram view" loading="lazy" decoding="async"></div><p>The only load in this model is a spring-damper between the origin and the point. Open the navigation drawer, then the <strong>Loads</strong> menu, and tap the plus sign under <strong>Translational Spring</strong>. Enter</p>
 <blockquote>
 <ul class="simple">
 <li><p><em>end_point</em>: a</p></li>
@@ -156,24 +144,15 @@ Enter the following</p>
 <li><p><em>equilibrium</em>: 1</p></li>
 </ul>
 </blockquote>
-<p>then tap the “Ok” button to create the spring. This will additionally create the parameters <em>k</em><sub>O/a</sub>,
-<em>c</em><sub>O/a</sub>, and <em>e</em><sub>O/a</sub>, for stiffness, damping, and equilibrium, respectively. Return to the diagram,
-where you will see the spring rendered between the two points.</p>
-<hr></section>
+<p>and tap <strong>Ok</strong>. MOMDYN also creates the parameters <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>k</mi><mrow><mi>O</mi><mi mathvariant="normal">/</mi><mi>a</mi></mrow></msub></mrow><annotation encoding="application/x-tex">k_{O/a}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0496em;vertical-align:-0.3552em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.5198em;margin-left:-0.0315em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">O</span><span class="mord mtight">/</span><span class="mord mathnormal mtight">a</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3552em;"><span></span></span></span></span></span></span></span></span></span></span>, <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>c</mi><mrow><mi>O</mi><mi mathvariant="normal">/</mi><mi>a</mi></mrow></msub></mrow><annotation encoding="application/x-tex">c_{O/a}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7858em;vertical-align:-0.3552em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">O</span><span class="mord mtight">/</span><span class="mord mathnormal mtight">a</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3552em;"><span></span></span></span></span></span></span></span></span></span></span> and <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mrow><mi>O</mi><mi mathvariant="normal">/</mi><mi>a</mi></mrow></msub></mrow><annotation encoding="application/x-tex">e_{O/a}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7858em;vertical-align:-0.3552em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">O</span><span class="mord mtight">/</span><span class="mord mathnormal mtight">a</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3552em;"><span></span></span></span></span></span></span></span></span></span></span> for the stiffness, damping and equilibrium length. The spring appears between the two points. See <a class="reference external" href="/docs/loads/translational_spring/">Translational Spring</a>. Continue at <a class="reference external" href="#step-6-add-the-point-mass">Step 6</a>.</p>
 </section>
 </section>
-<section id="joints-interface">
-<h2>Joints Interface</h2>
-<p>The joints interface is more convenient for many applications, as it consolidates functionality of the building block
-components into common mechanical joints, and doesn’t require individually defining all of the symbols, vectors, and
-points in the model. In this case, the displacement coordinate, vector, point, and spring are all contained in a single
-prismatic joint object.</p>
-<section id="prismatic-joint">
-<h3>Prismatic Joint</h3>
-<div class="shots"><img src="/docs/_media/tutorials/oscillator/02b-1.webp" width="108" height="222" alt="Navigation drawer with loads menu highlighted" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/02b-2.webp" width="108" height="222" alt="Joints menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/02b-3.webp" width="108" height="222" alt="New prismatic joint" loading="lazy" decoding="async"></div><p>Tap on the welcome tab on the bottom of the screen, then the import button, and select the saved Oscillator file,
-which will return the model to its original state. Open the navigation drawer, and tap the joints menu item, then tap
-the plus sign under prismatic. Add the following specifications, leaving line items that are unlisted at their default
-value,</p>
+<section id="path-b-joints-interface">
+<h2>Path B: Joints interface<a class="anchor" href="#path-b-joints-interface" aria-label="Link to section: Path B: Joints interface"></a></h2>
+<p>The Joints interface consolidates the building blocks into common mechanical joints. Here the displacement coordinate, the vector, the point and the spring all live in one prismatic joint.</p>
+<section id="step-2-joints-path-add-a-prismatic-joint">
+<h3>Step 2 (Joints path): Add a prismatic joint<a class="anchor" href="#step-2-joints-path-add-a-prismatic-joint" aria-label="Link to section: Step 2 (Joints path): Add a prismatic joint"></a></h3>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/02b-1.webp" width="108" height="222" alt="The navigation drawer with the Joints menu highlighted" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/02b-2.webp" width="108" height="222" alt="The Joints menu with a plus button under Prismatic" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/02b-3.webp" width="108" height="222" alt="The New Prismatic joint dialog with y 1, value 1, k 50, c 1 and equilibrium 1" loading="lazy" decoding="async"></div><p>Tap the <strong>Welcome</strong> tab at the bottom of the screen, then <strong>Import</strong>, and choose the saved <em>Oscillator</em> model. This returns the model to its state after <a class="reference external" href="#step-1-create-the-new-model">Step 1</a>. Open the navigation drawer, open the <strong>Joints</strong> menu and tap the plus sign under <strong>Prismatic</strong>. Enter (items not listed keep their defaults)</p>
 <blockquote>
 <ul class="simple">
 <li><p><em>y</em>: 1</p></li>
@@ -183,17 +162,14 @@ value,</p>
 <li><p><em>equilibrium</em>: 1</p></li>
 </ul>
 </blockquote>
-<p>and then tap the “Ok” button to create the joint. Return to the diagram to see the created point and spring in the same
-configuration as defined after completion of the classic procedure.</p>
-<hr></section>
+<p>and tap <strong>Ok</strong>. The diagram shows the same point and spring as the Classic path. See <a class="reference external" href="/docs/joints/prismatic/">Prismatic Joint</a>.</p>
 </section>
-<section id="bodies">
-<h2>Bodies</h2>
-<p>A single particle (or point mass) is defined and attached to the created point. The inertial (or internal) force on this
-body will be proportional to its mass times acceleration.</p>
-<section id="particle">
-<h3>Particle</h3>
-<div class="shots"><img src="/docs/_media/tutorials/oscillator/10-1.webp" width="108" height="222" alt="Navigation drawer with bodies menu highlighted" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/10-2.webp" width="108" height="222" alt="Bodies menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/10-3.webp" width="108" height="222" alt="New particle" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/10-4.webp" width="108" height="222" alt="Created particle in the diagram view" loading="lazy" decoding="async"></div><p>Open the navigation drawer and select the bodies menu. Tap on the plus sign under particle, and enter the following.</p>
+</section>
+<section id="add-the-mass">
+<h2>Add the mass<a class="anchor" href="#add-the-mass" aria-label="Link to section: Add the mass"></a></h2>
+<section id="step-6-add-the-point-mass">
+<h3>Step 6: Add the point mass<a class="anchor" href="#step-6-add-the-point-mass" aria-label="Link to section: Step 6: Add the point mass"></a></h3>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/10-1.webp" width="108" height="222" alt="The navigation drawer with the Bodies menu highlighted" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/10-2.webp" width="108" height="222" alt="The Bodies menu with a plus button under Particle" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/10-3.webp" width="108" height="222" alt="The New Particle dialog with name bob, ref_point_key a and mass 1" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/10-4.webp" width="108" height="222" alt="The particle drawn as a green and black sphere at the end of the spring" loading="lazy" decoding="async"></div><p>A single particle (a point mass) is attached to the created point. Its inertial force is proportional to its mass times its acceleration. Open the navigation drawer and the <strong>Bodies</strong> menu, tap the plus sign under <strong>Particle</strong>, and enter</p>
 <blockquote>
 <ul class="simple">
 <li><p><em>name</em>: bob</p></li>
@@ -201,44 +177,74 @@ body will be proportional to its mass times acceleration.</p>
 <li><p><em>mass</em>: 1</p></li>
 </ul>
 </blockquote>
-<p>which will create the bob with mass of 1 attached to the point <em>a</em>, as shown. Additionally, the parameter
-<em>m</em><sub>bob</sub>will be created. Return to the diagram to see the created particle rendered as a green and black sphere.</p>
-<hr></section>
+<p>This creates the bob with mass 1 at point <em>a</em>, and the parameter <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>m</mi><mrow><mi>b</mi><mi>o</mi><mi>b</mi></mrow></msub></mrow><annotation encoding="application/x-tex">m_{bob}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">b</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span>. See <a class="reference external" href="/docs/bodies/particle/">Particle</a>.</p>
 </section>
-<section id="analysis">
-<h2>Analysis</h2>
-<p>Here we will demonstrate the simulation and animation features, as well as the report containing documentation of the
-modeling parameters, system equations, and plots of the motion states. We will also show the export feature, which will
-save the model for future use, and create output data, plots, and Python code.</p>
-<section id="simulation">
-<h3>Simulation</h3>
-<p>To generate equations of motion, tap the right-arrow button in the lower left corner of the diagram. Since this is a
-very simple model, the derivation runs nearly instantaneously. Once complete, the icon will change to the outline of a
-play button. Tap again to run the simulation, once again this will be nearly instantaneous. Tap again to play the
-animation, which will show the mass bouncing with around a 1 second period, as seen previously at the top of this page.</p>
 </section>
-<section id="model-export">
-<h3>Model Export</h3>
-<p>Open the navigation drawer by tapping the three horizontal lines in the upper left corner, and then tap on the export
-button. Keep each of the items selected, as is default, then tap the “Export Now” button to export the files. The Model
-file (momdyn_model.py) is the format used to import to the MOMDYN app. The Simulation file (simulation.csv) are the
-time-series reflecting the generalized coordinates and speeds that are animated. The Python file (py_model.py) contains
-code that can be executed and further manipulated on a desktop Python environment.</p>
-<div class="shots"><img src="/docs/_media/tutorials/oscillator/export-1.webp" width="108" height="222" alt="Press the export button in the menu" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/export-2.webp" width="108" height="222" alt="Select to export model, simulation, and python" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/export-3.webp" width="108" height="192" alt="Exported Python code, shown in the Pyto app" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/export-states.webp" width="640" height="480" alt="Plotted states" loading="lazy" decoding="async"></div><hr></section>
-<section id="report">
-<h3>Report</h3>
-<p>Tap on the report tab in the lower right to open up the report view showing text, equations and plots. The buttons at
-the top specify which section of the report to view. From left to right these are symbols, frames, points, bodies,
-loads, equations, and plots. The images below show these sections for the Oscillator model, omitting frames as there
-are none (except for the inertial frame).</p>
-<div class="shots"><img src="/docs/_media/tutorials/oscillator/report-symbols.webp" width="108" height="222" alt="Symbols in the report view" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/report-points.webp" width="108" height="222" alt="Points in the report view" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/report-bodies.webp" width="108" height="222" alt="Bodies in the report view" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/report-loads.webp" width="108" height="222" alt="Loads in the report view" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/report-equations.webp" width="108" height="222" alt="Equations in the report view" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/report-plots.webp" width="108" height="222" alt="Plots in the report view" loading="lazy" decoding="async"></div></section>
+<section id="simulate-and-analyze">
+<h2>Simulate and analyze<a class="anchor" href="#simulate-and-analyze" aria-label="Link to section: Simulate and analyze"></a></h2>
+<section id="step-7-derive-the-equations-and-simulate">
+<h3>Step 7: Derive the equations and simulate<a class="anchor" href="#step-7-derive-the-equations-and-simulate" aria-label="Link to section: Step 7: Derive the equations and simulate"></a></h3>
+<p>On the Diagram tab, tap the right-arrow button in the lower left to derive the equations of motion. This model is small, so the derivation runs nearly instantly, and the icon changes to the outline of a play button. Tap again to run the simulation, and once more to play the animation. The mass bounces with a period of about 0.9 seconds, as in the animation at the top of this page. The on-screen controls are described in <a class="reference external" href="/docs/on_screen_controls/">On-Screen Controls</a>.</p>
 </section>
+<section id="step-8-export-the-model">
+<h3>Step 8: Export the model<a class="anchor" href="#step-8-export-the-model" aria-label="Link to section: Step 8: Export the model"></a></h3>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/export-1.webp" width="108" height="222" alt="The Export button in the menu drawer" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/export-2.webp" width="108" height="222" alt="The Export screen with switches for the model file, the Python file and the simulation data" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/export-3.webp" width="108" height="192" alt="The exported Python code opened in the Pyto app" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/export-states.webp" width="640" height="480" alt="A plot of the oscillator&#x27;s displacement and speed against time" loading="lazy" decoding="async"></div><p>Open the menu drawer and tap <strong>Export</strong>. Switch on the items you want, then export:</p>
+<blockquote>
+<ul class="simple">
+<li><p><strong>Save File</strong> (<span class="docutils literal">model.py</span>): the model, in the format MOMDYN imports.</p></li>
+<li><p><strong>Python File</strong> (<span class="docutils literal">python_model.py</span>): code you can run and extend on a desktop Python environment.</p></li>
+<li><p><strong>Tabular Data</strong> (<span class="docutils literal">simulation.csv</span>): the time series of the generalized coordinates and speeds that drive the animation.</p></li>
+<li><p><strong>Plot Images</strong> (<span class="docutils literal">plots.pdf</span>): plots of the simulation results.</p></li>
+</ul>
+</blockquote>
+<p>See <a class="reference external" href="/docs/save/">Import/Export</a> for the file formats.</p>
+</section>
+<section id="step-9-read-the-report">
+<h3>Step 9: Read the report<a class="anchor" href="#step-9-read-the-report" aria-label="Link to section: Step 9: Read the report"></a></h3>
+<p>Tap the <strong>Report</strong> tab to see the model as text, equations and plots. The buttons at the top choose the section: symbols, frames, points, bodies, loads, equations and plots. The images show these sections for the oscillator (there are no frames other than the inertial frame).</p>
+<div class="shots"><img src="/docs/_media/tutorials/oscillator/report-symbols.webp" width="108" height="222" alt="The Symbols section of the report, listing the displacement, the mass, the stiffness, the damping and the equilibrium length" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/report-points.webp" width="108" height="222" alt="The Points section of the report, listing the origin and point a" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/report-bodies.webp" width="108" height="222" alt="The Bodies section of the report, listing the particle bob" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/report-loads.webp" width="108" height="222" alt="The Loads section of the report, listing the translational spring between the origin and point a" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/report-equations.webp" width="108" height="222" alt="The Equations section of the report, showing the mass matrix and the forcing vector" loading="lazy" decoding="async"><img src="/docs/_media/tutorials/oscillator/report-plots.webp" width="108" height="222" alt="The Plots section of the report, showing the displacement and speed over time" loading="lazy" decoding="async"></div></section>
+</section>
+<section id="what-you-built">
+<h2>What you built<a class="anchor" href="#what-you-built" aria-label="Link to section: What you built"></a></h2>
+<p>The model has one coordinate <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi></mrow><annotation encoding="application/x-tex">h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span></span>, one particle of mass <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span></span>, gravity <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi></mrow><annotation encoding="application/x-tex">g</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span></span> in the <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">-y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.1944em;"></span><span class="mord">−</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span></span> direction, and one spring-damper with stiffness <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span></span>, damping <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span></span></span></span></span> and equilibrium length <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span></span></span></span></span>. Its equation of motion is</p>
+<div class="equation" tabindex="0" role="group" aria-label="Equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>m</mi><mtext> </mtext><mover accent="true"><mi>h</mi><mo>¨</mo></mover><mo>+</mo><mi>c</mi><mtext> </mtext><mover accent="true"><mi>h</mi><mo>˙</mo></mover><mo>+</mo><mi>k</mi><mtext> </mtext><mo stretchy="false">(</mo><mi>h</mi><mo>−</mo><mi>e</mi><mo stretchy="false">)</mo><mo>+</mo><mi>m</mi><mtext> </mtext><mi>g</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">m\,\ddot{h} + c\,\dot{h} + k\,(h - e) + m\,g = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0146em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9313em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">h</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">¨</span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0146em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">c</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9313em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">h</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1389em;"><span class="mord">˙</span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">e</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span></div><p>With <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">m = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span>, <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">k = 50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">50</span></span></span></span></span>, <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">c = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">c</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span>, <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">e = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span> and <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>=</mo><mn>9.8</mn></mrow><annotation encoding="application/x-tex">g = 9.8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">9.8</span></span></span></span></span>, the natural frequency is <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ω</mi><mi>n</mi></msub><mo>=</mo><msqrt><mrow><mi>k</mi><mi mathvariant="normal">/</mi><mi>m</mi></mrow></msqrt><mo>≈</mo><mn>7.07</mn></mrow><annotation encoding="application/x-tex">\omega_n = \sqrt{k/m} \approx 7.07</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">ω</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.305em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord">/</span><span class="mord mathnormal">m</span></span></span><span style="top:-2.895em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewBox="0 0 400000 1296" preserveAspectRatio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.305em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">7.07</span></span></span></span></span> rad/s, and the damped period is <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>π</mi><mi mathvariant="normal">/</mi><msqrt><mrow><mi>k</mi><mi mathvariant="normal">/</mi><mi>m</mi><mo>−</mo><mo stretchy="false">(</mo><mi>c</mi><mi mathvariant="normal">/</mi><mn>2</mn><mi>m</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></msqrt><mo>≈</mo><mn>0.89</mn></mrow><annotation encoding="application/x-tex">2\pi / \sqrt{k/m - (c/2m)^2} \approx 0.89</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.305em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="mord">/</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord">/</span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mord mathnormal">c</span><span class="mord">/2</span><span class="mord mathnormal">m</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-2.895em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewBox="0 0 400000 1296" preserveAspectRatio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.305em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.89</span></span></span></span></span> s. The mass starts at the spring’s equilibrium length, so gravity pulls it down and it oscillates around the static equilibrium <span class="tex"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi><mo>=</mo><mi>e</mi><mo>−</mo><mi>m</mi><mi>g</mi><mi mathvariant="normal">/</mi><mi>k</mi><mo>≈</mo><mn>0.80</mn></mrow><annotation encoding="application/x-tex">h = e - m g / k \approx 0.80</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">m</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.80</span></span></span></span></span> m.</p>
+</section>
+<section id="exported-python">
+<h2>Exported Python<a class="anchor" href="#exported-python" aria-label="Link to section: Exported Python"></a></h2>
+<p>The Python File export contains the equations of motion and a short simulation script. This is an excerpt:</p>
+<p class="code-caption">python_model.py (placeholder excerpt)</p><pre class="code" tabindex="0" aria-label="Python code example"><code><span class="tok-c1"># TODO (owner): paste a short excerpt of the exported oscillator code here</span>
+<span class="tok-c1"># (the equations of motion and the simulation call).</span>
+</code></pre></section>
+<section id="next-steps">
+<h2>Next steps<a class="anchor" href="#next-steps" aria-label="Link to section: Next steps"></a></h2>
+<p>Reference pages for the components used here: <a class="reference external" href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a>, <a class="reference external" href="/docs/classic/vector/">Vector</a>, <a class="reference external" href="/docs/classic/point/">Point</a>, <a class="reference external" href="/docs/loads/translational_spring/">Translational Spring</a>, <a class="reference external" href="/docs/joints/prismatic/">Prismatic Joint</a> and <a class="reference external" href="/docs/bodies/particle/">Particle</a>.</p>
+<div class="cta-card" role="group" aria-label="Get the app"><div><p class="cta-title">Build this model in MOMDYN, free on iPhone &amp; iPad</p><p class="cta-sub">Everything in this tutorial runs in the app. No license required.</p><a class="cta-next" href="/docs/tutorials/pendulum/">Next tutorial: Simple Pendulum &rarr;</a></div><a class="store-badge" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780"><div class="shots"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1600214400" width="140" height="47" alt="Download on the App Store" loading="lazy"></div></a></div></section>
 
-      <nav class="pager" aria-label="Pages"><a class="prev" href="/docs/tutorials/pendulum/"><span>Previous</span><b>Simple Pendulum</b></a><a class="next" href="/docs/create_dialog/"><span>Next</span><b>Create / Settings Dialogs</b></a></nav>
+      <nav class="pager" aria-label="Pages" data-pagefind-ignore><a class="prev" href="/docs/tutorials/pendulum/"><span>Previous</span><b>Simple Pendulum</b></a><a class="next" href="/docs/interface/"><span>Next</span><b>Interface</b></a></nav>
     </main>
 
     <aside class="docs-toc" id="toc">
-      <nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#introduction">Introduction</a></li><li><a href="#classic-interface">Classic Interface</a></li><li><a href="#joints-interface">Joints Interface</a></li><li><a href="#bodies">Bodies</a></li><li><a href="#analysis">Analysis</a></li></ul></nav>
+<nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#introduction">Introduction</a></li><li><a href="#set-up-the-model">Set up the model</a><ul><li><a href="#step-1-create-the-new-model">Step 1: Create the new model</a></li></ul></li><li><a href="#path-a-classic-interface">Path A: Classic interface</a><ul><li><a href="#step-2-create-the-displacement-coordinate">Step 2: Create the displacement coordinate</a></li><li><a href="#step-3-create-the-vector">Step 3: Create the vector</a></li><li><a href="#step-4-create-the-point">Step 4: Create the point</a></li><li><a href="#step-5-add-the-translational-spring">Step 5: Add the translational spring</a></li></ul></li><li><a href="#path-b-joints-interface">Path B: Joints interface</a><ul><li><a href="#step-2-joints-path-add-a-prismatic-joint">Step 2 (Joints path): Add a prismatic joint</a></li></ul></li><li><a href="#add-the-mass">Add the mass</a><ul><li><a href="#step-6-add-the-point-mass">Step 6: Add the point mass</a></li></ul></li><li><a href="#simulate-and-analyze">Simulate and analyze</a><ul><li><a href="#step-7-derive-the-equations-and-simulate">Step 7: Derive the equations and simulate</a></li><li><a href="#step-8-export-the-model">Step 8: Export the model</a></li><li><a href="#step-9-read-the-report">Step 9: Read the report</a></li></ul></li><li><a href="#what-you-built">What you built</a></li><li><a href="#exported-python">Exported Python</a></li><li><a href="#next-steps">Next steps</a></li></ul></nav>
     </aside>
   </div>
 
@@ -256,8 +262,59 @@ are none (except for the inertial frame).</p>
     </div>
   </footer>
 
+  <dialog id="search" class="search-dialog" aria-label="Search the documentation">
+    <div class="search-head"><span>Search the docs</span><button type="button" class="search-close" id="search-close" aria-label="Close search">&times;</button></div>
+    <div id="search-box"></div>
+  </dialog>
+
   <script>
   (function () {
+    // Search: Pagefind is loaded the first time the dialog opens, so it costs nothing until used.
+    var dlg = document.getElementById('search'), loaded = false;
+    function loadSearch() {
+      if (loaded) return; loaded = true;
+      var css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/docs/pagefind/pagefind-ui.css'; document.head.appendChild(css);
+      var js = document.createElement('script'); js.src = '/docs/pagefind/pagefind-ui.js';
+      js.onload = function () {
+        new PagefindUI({ element: '#search-box', showImages: false, showSubResults: true, resetStyles: false, autofocus: true,
+          translations: { placeholder: 'Search the docs' } });
+        var i = dlg.querySelector('input'); if (i) i.focus();
+      };
+      document.head.appendChild(js);
+    }
+    function openSearch() {
+      if (!dlg.showModal) { location.href = '/docs/'; return; }
+      if (!dlg.open) dlg.showModal();
+      loadSearch();
+      var i = dlg.querySelector('input'); if (i) i.focus();
+    }
+    document.getElementById('search-open').addEventListener('click', openSearch);
+    document.getElementById('search-close').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a')) dlg.close(); });
+    document.addEventListener('keydown', function (e) {
+      var t = e.target, typing = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
+      if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) { e.preventDefault(); openSearch(); }
+      else if (e.key === '/' && !typing && !e.metaKey && !e.ctrlKey && !e.altKey) { e.preventDefault(); openSearch(); }
+    });
+    // "On this page": highlight the section being read.
+    var links = document.querySelectorAll('.docs-toc a[href^="#"]');
+    if (links.length) {
+      var map = {}; Array.prototype.forEach.call(links, function (a) { map[a.getAttribute('href').slice(1)] = a; });
+      var heads = Array.prototype.filter.call(document.querySelectorAll('.doc section[id]'), function (s) { return map[s.id]; });
+      var current = null, ticking = false;
+      function spy() {
+        ticking = false;
+        var best = heads[0];
+        heads.forEach(function (s) { if (s.getBoundingClientRect().top <= 120) best = s; });
+        if (best && best.id !== current) {
+          if (current && map[current]) map[current].removeAttribute('aria-current');
+          current = best.id; map[current].setAttribute('aria-current', 'true');
+        }
+      }
+      addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(spy); } }, { passive: true });
+      spy();
+    }
     var nav = document.getElementById('nav');
     function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 4); }
     addEventListener('scroll', onScroll, { passive: true }); onScroll();

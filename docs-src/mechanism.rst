@@ -1,3 +1,8 @@
+.. seo::
+   :title: Mechanism Module Reference – Multibody Dynamics Components | MOMDYN
+   :description: Reference for the MOMDYN Mechanism module: Classic types, joints, bodies, loads and sensors, with every parameter, equation and sign convention.
+   :type: techarticle
+
 Mechanism Module
 ================
 
@@ -96,3 +101,45 @@ limitations.
    :maxdepth: 2
 
    sensors
+
+Features
+--------
+
+Numeric and string input definition
++++++++++++++++++++++++++++++++++++
+
+The mobile implementation requires simplification of the user input commensurate with the limited interaction
+capability provided by a mobile device compared to a desktop workstation. Many high-level methods available in open
+source software have been re-structured in MOMDYN such that their inputs can be defined using only numeric and string
+variables.
+
+New/edit/delete methods
++++++++++++++++++++++++
+
+Each object implemented in the Mechanism module has a "new," "edit," and "delete" method.
+
+Embedded documentation
+++++++++++++++++++++++
+
+Each object implemented in the Mechanism module has documentation that can be accessed from the front-end interface.
+
+Equation of motion generation
++++++++++++++++++++++++++++++
+
+Once the kinematic and dynamic relations are defined in the Mechanism module, equations relating the generalized
+coordinates to generalized speeds, equilibrium conditions, mass and forcing matrix are automatically derived. These can
+be displayed in the front-end, or exported to human-readable source code or typeset reports.
+
+Simulation
+++++++++++
+
+Commonly used open-source numerical integration algorithms necessary for simulation of dynamic systems have been
+implemented in architectures that cannot be compiled on mobile device. MOMDYN includes a custom simulation routine that
+can be built on all devices.
+
+Automated code generation
++++++++++++++++++++++++++
+
+Complex dynamics models created in MOMDYN require interactivity with desktop workstations or high performance computing
+systems to execute fast and/or high volume analysis. The Mechanism module provides an interface to automatically
+generate human-readable source code in Python formats that can be transferred to these systems.

@@ -1,3 +1,8 @@
+.. seo::
+   :title: Sensors Reference – Position, Velocity, Acceleration, Rate Gyro
+   :description: Reference for MOMDYN sensors: position, velocity, accelerometer, direction cosine matrix and rate gyro measurements of points and frames in a simulation.
+   :type: techarticle
+
 Sensors
 =======
 

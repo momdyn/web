@@ -1,0 +1,9 @@
+{
+  "name": "momdyn-web",
+  "private": true,
+  "description": "Build-time tools for the docs: KaTeX pre-rendering and Pagefind search index",
+  "devDependencies": {
+    "katex": "0.16.11",
+    "pagefind": "1.3.0"
+  }
+}

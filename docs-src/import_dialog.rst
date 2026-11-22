@@ -1,3 +1,8 @@
+.. seo::
+   :title: Import Dialog – Load Example and Saved Models | MOMDYN
+   :description: How to load a packaged example or one of your own saved models into MOMDYN on iPhone or iPad, using the Import dialog on the Welcome screen.
+   :type: article
+
 Import Dialog
 =============
 

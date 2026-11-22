@@ -250,8 +250,8 @@ plt.savefig(<span class="tok-s">"</span><span class="tok-s">states.png</span><sp
             <p>Orbit, pan, zoom and scrub the timeline.</p>
           </li>
           <li>
-            <!-- TODO (asset): this card repeats the Export screen from the Python section. Replace it with assets/screens/welcome.webp (Welcome / examples screen) when it exists. -->
-            <div class="stage"><div class="phone"><img class="screen" src="assets/screens/export.webp" width="640" height="1392" loading="lazy" alt="The Export screen of the app, with switches for Save File, Python File, Tabular Data and Plot Images."></div></div>
+            <!-- TODO (asset): assets/screens/welcome.webp is a stand-in copy of export.webp. Overwrite that file with the Welcome / examples screen (640x1392); the page needs no code change, but then update this card's h3, p and the img alt text to describe the Welcome screen. -->
+            <div class="stage"><div class="phone"><img class="screen" src="assets/screens/welcome.webp" width="640" height="1392" loading="lazy" alt="The Export screen of the app, with switches for Save File, Python File, Tabular Data and Plot Images."></div></div>
             <h3>Export Python</h3>
             <p>Take your model to the desktop.</p>
           </li>
@@ -346,6 +346,7 @@ plt.savefig(<span class="tok-s">"</span><span class="tok-s">states.png</span><sp
     function update() {
       var on = past && !endVisible;
       bar.classList.toggle('show', on);
+      document.body.classList.toggle('sticky-on', on);
       bar.setAttribute('aria-hidden', on ? 'false' : 'true');
     }
     function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 4); }

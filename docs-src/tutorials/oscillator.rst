@@ -1,40 +1,46 @@
+.. seo::
+   :title: Mass-Spring-Damper Tutorial – Equation of Motion | MOMDYN
+   :description: Build a mass-spring-damper in MOMDYN on iPhone or iPad, the basic model of linear vibration, then derive its equation of motion and export Python.
+   :type: howto
+
 Mass-Spring-Damper
 ##################
 
 Introduction
 ============
 
-This is a tutorial for creating a mass-spring-damper system in a uniform gravitational field, which is the fundamental
-problem used in study of linear vibration. The animation below is generated in MOMDYN at the completion of the tutorial.
-You can also watch a video demonstration of this tutorial on `Youtube <https://youtu.be/XwqVYjrp25U>`_.
+This tutorial builds a mass-spring-damper in a uniform gravitational field, the fundamental problem of linear vibration. By the end you will have derived its equation of motion, simulated it and exported it as Python.
 
-.. image:: oscillator/oscillator.gif
+.. video:: oscillator/oscillator.mp4
    :width: 400
-   :alt: Animation of the oscillator in a 2-D diagram view
+   :alt: Animation of the finished mass bouncing on its spring in the 2-D diagram view
 
-The model is generated using two variations on the kinematics interface, "Classic," and "Joints." The former is akin to
-a pencil-and-paper approach, each symbolic parameter is individually named by the user, and each frame, vector, and
-point is created using these parameters. The latter is closer to the approach used in modern multibody dynamics software,
-where lower-level modeling attributes are consolidated into a prismatic joint object, reducing the total number of steps.
+.. admonition:: Two ways to build the same model
 
-New Model
----------
+   MOMDYN has two kinematics interfaces, and they build exactly the same oscillator. You only need one of them.
+   `Path A: Classic <#path-a-classic-interface>`__ is like a pencil-and-paper derivation: you create a coordinate, a vector, a point and a spring one at a time.
+   `Path B: Joints <#path-b-joints-interface>`__ replaces those four steps with one prismatic joint.
+   Both paths start at `Step 1 <#step-1-create-the-new-model>`__ and continue at `Step 6 <#step-6-add-the-point-mass>`__.
+
+Set up the model
+================
+
+Step 1: Create the new model
+----------------------------
 
 .. image:: oscillator/01-1.png
    :width: 108
-   :alt: Welcome screen
+   :alt: The Welcome screen with the Create, Import and Help buttons
 
 .. image:: oscillator/01-2.png
    :width: 108
-   :alt: Create screen
+   :alt: The top of the Create settings dialog with the model name and description fields
 
 .. image:: oscillator/01-3.png
    :width: 108
-   :alt: Create screen, bottom
+   :alt: The bottom of the Create settings dialog with the gravity, time and tolerance fields
 
-To begin, from the welcome screen tap the "Create" button, which will bring up a dialog with the title "Create -
-Specify Settings." Many of the settings in this dialog can remain with their defaults. The modified specifications give
-a model name and description, and creates gravitational force, time, and tolerance. Enter the following:
+From the Welcome screen, tap **Create**. A dialog titled "Create - Specify Settings" opens (see the `settings reference <../create_dialog.html>`__). Most settings can keep their defaults. Enter the following:
 
   - *model_name*: Oscillator
   - *model_description*: Simple mass-spring-damper as is common in linear vibration analysis
@@ -44,173 +50,128 @@ a model name and description, and creates gravitational force, time, and toleran
   - *time_duration*: 5
   - *tol*: 0.00001
 
-Tap the "Ok" button to create the model. Open the navigation drawer by tapping the button in the upper left, and then
-tap the export menu option. Tap the "Export Now" button to save the model. as we will be returning to this stage later
-in the tutorial.
+Tap the green check in the lower right to create the model. Then save it (menu drawer, then Export, with **Save File** on), because the Joints path returns to this point.
 
-.. raw:: html
+Path A: Classic interface
+=========================
 
-   <hr>
+The Classic interface gives direct control over the building blocks of the kinematics. Here you define a generalized coordinate for the displacement, attach it to a vector, create a point at the end of that vector, and connect the origin and that point with a spring. If you prefer fewer steps, jump to `Path B: Joints <#path-b-joints-interface>`__.
 
-Classic Interface
-=================
-
-Here we will use the classic interface, which allows for more direct control over the fundamental building blocks of
-the kinematics. Here we will define a generalized coordinate for displacement, attach that generalized coordinate to a
-vector, and create a point defined relative to the origin by the vector. The spring is defined that connects the origin
-and created point, with stiffness, damping, and equilibrium properties.
-
-Create Symbols
---------------
-
-For this model, a single time-varying generalized coordinate is defined representing displacement. The creation of
-constants for spring stiffness, damping, and equilibrium is done automatically in the translational spring object which
-will be created later in this tutorial.
-
-Generalized Coordinate
-++++++++++++++++++++++
+Step 2: Create the displacement coordinate
+------------------------------------------
 
 .. image:: oscillator/02a-1.png
    :width: 108
-   :alt: Navigation drawer with classic menu highlighted
+   :alt: The navigation drawer with the Classic menu highlighted
 
 .. image:: oscillator/02a-2.png
    :width: 108
-   :alt: Classic menu
+   :alt: The Classic menu with a plus button under Generalized Coordinate
 
 .. image:: oscillator/02a-3.png
    :width: 108
-   :alt: New displacement coordinate
+   :alt: The New Generalized Coordinate dialog filled in with name h, initial value 1 and description displacement
 
-Open the navigation drawer, and then select the classic menu option. Tap the plus sign under generalized coordinate, and
-enter the following specifications for a translational degree of freedom.
+Open the navigation drawer, then the **Classic** menu. Tap the plus sign under **Generalized Coordinate** and enter
 
-  - name: h
-  - initial: 1
-  - description: displacement
+  - *name*: h
+  - *initial*: 1
+  - *description*: displacement
 
-Tap "Ok" to create the displacement coordinate.
+and tap **Ok**. This creates the displacement :math:`h(t)`, the model's one translational DOF. The spring's stiffness, damping and equilibrium constants are created automatically with the spring in Step 5. See `Generalized Coordinate <../classic/generalized_coordinate.html>`__.
 
-Kinematics
-----------
-
-The kinematics in this tutorial are established using a single vector and point that is positioned relative to the
-origin by the created vector.
-
-Vector
-++++++
+Step 3: Create the vector
+-------------------------
 
 .. image:: oscillator/02a-1.png
    :width: 108
-   :alt: Navigation drawer with classic menu highlighted
+   :alt: The navigation drawer with the Classic menu highlighted
 
 .. image:: oscillator/06a-2.png
    :width: 108
-   :alt: New vector
+   :alt: The New Vector dialog with name h and y set to h(t)
 
 .. image:: oscillator/06a-3.png
    :width: 108
-   :alt: Created vector in the diagram view
+   :alt: The new vector drawn as a gray line along the vertical axis of the diagram
 
-Next, with the classic panel open, tap the plus sign under vector, and enter the following
+With the Classic panel open, tap the plus sign under **Vector** and enter
 
   - *name*: h
   - *y*: h(t)
 
-and tap the "Ok" button to create the vector named h, aligned with the j axis of the inertial frame, with length
-equal to the generalized coordinate h. Return to the diagram view to see the vector rendered as a gray line.
+and tap **Ok**. This creates the vector :math:`\mathbf{h}` along the :math:`\mathbf{j}` (y) axis of the inertial frame, with a length equal to the coordinate :math:`h`. Return to the diagram to see it as a gray line. See `Vector <../classic/vector.html>`__.
 
-Point
-+++++
+Step 4: Create the point
+------------------------
 
 .. image:: oscillator/07a-1.png
    :width: 108
-   :alt: Classic menu
+   :alt: The Classic menu with a plus button under Point
 
 .. image:: oscillator/07a-2.png
    :width: 108
-   :alt: New point
+   :alt: The New Point dialog with vector_key set to h
 
 .. image:: oscillator/07a-3.png
    :width: 108
-   :alt: Created point in the diagram view
+   :alt: The new point drawn as a blue sphere at the end of the vector
 
-Next, tap the plus sign under point, and enter the following
+Tap the plus sign under **Point** and enter
 
-  - *vector_key*: h(t)
+  - *vector_key*: h
 
-and tap the "Ok" button to create the point a at the end of the vector h. Return to the diagram view, where you will
-see the diagram updated to include the new vector and point, with the latter rendered as a blue sphere.
+and tap **Ok** to create point *a* at the end of the vector :math:`\mathbf{h}`. In the diagram, the point is a blue sphere. See `Point <../classic/point.html>`__.
 
-Loads
------
-
-A single load is applied in this model as a spring force applied equally and in opposite directions to the origin and
-the created point. The spring force is proportional to stiffness times the point's displacement relative to its
-equilibrium, and damping times the velocity of the point.
-
-Translational Spring
-++++++++++++++++++++
+Step 5: Add the translational spring
+------------------------------------
 
 .. image:: oscillator/08a-1.png
    :width: 108
-   :alt: Navigation drawer with loads menu highlighted
+   :alt: The navigation drawer with the Loads menu highlighted
 
 .. image:: oscillator/08a-2.png
    :width: 108
-   :alt: Loads menu
+   :alt: The Loads menu with a plus button under Translational Spring
 
 .. image:: oscillator/08a-3.png
    :width: 108
-   :alt: New translational spring
+   :alt: The New Translational Spring dialog with end_point a, k 50, c 1 and equilibrium 1
 
 .. image:: oscillator/08a-4.png
    :width: 108
-   :alt: Created spring in the diagram view
+   :alt: The spring drawn between the origin and the point in the diagram view
 
-From the navigation drawer, tap the loads menu option, and then tap the plus icon under translational spring.
-Enter the following
+The only load in this model is a spring-damper between the origin and the point. Open the navigation drawer, then the **Loads** menu, and tap the plus sign under **Translational Spring**. Enter
 
   - *end_point*: a
   - *k*: 50
   - *c*: 1
   - *equilibrium*: 1
 
-then tap the "Ok" button to create the spring. This will additionally create the parameters *k*\ :sub:`O/a`\,
-*c*\ :sub:`O/a`\, and *e*\ :sub:`O/a`, for stiffness, damping, and equilibrium, respectively. Return to the diagram,
-where you will see the spring rendered between the two points.
+and tap **Ok**. MOMDYN also creates the parameters :math:`k_{O/a}`, :math:`c_{O/a}` and :math:`e_{O/a}` for the stiffness, damping and equilibrium length. The spring appears between the two points. See `Translational Spring <../loads/translational_spring.html>`__. Continue at `Step 6 <#step-6-add-the-point-mass>`__.
 
-.. raw:: html
+Path B: Joints interface
+========================
 
-   <hr>
+The Joints interface consolidates the building blocks into common mechanical joints. Here the displacement coordinate, the vector, the point and the spring all live in one prismatic joint.
 
-Joints Interface
-================
-
-The joints interface is more convenient for many applications, as it consolidates functionality of the building block
-components into common mechanical joints, and doesn't require individually defining all of the symbols, vectors, and
-points in the model. In this case, the displacement coordinate, vector, point, and spring are all contained in a single
-prismatic joint object.
-
-Prismatic Joint
----------------
+Step 2 (Joints path): Add a prismatic joint
+-------------------------------------------
 
 .. image:: oscillator/02b-1.png
    :width: 108
-   :alt: Navigation drawer with loads menu highlighted
+   :alt: The navigation drawer with the Joints menu highlighted
 
 .. image:: oscillator/02b-2.png
    :width: 108
-   :alt: Joints menu
+   :alt: The Joints menu with a plus button under Prismatic
 
 .. image:: oscillator/02b-3.png
    :width: 108
-   :alt: New prismatic joint
+   :alt: The New Prismatic joint dialog with y 1, value 1, k 50, c 1 and equilibrium 1
 
-Tap on the welcome tab on the bottom of the screen, then the import button, and select the saved Oscillator file,
-which will return the model to its original state. Open the navigation drawer, and tap the joints menu item, then tap
-the plus sign under prismatic. Add the following specifications, leaving line items that are unlisted at their default
-value,
+Tap the **Welcome** tab at the bottom of the screen, then **Import**, and choose the saved *Oscillator* model. This returns the model to its state after `Step 1 <#step-1-create-the-new-model>`__. Open the navigation drawer, open the **Joints** menu and tap the plus sign under **Prismatic**. Enter (items not listed keep their defaults)
 
   - *y*: 1
   - *value*: 1
@@ -218,123 +179,131 @@ value,
   - *c*: 1
   - *equilibrium*: 1
 
-and then tap the "Ok" button to create the joint. Return to the diagram to see the created point and spring in the same
-configuration as defined after completion of the classic procedure.
+and tap **Ok**. The diagram shows the same point and spring as the Classic path. See `Prismatic Joint <../joints/prismatic.html>`__.
 
-.. raw:: html
+Add the mass
+============
 
-   <hr>
-
-Bodies
-======
-
-A single particle (or point mass) is defined and attached to the created point. The inertial (or internal) force on this
-body will be proportional to its mass times acceleration.
-
-Particle
---------
+Step 6: Add the point mass
+--------------------------
 
 .. image:: oscillator/10-1.png
    :width: 108
-   :alt: Navigation drawer with bodies menu highlighted
+   :alt: The navigation drawer with the Bodies menu highlighted
 
 .. image:: oscillator/10-2.png
    :width: 108
-   :alt: Bodies menu
+   :alt: The Bodies menu with a plus button under Particle
 
 .. image:: oscillator/10-3.png
    :width: 108
-   :alt: New particle
+   :alt: The New Particle dialog with name bob, ref_point_key a and mass 1
 
 .. image:: oscillator/10-4.png
    :width: 108
-   :alt: Created particle in the diagram view
+   :alt: The particle drawn as a green and black sphere at the end of the spring
 
-Open the navigation drawer and select the bodies menu. Tap on the plus sign under particle, and enter the following.
+A single particle (a point mass) is attached to the created point. Its inertial force is proportional to its mass times its acceleration. Open the navigation drawer and the **Bodies** menu, tap the plus sign under **Particle**, and enter
 
   - *name*: bob
   - *ref_point_key*: a
   - *mass*: 1
 
-which will create the bob with mass of 1 attached to the point *a*, as shown. Additionally, the parameter
-*m*\ :sub:`bob`\ will be created. Return to the diagram to see the created particle rendered as a green and black sphere.
+This creates the bob with mass 1 at point *a*, and the parameter :math:`m_{bob}`. See `Particle <../bodies/particle.html>`__.
 
-.. raw:: html
+Simulate and analyze
+====================
 
-   <hr>
+Step 7: Derive the equations and simulate
+-----------------------------------------
 
-Analysis
-========
+On the Diagram tab, tap the right-arrow button in the lower left to derive the equations of motion. This model is small, so the derivation runs nearly instantly, and the icon changes to the outline of a play button. Tap again to run the simulation, and once more to play the animation. The mass bounces with a period of about 0.9 seconds, as in the animation at the top of this page. The on-screen controls are described in `On-Screen Controls <../on_screen_controls.html>`__.
 
-Here we will demonstrate the simulation and animation features, as well as the report containing documentation of the
-modeling parameters, system equations, and plots of the motion states. We will also show the export feature, which will
-save the model for future use, and create output data, plots, and Python code.
-
-Simulation
-----------
-
-To generate equations of motion, tap the right-arrow button in the lower left corner of the diagram. Since this is a
-very simple model, the derivation runs nearly instantaneously. Once complete, the icon will change to the outline of a
-play button. Tap again to run the simulation, once again this will be nearly instantaneous. Tap again to play the
-animation, which will show the mass bouncing with around a 1 second period, as seen previously at the top of this page.
-
-Model Export
-------------
-
-Open the navigation drawer by tapping the three horizontal lines in the upper left corner, and then tap on the export
-button. Keep each of the items selected, as is default, then tap the "Export Now" button to export the files. The Model
-file (momdyn_model.py) is the format used to import to the MOMDYN app. The Simulation file (simulation.csv) are the
-time-series reflecting the generalized coordinates and speeds that are animated. The Python file (py_model.py) contains
-code that can be executed and further manipulated on a desktop Python environment.
+Step 8: Export the model
+------------------------
 
 .. image:: oscillator/export-1.png
    :width: 108
-   :alt: Press the export button in the menu
+   :alt: The Export button in the menu drawer
 
 .. image:: oscillator/export-2.png
    :width: 108
-   :alt: Select to export model, simulation, and python
+   :alt: The Export screen with switches for the model file, the Python file and the simulation data
 
 .. image:: oscillator/export-3.png
    :width: 108
-   :alt: Exported Python code, shown in the Pyto app
+   :alt: The exported Python code opened in the Pyto app
 
 .. image:: oscillator/export-states.png
    :height: 196
-   :alt: Plotted states
+   :alt: A plot of the oscillator's displacement and speed against time
 
-.. raw:: html
+Open the menu drawer and tap **Export**. Switch on the items you want, then export:
 
-   <hr>
+  - **Save File** (``model.py``): the model, in the format MOMDYN imports.
+  - **Python File** (``python_model.py``): code you can run and extend on a desktop Python environment.
+  - **Tabular Data** (``simulation.csv``): the time series of the generalized coordinates and speeds that drive the animation.
+  - **Plot Images** (``plots.pdf``): plots of the simulation results.
 
-Report
-------
+See `Import/Export <../save.html>`__ for the file formats.
 
-Tap on the report tab in the lower right to open up the report view showing text, equations and plots. The buttons at
-the top specify which section of the report to view. From left to right these are symbols, frames, points, bodies,
-loads, equations, and plots. The images below show these sections for the Oscillator model, omitting frames as there
-are none (except for the inertial frame).
+Step 9: Read the report
+-----------------------
+
+Tap the **Report** tab to see the model as text, equations and plots. The buttons at the top choose the section: symbols, frames, points, bodies, loads, equations and plots. The images show these sections for the oscillator (there are no frames other than the inertial frame).
 
 .. image:: oscillator/report-symbols.png
    :width: 108
-   :alt: Symbols in the report view
+   :alt: The Symbols section of the report, listing the displacement, the mass, the stiffness, the damping and the equilibrium length
 
 .. image:: oscillator/report-points.png
    :width: 108
-   :alt: Points in the report view
+   :alt: The Points section of the report, listing the origin and point a
 
 .. image:: oscillator/report-bodies.png
    :width: 108
-   :alt: Bodies in the report view
+   :alt: The Bodies section of the report, listing the particle bob
 
 .. image:: oscillator/report-loads.png
    :width: 108
-   :alt: Loads in the report view
+   :alt: The Loads section of the report, listing the translational spring between the origin and point a
 
 .. image:: oscillator/report-equations.png
    :width: 108
-   :alt: Equations in the report view
+   :alt: The Equations section of the report, showing the mass matrix and the forcing vector
 
 .. image:: oscillator/report-plots.png
    :width: 108
-   :alt: Plots in the report view
+   :alt: The Plots section of the report, showing the displacement and speed over time
+
+What you built
+==============
+
+The model has one coordinate :math:`h`, one particle of mass :math:`m`, gravity :math:`g` in the :math:`-y` direction, and one spring-damper with stiffness :math:`k`, damping :math:`c` and equilibrium length :math:`e`. Its equation of motion is
+
+.. math::
+
+   m\,\ddot{h} + c\,\dot{h} + k\,(h - e) + m\,g = 0
+
+With :math:`m = 1`, :math:`k = 50`, :math:`c = 1`, :math:`e = 1` and :math:`g = 9.8`, the natural frequency is :math:`\omega_n = \sqrt{k/m} \approx 7.07` rad/s, and the damped period is :math:`2\pi / \sqrt{k/m - (c/2m)^2} \approx 0.89` s. The mass starts at the spring's equilibrium length, so gravity pulls it down and it oscillates around the static equilibrium :math:`h = e - m g / k \approx 0.80` m.
+
+Exported Python
+===============
+
+The Python File export contains the equations of motion and a short simulation script. This is an excerpt:
+
+.. TODO (owner): replace the placeholder below with a short excerpt of python_model.py exported from this oscillator.
+
+.. pycode::
+   :caption: python_model.py (placeholder excerpt)
+
+   # TODO (owner): paste a short excerpt of the exported oscillator code here
+   # (the equations of motion and the simulation call).
+
+Next steps
+==========
+
+Reference pages for the components used here: `Generalized Coordinate <../classic/generalized_coordinate.html>`__, `Vector <../classic/vector.html>`__, `Point <../classic/point.html>`__, `Translational Spring <../loads/translational_spring.html>`__, `Prismatic Joint <../joints/prismatic.html>`__ and `Particle <../bodies/particle.html>`__.
+
+.. appcta::
+   :next: /docs/tutorials/pendulum/ | Simple Pendulum

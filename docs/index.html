@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mobile Multibody Dynamics documentation | MOMDYN</title>
-  <meta name="description" content="Mobile Multibody Dynamics (MOMDYN) is the first multibody dynamics app for iOS and Android. MOMDYN provides an easy to use graphical interface that is...">
+  <title>MOMDYN Documentation – Multibody Dynamics on iPhone &amp; iPad</title>
+  <meta name="description" content="Guides, tutorials and a component reference for MOMDYN, the free iPhone and iPad app that derives equations of motion and exports Python.">
   <link rel="canonical" href="https://momdyn.dc-engineer.com/docs/">
   <meta name="theme-color" content="#5856D6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#5E5CE6" media="(prefers-color-scheme: dark)">
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="website">
   <meta property="og:site_name" content="MOMDYN">
-  <meta property="og:title" content="Mobile Multibody Dynamics documentation | MOMDYN">
-  <meta property="og:description" content="Mobile Multibody Dynamics (MOMDYN) is the first multibody dynamics app for iOS and Android. MOMDYN provides an easy to use graphical interface that is...">
+  <meta property="og:title" content="MOMDYN Documentation – Multibody Dynamics on iPhone &amp; iPad">
+  <meta property="og:description" content="Guides, tutorials and a component reference for MOMDYN, the free iPhone and iPad app that derives equations of motion and exports Python.">
   <meta property="og:url" content="https://momdyn.dc-engineer.com/docs/">
   <meta property="og:image" content="https://momdyn.dc-engineer.com/assets/og.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/docs/_static/docs.css">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Docs", "item": "https://momdyn.dc-engineer.com/docs/"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "MOMDYN Documentation", "description": "Guides, tutorials and a component reference for MOMDYN, the free iPhone and iPad app that derives equations of motion and exports Python.", "inLanguage": "en", "author": {"@type": "Person", "name": "Eliott Radcliffe", "url": "https://dc-engineer.com"}, "publisher": {"@type": "Organization", "name": "DCDC LLC", "url": "https://momdyn.dc-engineer.com/"}, "dateModified": "2026-11-22", "mainEntityOfPage": "https://momdyn.dc-engineer.com/docs/"}</script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -37,135 +38,51 @@
         <a href="/docs/tutorials/">Tutorials</a>
         <a href="/docs/mechanism/">Reference</a>
       </nav>
+      <button type="button" class="search-btn" id="search-open" aria-label="Search the docs" aria-keyshortcuts="Meta+K Control+K /">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+        <span class="search-label">Search</span><kbd class="search-kbd" aria-hidden="true">&#8984;K</kbd>
+      </button>
     </div>
   </header>
 
   <div class="wrap docs-layout" id="layout">
     <div class="doc-tools">
       <button type="button" class="tool" id="toggle-side" aria-controls="side" aria-expanded="true" aria-label="Hide menu" title="Hide menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3.5"/><path d="M9 4v16"/></svg></button>
-      <button type="button" class="tool" id="toggle-toc" aria-controls="toc" aria-expanded="true" aria-label="Hide contents" title="Hide contents"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3.5"/><path d="M15 4v16"/></svg></button>
+      <button type="button" class="tool" id="toggle-toc" aria-controls="toc" aria-expanded="true" aria-label="Hide contents" title="Hide contents" hidden><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3.5"/><path d="M15 4v16"/></svg></button>
     </div>
     <div class="scrim" id="scrim" hidden></div>
     <aside class="docs-side" id="side" aria-label="Documentation">
-      <nav aria-label="Documentation"><ul class="docs-tree"><li><a href="/docs/getting_started/">Getting Started</a><ul><li><details><summary>Tutorials</summary><ul><li><a href="/docs/tutorials/">Tutorials</a></li><li><a href="/docs/tutorials/pendulum/">Simple Pendulum</a></li><li><a href="/docs/tutorials/oscillator/">Mass-Spring-Damper</a></li></ul></details></li><li><a href="/docs/create_dialog/">Create / Settings Dialogs</a></li><li><a href="/docs/import_dialog/">Import Dialog</a></li><li><a href="/docs/on_screen_controls/">On-Screen Controls</a></li><li><a href="/docs/menu_dialog/">Menu Dialog</a></li><li><a href="/docs/save/">Import/Export</a></li></ul></li><li><a href="/docs/mechanism/">Mechanism Module</a><ul><li><details><summary>Classic</summary><ul><li><a href="/docs/classic/">Classic</a></li><li><a href="/docs/classic/parameter/">Parameter</a></li><li><a href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a></li><li><a href="/docs/classic/generalized_speed/">Generalized Speed</a></li><li><a href="/docs/classic/frame/">Frame</a></li><li><a href="/docs/classic/vector/">Vector</a></li><li><a href="/docs/classic/point/">Point</a></li></ul></details></li><li><details><summary>Joints</summary><ul><li><a href="/docs/joints/">Joints</a></li><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></details></li><li><details><summary>Bodies</summary><ul><li><a href="/docs/bodies/">Bodies</a></li><li><a href="/docs/bodies/particle/">Particle</a></li><li><a href="/docs/bodies/general_rigid_body/">General Rigid Body</a></li><li><a href="/docs/bodies/rigid_body_box/">Rigid Body Box</a></li><li><a href="/docs/bodies/rigid_body_cone/">Rigid Body Cone</a></li><li><a href="/docs/bodies/rigid_body_cylinder/">Rigid Body Cylinder</a></li></ul></details></li><li><details><summary>Loads</summary><ul><li><a href="/docs/loads/">Loads</a></li><li><a href="/docs/loads/external_force/">External Force</a></li><li><a href="/docs/loads/actuated_force/">Actuated Force</a></li><li><a href="/docs/loads/external_moment/">External Moment</a></li><li><a href="/docs/loads/actuated_moment/">Actuated Moment</a></li><li><a href="/docs/loads/translational_spring/">Translational Spring</a></li><li><a href="/docs/loads/rotational_spring/">Rotational Spring</a></li></ul></details></li><li><details><summary>Sensors</summary><ul><li><a href="/docs/sensors/">Sensors</a></li><li><a href="/docs/sensors/position_sensor/">Position Sensor</a></li><li><a href="/docs/sensors/velocity_sensor/">Velocity Sensor</a></li><li><a href="/docs/sensors/accelerometer/">Accelerometer</a></li><li><a href="/docs/sensors/dcm_sensor/">DCM Sensor</a></li><li><a href="/docs/sensors/rate_gyro/">Rate Gyro</a></li></ul></details></li></ul></li><li><a href="https://apps.apple.com/us/app/id1491149780" class="ext">Download on the App Store</a></li><li><a href="https://play.google.com/store/apps/details?id=com.badeyedea.momdyn" class="ext">Get it on Google Play</a></li><li><a href="https://www.momdyn.com/index.html" class="ext">Read our Blog</a></li><li><a href="https://www.facebook.com/Mobile-Multibody-Dynamics-102652851603623/" class="ext">Follow on Facebook</a></li><li><a href="https://www.youtube.com/channel/UC7ij1ezmh8a3Q7N3gF4zUkQ" class="ext">Watch on Youtube</a></li><li><a href="https://www.buymeacoffee.com/PLUQkDz" class="ext">Buy me a coffee</a></li></ul></nav>
+      <nav aria-label="Documentation"><ul class="docs-tree"><li><a href="/docs/getting_started/">Getting Started</a></li><li><details><summary>Tutorials</summary><ul><li><a href="/docs/tutorials/">Overview</a></li><li><a href="/docs/tutorials/pendulum/">Simple Pendulum</a></li><li><a href="/docs/tutorials/oscillator/">Mass-Spring-Damper</a></li></ul></details></li><li><details><summary>Interface</summary><ul><li><a href="/docs/interface/">Overview</a></li><li><a href="/docs/create_dialog/">Create / Settings Dialogs</a></li><li><a href="/docs/import_dialog/">Import Dialog</a></li><li><a href="/docs/on_screen_controls/">On-Screen Controls</a></li><li><a href="/docs/menu_dialog/">Menu Dialog</a></li><li><a href="/docs/save/">Import/Export</a></li></ul></details></li><li><details><summary>Reference</summary><ul><li><a href="/docs/mechanism/">Overview</a></li><li><details><summary>Classic</summary><ul><li><a href="/docs/classic/">Overview</a></li><li><a href="/docs/classic/parameter/">Parameter</a></li><li><a href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a></li><li><a href="/docs/classic/generalized_speed/">Generalized Speed</a></li><li><a href="/docs/classic/frame/">Frame</a></li><li><a href="/docs/classic/vector/">Vector</a></li><li><a href="/docs/classic/point/">Point</a></li></ul></details></li><li><details><summary>Joints</summary><ul><li><a href="/docs/joints/">Overview</a></li><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></details></li><li><details><summary>Bodies</summary><ul><li><a href="/docs/bodies/">Overview</a></li><li><a href="/docs/bodies/particle/">Particle</a></li><li><a href="/docs/bodies/general_rigid_body/">General Rigid Body</a></li><li><a href="/docs/bodies/rigid_body_box/">Rigid Body Box</a></li><li><a href="/docs/bodies/rigid_body_cone/">Rigid Body Cone</a></li><li><a href="/docs/bodies/rigid_body_cylinder/">Rigid Body Cylinder</a></li></ul></details></li><li><details><summary>Loads</summary><ul><li><a href="/docs/loads/">Overview</a></li><li><a href="/docs/loads/external_force/">External Force</a></li><li><a href="/docs/loads/actuated_force/">Actuated Force</a></li><li><a href="/docs/loads/external_moment/">External Moment</a></li><li><a href="/docs/loads/actuated_moment/">Actuated Moment</a></li><li><a href="/docs/loads/translational_spring/">Translational Spring</a></li><li><a href="/docs/loads/rotational_spring/">Rotational Spring</a></li></ul></details></li><li><details><summary>Sensors</summary><ul><li><a href="/docs/sensors/">Overview</a></li><li><a href="/docs/sensors/position_sensor/">Position Sensor</a></li><li><a href="/docs/sensors/velocity_sensor/">Velocity Sensor</a></li><li><a href="/docs/sensors/accelerometer/">Accelerometer</a></li><li><a href="/docs/sensors/dcm_sensor/">DCM Sensor</a></li><li><a href="/docs/sensors/rate_gyro/">Rate Gyro</a></li></ul></details></li></ul></details></li></ul></nav>
+      <div class="side-cta">
+        <a class="store-badge" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1600214400" width="132" height="44" alt="Download on the App Store" loading="lazy"></a>
+        <p>Free on iPhone &amp; iPad</p>
+      </div>
     </aside>
 
     <main id="main" class="doc" data-pagefind-body>
 
-      <h1>Mobile Multibody Dynamics</h1>
+      <h1>MOMDYN Documentation</h1>
 
 
 
-<div class="shots"><img src="/docs/_media/img/first_page_header.webp" width="400" height="196" alt="Header" loading="eager" decoding="async"></div><p>Mobile Multibody Dynamics (MOMDYN) is the first multibody dynamics app for iOS and Android. MOMDYN provides an easy to
-use graphical interface that is familiar to engineers and physicists who have studied classical mechanics, with a
-limited but powerful set of features similar to modern modeling and simulation software. The software forms a bridge
-between the”first-principles” approach to dynamics problem solving where one defines kinematic and dynamic equations by
-hand before developing custom code for each individual system, and the modern approach where the fundamental
-mathematical equations are obfuscated behind a purely graphical, computer aided design (CAD)-like interface.</p>
-<p><a class="reference external" href="mailto:mobilemultibodydynamics&#64;gmail.com">Contact Us</a></p>
-<section id="engineering-and-physics-simulation-in-the-palm-of-your-hand">
-<h2>Engineering and Physics Simulation in the Palm of Your Hand</h2>
-<p>The creative instinct can strike when you least expect it. While we would hope that our best ideas come to us
-while we are best-equipped to take action, the reality is that they will frequently hit while we are laying in bed,
-riding on a train, or out for a walk. On some cases, they may even come while we are sitting in a boring meeting away
-from the comfort zone of our workstation. For most of us, our mobile devices are never more than a few feet away.
-MOMDYN lets you take action and build on your ideas in the moment, and watch them take motion in the palm of your hand.</p>
-</section>
-<section id="an-entry-point-for-dynamics-students-and-professionals">
-<h2>An Entry Point For Dynamics Students and Professionals</h2>
-<p>Multibody dynamics simulation is increasingly becoming an essential discipline for the development of complex
-mechanical systems. Recent years have seen the rise of many excellent software solutions, many belonging to larger
-multidisciplinary computer aided engineering packages. These products are great, expansive solutions that can
-be a pleasure to learn, use, and occasionally abuse. For many professionals, these provide for a lucrative career or
-business model. For others, the cost is a significant barrier to entry. MOMDYN presents an accessible alternative for
-engineering students or developing professionals who want to learn the basic principles behind how the advanced
-software works so they can feel confident in applying those tools in their future careers.</p>
-</section>
-<section id="build-on-your-mobile-device-analyze-on-a-desktop">
-<h2>Build On Your Mobile Device, Analyze On A Desktop</h2>
-<p>Your mobile device does a lot of amazing things, but no one would call it a high performance computer. Want to run your
-model once? No problem, MOMDYN has you covered. Want to run 100,000 cases in a Monte Carlo study? You’re going to want
-a professional workstation or computing cluster for that. This is advanced stuff, but MOMDYN can help: With the Export
-menu, you can choose to automatically generate Python source code that will replicate the same equations and parameters
-that you set up on your device, and can be executed in a Python environment using common and freely available packages.
-Want phase plots, frequency spectra, or to integrate your mechanism model with another physical or control system? If
-you can code it, you can do it.</p>
-<hr></section>
-<section id="user-interface">
-<h2>User Interface</h2>
-<p>The graphical front-end of MOMDYN, referred to here as the “Touch interface,” is the means for the user to interact
-with and visualize elements of the Mechanism module.</p>
-<nav class="toctree" aria-label="Contents"><ul><li><a href="/docs/getting_started/">Getting Started</a></li></ul></nav><section id="welcome-screen">
-<h3>Welcome screen</h3>
-<p>The first screen you will see when opening the app, the welcome screen presents you with the option to create a new
-model, import an existing model, or to view help documentation or tutorials.</p>
-</section>
-<section id="diagram-view">
-<h3>Diagram view</h3>
-<p>The modeling components are by default displayed in a 3-D environment where components are shown as primitive
-solids. The diagram view is also the primary interface for the user to create and edit modeling components, and
-initiate equation generation and simulation routines.</p>
-</section>
-<section id="report-view">
-<h3>Report view</h3>
-<p>Tabbed controls allow the user to flip between sections of the
-report, with separate tabs for constants, generalized coordinates, generalized speeds, frames, vectors, points,
-bodies, loads, equations of motion, and plots.</p>
-<hr></section>
-</section>
-<section id="technical-specifications">
-<h2>Technical Specifications</h2>
-<section id="mechanism-module">
-<h3>Mechanism Module</h3>
-<p>The analytical back-end of MOMDYN, referred to here as the “Mechanism module,” is implemented using Python, taking
-very basic data classes (numeric and string) as user inputs to numerous high-level, object-oriented methods.</p>
-<nav class="toctree" aria-label="Contents"><ul><li><a href="/docs/mechanism/">Mechanism Module</a></li></ul></nav></section>
-<section id="features">
-<h3>Features</h3>
-<section id="numeric-and-string-input-definition">
-<h4>Numeric and string input definition</h4>
-<p>The mobile implementation requires simplification of the user input commensurate with the limited interaction
-capability provided by a mobile device compared to a desktop workstation. Many high-level methods available in open
-source software have been re-structured in MOMDYN such that their inputs can be defined using only numeric and string
-variables.</p>
-</section>
-<section id="new-edit-delete-methods">
-<h4>New/edit/delete methods</h4>
-<p>Each object implemented in the Mechanism module has a “new,” “edit,” and “delete” method.</p>
-</section>
-<section id="embedded-documentation">
-<h4>Embedded documentation</h4>
-<p>Each object implemented in the Mechanism module has documentation that can be accessed from the front-end interface.</p>
-</section>
-<section id="equation-of-motion-generation">
-<h4>Equation of motion generation</h4>
-<p>Once the kinematic and dynamic relations are defined in the Mechanism module, equations relating the generalized
-coordinates to generalized speeds, equilibrium conditions, mass and forcing matrix are automatically derived. These can
-be displayed in the front-end, or exported to human-readable source code or typeset reports.</p>
-</section>
-<section id="simulation">
-<h4>Simulation</h4>
-<p>Commonly used open-source numerical integration algorithms necessary for simulation of dynamic systems have been
-implemented in architectures that cannot be compiled on mobile device. MOMDYN includes a custom simulation routine that
-can be built on all devices.</p>
-</section>
-<section id="automated-code-generation">
-<h4>Automated code generation</h4>
-<p>Complex dynamics models created in MOMDYN require interactivity with desktop workstations or high performance computing
-systems to execute fast and/or high volume analysis. The Mechanism module provides an interface to automatically
-generate human-readable source code in Python formats that can be transferred to these systems.</p>
-<hr></section>
-</section>
-</section>
-<section id="links">
-<h2>Links</h2>
-<nav class="toctree" aria-label="Contents"><ul><li><a href="https://apps.apple.com/us/app/id1491149780">Download on the App Store</a></li><li><a href="https://play.google.com/store/apps/details?id=com.badeyedea.momdyn">Get it on Google Play</a></li><li><a href="https://www.momdyn.com/index.html">Read our Blog</a></li><li><a href="https://www.facebook.com/Mobile-Multibody-Dynamics-102652851603623/">Follow on Facebook</a></li><li><a href="https://www.youtube.com/channel/UC7ij1ezmh8a3Q7N3gF4zUkQ">Watch on Youtube</a></li><li><a href="https://www.buymeacoffee.com/PLUQkDz">Buy me a coffee</a></li></ul></nav></section>
 
-      <nav class="pager" aria-label="Pages"><a class="next" href="/docs/getting_started/"><span>Next</span><b>Getting Started</b></a></nav>
+<div class="shots"><img src="/docs/_media/img/first_page_header.webp" width="400" height="196" alt="The MOMDYN wordmark beside a chain of linked point masses with red, green and blue coordinate-frame arrows" loading="eager" decoding="async"></div><p class="lede">Guides, tutorials and a component reference for MOMDYN, the free iPhone and iPad app for building multibody mechanisms, deriving their equations of motion and exporting Python.</p>
+
+<ul class="hub">
+<li><a href="/docs/getting_started/"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-14 14z"/><path d="M9 15c1-3 3-5 6-6"/></svg></span><b>Get started</b><span class="sub">A tour of the Welcome, Diagram and Report screens, and how a model comes together.</span><span class="more">Open get started &rarr;</span></a></li>
+<li><a href="/docs/tutorials/"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 10v5c0 1.5 2.2 3 5 3s5-1.500 5-3v-5"/></svg></span><b>Tutorials</b><span class="sub">Build a simple pendulum and a mass-spring-damper, step by step, using the Classic or the Joints interface.</span><span class="more">Open tutorials &rarr;</span></a></li>
+<li><a href="/docs/interface/"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10 18.5h4"/></svg></span><b>Interface</b><span class="sub">Create and Settings, Import, on-screen controls, the Menu drawer and Save / Export.</span><span class="more">Open interface &rarr;</span></a></li>
+<li><a href="/docs/mechanism/"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3V4z"/><path d="M8 17h11"/></svg></span><b>Reference</b><span class="sub">Classic, Joints, Bodies, Loads and Sensors: what each component models and every parameter it takes.</span><span class="more">Open reference &rarr;</span></a></li>
+<li><a href="/docs/save/"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-4 4 4 4"/><path d="M16 8l4 4-4 4"/><path d="M13.500 5l-3 14"/></svg></span><b>Python export</b><span class="sub">Export a model as Python, CSV data and plots, and run it on your desktop.</span><span class="more">Open python export &rarr;</span></a></li>
+</ul>
+
+<p>New to MOMDYN? <a href="/">See what the app does</a>.</p>
+
+      <nav class="pager" aria-label="Pages" data-pagefind-ignore><a class="next" href="/docs/getting_started/"><span>Next</span><b>Getting Started</b></a></nav>
     </main>
 
-    <aside class="docs-toc" id="toc">
-      <nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#engineering-and-physics-simulation-in-the-palm-of-your-hand">Engineering and Physics Simulation in the Palm of Your Hand</a></li><li><a href="#an-entry-point-for-dynamics-students-and-professionals">An Entry Point For Dynamics Students and Professionals</a></li><li><a href="#build-on-your-mobile-device-analyze-on-a-desktop">Build On Your Mobile Device, Analyze On A Desktop</a></li><li><a href="#user-interface">User Interface</a></li><li><a href="#technical-specifications">Technical Specifications</a></li><li><a href="#links">Links</a></li></ul></nav>
+    <aside class="docs-toc" id="toc" hidden>
+
     </aside>
   </div>
 
@@ -183,8 +100,59 @@ generate human-readable source code in Python formats that can be transferred to
     </div>
   </footer>
 
+  <dialog id="search" class="search-dialog" aria-label="Search the documentation">
+    <div class="search-head"><span>Search the docs</span><button type="button" class="search-close" id="search-close" aria-label="Close search">&times;</button></div>
+    <div id="search-box"></div>
+  </dialog>
+
   <script>
   (function () {
+    // Search: Pagefind is loaded the first time the dialog opens, so it costs nothing until used.
+    var dlg = document.getElementById('search'), loaded = false;
+    function loadSearch() {
+      if (loaded) return; loaded = true;
+      var css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/docs/pagefind/pagefind-ui.css'; document.head.appendChild(css);
+      var js = document.createElement('script'); js.src = '/docs/pagefind/pagefind-ui.js';
+      js.onload = function () {
+        new PagefindUI({ element: '#search-box', showImages: false, showSubResults: true, resetStyles: false, autofocus: true,
+          translations: { placeholder: 'Search the docs' } });
+        var i = dlg.querySelector('input'); if (i) i.focus();
+      };
+      document.head.appendChild(js);
+    }
+    function openSearch() {
+      if (!dlg.showModal) { location.href = '/docs/'; return; }
+      if (!dlg.open) dlg.showModal();
+      loadSearch();
+      var i = dlg.querySelector('input'); if (i) i.focus();
+    }
+    document.getElementById('search-open').addEventListener('click', openSearch);
+    document.getElementById('search-close').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a')) dlg.close(); });
+    document.addEventListener('keydown', function (e) {
+      var t = e.target, typing = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
+      if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) { e.preventDefault(); openSearch(); }
+      else if (e.key === '/' && !typing && !e.metaKey && !e.ctrlKey && !e.altKey) { e.preventDefault(); openSearch(); }
+    });
+    // "On this page": highlight the section being read.
+    var links = document.querySelectorAll('.docs-toc a[href^="#"]');
+    if (links.length) {
+      var map = {}; Array.prototype.forEach.call(links, function (a) { map[a.getAttribute('href').slice(1)] = a; });
+      var heads = Array.prototype.filter.call(document.querySelectorAll('.doc section[id]'), function (s) { return map[s.id]; });
+      var current = null, ticking = false;
+      function spy() {
+        ticking = false;
+        var best = heads[0];
+        heads.forEach(function (s) { if (s.getBoundingClientRect().top <= 120) best = s; });
+        if (best && best.id !== current) {
+          if (current && map[current]) map[current].removeAttribute('aria-current');
+          current = best.id; map[current].setAttribute('aria-current', 'true');
+        }
+      }
+      addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(spy); } }, { passive: true });
+      spy();
+    }
     var nav = document.getElementById('nav');
     function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 4); }
     addEventListener('scroll', onScroll, { passive: true }); onScroll();

@@ -1,3 +1,8 @@
+.. seo::
+   :title: On-Screen Controls – MOMDYN Diagram View Guide
+   :description: The MOMDYN diagram view controls on iPhone and iPad: bottom tabs, the action button for equations and simulation, zoom, the seek bar and the menu.
+   :type: article
+
 On-Screen Controls
 ==================
 
