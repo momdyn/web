@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Spherical | MOMDYN Docs</title>
-  <meta name="description" content="A spherical joint creates a frame that is rotated relative to an existing frame using a quaternion to define its orientation. Initial quaternion values...">
+  <title>Spherical Joint – Multibody Dynamics Reference | MOMDYN</title>
+  <meta name="description" content="A MOMDYN spherical joint lets a frame take any orientation using a quaternion, giving three rotational degrees of freedom with no gimbal lock.">
   <link rel="canonical" href="https://momdyn.dc-engineer.com/docs/joints/spherical/">
   <meta name="theme-color" content="#5856D6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#5E5CE6" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="MOMDYN">
-  <meta property="og:title" content="Spherical | MOMDYN Docs">
-  <meta property="og:description" content="A spherical joint creates a frame that is rotated relative to an existing frame using a quaternion to define its orientation. Initial quaternion values...">
+  <meta property="og:title" content="Spherical Joint – Multibody Dynamics Reference | MOMDYN">
+  <meta property="og:description" content="A MOMDYN spherical joint lets a frame take any orientation using a quaternion, giving three rotational degrees of freedom with no gimbal lock.">
   <meta property="og:url" content="https://momdyn.dc-engineer.com/docs/joints/spherical/">
   <meta property="og:image" content="https://momdyn.dc-engineer.com/assets/og.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -20,7 +20,9 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/docs/_static/docs.css">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Docs", "item": "https://momdyn.dc-engineer.com/docs/"}, {"@type": "ListItem", "position": 2, "name": "Mechanism Module", "item": "https://momdyn.dc-engineer.com/docs/mechanism/"}, {"@type": "ListItem", "position": 3, "name": "Joints", "item": "https://momdyn.dc-engineer.com/docs/joints/"}, {"@type": "ListItem", "position": 4, "name": "Spherical", "item": "https://momdyn.dc-engineer.com/docs/joints/spherical/"}]}</script>
+  <link rel="stylesheet" href="/assets/katex/katex.min.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Docs", "item": "https://momdyn.dc-engineer.com/docs/"}, {"@type": "ListItem", "position": 2, "name": "Reference", "item": "https://momdyn.dc-engineer.com/docs/mechanism/"}, {"@type": "ListItem", "position": 3, "name": "Joints", "item": "https://momdyn.dc-engineer.com/docs/joints/"}, {"@type": "ListItem", "position": 4, "name": "Spherical", "item": "https://momdyn.dc-engineer.com/docs/joints/spherical/"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Spherical", "description": "A MOMDYN spherical joint lets a frame take any orientation using a quaternion, giving three rotational degrees of freedom with no gimbal lock.", "inLanguage": "en", "author": {"@type": "Person", "name": "Eliott Radcliffe", "url": "https://dc-engineer.com"}, "publisher": {"@type": "Organization", "name": "DCDC LLC", "url": "https://momdyn.dc-engineer.com/"}, "dateModified": "2026-11-21", "mainEntityOfPage": "https://momdyn.dc-engineer.com/docs/joints/spherical/"}</script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -37,75 +39,66 @@
         <a href="/docs/tutorials/">Tutorials</a>
         <a href="/docs/mechanism/" aria-current="page">Reference</a>
       </nav>
+      <button type="button" class="search-btn" id="search-open" aria-label="Search the docs" aria-keyshortcuts="Meta+K Control+K /">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+        <span class="search-label">Search</span><kbd class="search-kbd" aria-hidden="true">&#8984;K</kbd>
+      </button>
     </div>
   </header>
 
   <div class="wrap docs-layout" id="layout">
     <div class="doc-tools">
       <button type="button" class="tool" id="toggle-side" aria-controls="side" aria-expanded="true" aria-label="Hide menu" title="Hide menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3.5"/><path d="M9 4v16"/></svg></button>
-      <button type="button" class="tool" id="toggle-toc" aria-controls="toc" aria-expanded="true" aria-label="Hide contents" title="Hide contents" hidden><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3.5"/><path d="M15 4v16"/></svg></button>
+      <button type="button" class="tool" id="toggle-toc" aria-controls="toc" aria-expanded="true" aria-label="Hide contents" title="Hide contents"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3.5"/><path d="M15 4v16"/></svg></button>
     </div>
     <div class="scrim" id="scrim" hidden></div>
     <aside class="docs-side" id="side" aria-label="Documentation">
-      <nav aria-label="Documentation"><ul class="docs-tree"><li><a href="/docs/getting_started/">Getting Started</a><ul><li><details><summary>Tutorials</summary><ul><li><a href="/docs/tutorials/">Tutorials</a></li><li><a href="/docs/tutorials/pendulum/">Simple Pendulum</a></li><li><a href="/docs/tutorials/oscillator/">Mass-Spring-Damper</a></li></ul></details></li><li><a href="/docs/create_dialog/">Create / Settings Dialogs</a></li><li><a href="/docs/import_dialog/">Import Dialog</a></li><li><a href="/docs/on_screen_controls/">On-Screen Controls</a></li><li><a href="/docs/menu_dialog/">Menu Dialog</a></li><li><a href="/docs/save/">Import/Export</a></li></ul></li><li><a href="/docs/mechanism/">Mechanism Module</a><ul><li><details><summary>Classic</summary><ul><li><a href="/docs/classic/">Classic</a></li><li><a href="/docs/classic/parameter/">Parameter</a></li><li><a href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a></li><li><a href="/docs/classic/generalized_speed/">Generalized Speed</a></li><li><a href="/docs/classic/frame/">Frame</a></li><li><a href="/docs/classic/vector/">Vector</a></li><li><a href="/docs/classic/point/">Point</a></li></ul></details></li><li><details open><summary>Joints</summary><ul><li><a href="/docs/joints/">Joints</a></li><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/" aria-current="page">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></details></li><li><details><summary>Bodies</summary><ul><li><a href="/docs/bodies/">Bodies</a></li><li><a href="/docs/bodies/particle/">Particle</a></li><li><a href="/docs/bodies/general_rigid_body/">General Rigid Body</a></li><li><a href="/docs/bodies/rigid_body_box/">Rigid Body Box</a></li><li><a href="/docs/bodies/rigid_body_cone/">Rigid Body Cone</a></li><li><a href="/docs/bodies/rigid_body_cylinder/">Rigid Body Cylinder</a></li></ul></details></li><li><details><summary>Loads</summary><ul><li><a href="/docs/loads/">Loads</a></li><li><a href="/docs/loads/external_force/">External Force</a></li><li><a href="/docs/loads/actuated_force/">Actuated Force</a></li><li><a href="/docs/loads/external_moment/">External Moment</a></li><li><a href="/docs/loads/actuated_moment/">Actuated Moment</a></li><li><a href="/docs/loads/translational_spring/">Translational Spring</a></li><li><a href="/docs/loads/rotational_spring/">Rotational Spring</a></li></ul></details></li><li><details><summary>Sensors</summary><ul><li><a href="/docs/sensors/">Sensors</a></li><li><a href="/docs/sensors/position_sensor/">Position Sensor</a></li><li><a href="/docs/sensors/velocity_sensor/">Velocity Sensor</a></li><li><a href="/docs/sensors/accelerometer/">Accelerometer</a></li><li><a href="/docs/sensors/dcm_sensor/">DCM Sensor</a></li><li><a href="/docs/sensors/rate_gyro/">Rate Gyro</a></li></ul></details></li></ul></li><li><a href="https://apps.apple.com/us/app/id1491149780" class="ext">Download on the App Store</a></li><li><a href="https://play.google.com/store/apps/details?id=com.badeyedea.momdyn" class="ext">Get it on Google Play</a></li><li><a href="https://www.momdyn.com/index.html" class="ext">Read our Blog</a></li><li><a href="https://www.facebook.com/Mobile-Multibody-Dynamics-102652851603623/" class="ext">Follow on Facebook</a></li><li><a href="https://www.youtube.com/channel/UC7ij1ezmh8a3Q7N3gF4zUkQ" class="ext">Watch on Youtube</a></li><li><a href="https://www.buymeacoffee.com/PLUQkDz" class="ext">Buy me a coffee</a></li></ul></nav>
+      <nav aria-label="Documentation"><ul class="docs-tree"><li><a href="/docs/getting_started/">Getting Started</a></li><li><details><summary>Tutorials</summary><ul><li><a href="/docs/tutorials/">Overview</a></li><li><a href="/docs/tutorials/pendulum/">Simple Pendulum</a></li><li><a href="/docs/tutorials/oscillator/">Mass-Spring-Damper</a></li></ul></details></li><li><details><summary>Interface</summary><ul><li><a href="/docs/interface/">Overview</a></li><li><a href="/docs/create_dialog/">Create / Settings Dialogs</a></li><li><a href="/docs/import_dialog/">Import Dialog</a></li><li><a href="/docs/on_screen_controls/">On-Screen Controls</a></li><li><a href="/docs/menu_dialog/">Menu Dialog</a></li><li><a href="/docs/save/">Import/Export</a></li></ul></details></li><li><details open><summary>Reference</summary><ul><li><a href="/docs/mechanism/">Overview</a></li><li><details><summary>Classic</summary><ul><li><a href="/docs/classic/">Overview</a></li><li><a href="/docs/classic/parameter/">Parameter</a></li><li><a href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a></li><li><a href="/docs/classic/generalized_speed/">Generalized Speed</a></li><li><a href="/docs/classic/frame/">Frame</a></li><li><a href="/docs/classic/vector/">Vector</a></li><li><a href="/docs/classic/point/">Point</a></li></ul></details></li><li><details open><summary>Joints</summary><ul><li><a href="/docs/joints/">Overview</a></li><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/" aria-current="page">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></details></li><li><details><summary>Bodies</summary><ul><li><a href="/docs/bodies/">Overview</a></li><li><a href="/docs/bodies/particle/">Particle</a></li><li><a href="/docs/bodies/general_rigid_body/">General Rigid Body</a></li><li><a href="/docs/bodies/rigid_body_box/">Rigid Body Box</a></li><li><a href="/docs/bodies/rigid_body_cone/">Rigid Body Cone</a></li><li><a href="/docs/bodies/rigid_body_cylinder/">Rigid Body Cylinder</a></li></ul></details></li><li><details><summary>Loads</summary><ul><li><a href="/docs/loads/">Overview</a></li><li><a href="/docs/loads/external_force/">External Force</a></li><li><a href="/docs/loads/actuated_force/">Actuated Force</a></li><li><a href="/docs/loads/external_moment/">External Moment</a></li><li><a href="/docs/loads/actuated_moment/">Actuated Moment</a></li><li><a href="/docs/loads/translational_spring/">Translational Spring</a></li><li><a href="/docs/loads/rotational_spring/">Rotational Spring</a></li></ul></details></li><li><details><summary>Sensors</summary><ul><li><a href="/docs/sensors/">Overview</a></li><li><a href="/docs/sensors/position_sensor/">Position Sensor</a></li><li><a href="/docs/sensors/velocity_sensor/">Velocity Sensor</a></li><li><a href="/docs/sensors/accelerometer/">Accelerometer</a></li><li><a href="/docs/sensors/dcm_sensor/">DCM Sensor</a></li><li><a href="/docs/sensors/rate_gyro/">Rate Gyro</a></li></ul></details></li></ul></details></li></ul></nav>
+      <div class="side-cta">
+        <a class="store-badge" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1600214400" width="132" height="44" alt="Download on the App Store" loading="lazy"></a>
+        <p>Free on iPhone &amp; iPad</p>
+      </div>
     </aside>
 
     <main id="main" class="doc" data-pagefind-body>
-      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/docs/">Docs</a></li><li><a href="/docs/mechanism/">Mechanism Module</a></li><li><a href="/docs/joints/">Joints</a></li><li aria-current="page">Spherical</li></ol></nav>
+      <nav class="crumbs" aria-label="Breadcrumb" data-pagefind-ignore><ol><li><a href="/docs/">Docs</a></li><li><a href="/docs/mechanism/">Reference</a></li><li><a href="/docs/joints/">Joints</a></li><li aria-current="page">Spherical</li></ol></nav>
       <h1>Spherical</h1>
+<details class="toc-mobile" data-pagefind-ignore><summary>On this page</summary><nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#parameters">Parameters</a></li><li><a href="#equations">Equations</a></li><li><a href="#sign-conventions-notes">Sign conventions &amp; notes</a></li><li><a href="#related">Related</a></li></ul></nav></details>
 
 
 
-<p>A spherical joint creates a frame that is rotated relative to an existing frame using a quaternion to define its orientation. Initial quaternion values are defined using an equivalent Euler angle sequence.</p>
-<section id="keyword-arguments">
-<h2>Keyword arguments</h2>
-<div class="param docutils container">
-<p><span class="pname docutils literal">name</span><span class="ptype">str</span></p>
-<p>Name given to the joint, default is uppercase characters in alphabetical order (A, B, C, …)</p>
-</div>
-<div class="param docutils container">
-<p><span class="pname docutils literal">ref_point_key</span><span class="ptype">str</span></p>
-<p>Start point from which the vector component of the joint is defined</p>
-</div>
-<div class="param docutils container">
-<p><span class="pname docutils literal">ref_frame_key</span><span class="ptype">str</span></p>
-<p>Reference frame in which the translational and rotational displacement components are defined</p>
-</div>
-<div class="param docutils container">
-<p><span class="pname docutils literal">rotation_sequence</span><span class="ptype">str</span></p>
-<p>‘ZYX’, ‘XYZ’, ‘ZXZ’, ‘ZYZ’, ‘XYX’, or ‘XZX’, represents the Euler angle sequence used for defining equivalent initial quaternion states</p>
-</div>
-<div class="param docutils container">
-<p><span class="pname docutils literal">initial_r0</span><span class="ptype">numeric</span></p>
-<p>Initial value for the 0th rotation angle in the Euler sequence</p>
-</div>
-<div class="param docutils container">
-<p><span class="pname docutils literal">initial_r1</span><span class="ptype">numeric</span></p>
-<p>Initial value for the 1st rotation angle in the Euler sequence</p>
-</div>
-<div class="param docutils container">
-<p><span class="pname docutils literal">initial_r2</span><span class="ptype">numeric</span></p>
-<p>Initial value for the 2nd rotation angle in the Euler sequence</p>
-</div>
-<div class="param docutils container">
-<p><span class="pname docutils literal">rate_r0</span><span class="ptype">numeric</span></p>
-<p>Initial value for angular rotation rate about the x-axis of the created frame</p>
-</div>
-<div class="param docutils container">
-<p><span class="pname docutils literal">rate_r1</span><span class="ptype">numeric</span></p>
-<p>Initial value for angular rotation rate about the y-axis of the created frame</p>
-</div>
-<div class="param docutils container">
-<p><span class="pname docutils literal">rate_r2</span><span class="ptype">numeric</span></p>
-<p>Initial value for angular rotation rate about the z-axis of the created frame</p>
-</div>
+<p>A spherical joint is a ball joint: it lets a frame take any orientation relative to another, with three rotational degrees of freedom.</p>
+<div class="shots"><img src="/docs/_media/img/spherical.webp" width="400" height="400" alt="A spherical joint: a frame that can take any orientation relative to the reference frame" loading="eager" decoding="async"></div><section id="parameters">
+<h2>Parameters<a class="anchor" href="#parameters" aria-label="Link to section: Parameters"></a></h2>
+<p>Units are shown in SI (m, kg, s, N, rad). MOMDYN does not enforce units, so any consistent set works, but angles are always in radians.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Parameters"><table class="params"><thead><tr><th scope="col">Name</th><th scope="col">Type</th><th scope="col">Default</th><th scope="col">Units</th><th scope="col">Description</th></tr></thead><tbody><tr><th scope="row" data-label="Name"><code>name</code></th><td data-label="Type"><code>str</code></td><td data-label="Default"><code>None</code></td><td data-label="Units"><span class="dash">—</span></td><td data-label="Description">Name given to the joint, default is uppercase characters in alphabetical order (A, B, C, ...)</td></tr><tr><th scope="row" data-label="Name"><code>ref_point_key</code></th><td data-label="Type"><code>str</code></td><td data-label="Default"><code>&#x27;origin&#x27;</code></td><td data-label="Units"><span class="dash">—</span></td><td data-label="Description">Start point from which the vector component of the joint is defined</td></tr><tr><th scope="row" data-label="Name"><code>ref_frame_key</code></th><td data-label="Type"><code>str</code></td><td data-label="Default"><code>&#x27;inertial&#x27;</code></td><td data-label="Units"><span class="dash">—</span></td><td data-label="Description">Reference frame in which the translational and rotational displacement components are defined</td></tr><tr><th scope="row" data-label="Name"><code>is_form</code></th><td data-label="Type"><code>str</code></td><td data-label="Default"><code>&#x27;degree of freedom&#x27;</code></td><td data-label="Units"><span class="dash">—</span></td><td data-label="Description">&#x27;degree of freedom&#x27; makes the value a time-varying generalized coordinate; &#x27;constant&#x27; fixes it at the given value.</td></tr><tr><th scope="row" data-label="Name"><code>rotation_sequence</code></th><td data-label="Type"><code>str</code></td><td data-label="Default"><code>&#x27;ZYX&#x27;</code></td><td data-label="Units"><span class="dash">—</span></td><td data-label="Description">&#x27;ZYX&#x27;, &#x27;XYZ&#x27;, &#x27;ZXZ&#x27;, &#x27;ZYZ&#x27;, &#x27;XYX&#x27;, or &#x27;XZX&#x27;, represents the Euler angle sequence used for defining equivalent initial quaternion states</td></tr><tr><th scope="row" data-label="Name"><code>use_quaternion</code></th><td data-label="Type"><code>bool</code></td><td data-label="Default"><code>True</code></td><td data-label="Units"><span class="dash">—</span></td><td data-label="Description"><span class="todo">TODO</span></td></tr><tr><th scope="row" data-label="Name"><code>initial_r0</code></th><td data-label="Type"><code>numeric</code></td><td data-label="Default"><code>0</code></td><td data-label="Units">rad</td><td data-label="Description">Initial value for the 0th rotation angle in the Euler sequence</td></tr><tr><th scope="row" data-label="Name"><code>initial_r1</code></th><td data-label="Type"><code>numeric</code></td><td data-label="Default"><code>0</code></td><td data-label="Units">rad</td><td data-label="Description">Initial value for the 1st rotation angle in the Euler sequence</td></tr><tr><th scope="row" data-label="Name"><code>initial_r2</code></th><td data-label="Type"><code>numeric</code></td><td data-label="Default"><code>0</code></td><td data-label="Units">rad</td><td data-label="Description">Initial value for the 2nd rotation angle in the Euler sequence</td></tr><tr><th scope="row" data-label="Name"><code>rate_r0</code></th><td data-label="Type"><code>numeric</code></td><td data-label="Default"><code>0</code></td><td data-label="Units">rad/s</td><td data-label="Description">Initial value for angular rotation rate about the x-axis of the created frame</td></tr><tr><th scope="row" data-label="Name"><code>rate_r1</code></th><td data-label="Type"><code>numeric</code></td><td data-label="Default"><code>0</code></td><td data-label="Units">rad/s</td><td data-label="Description">Initial value for angular rotation rate about the y-axis of the created frame</td></tr><tr><th scope="row" data-label="Name"><code>rate_r2</code></th><td data-label="Type"><code>numeric</code></td><td data-label="Default"><code>0</code></td><td data-label="Units">rad/s</td><td data-label="Description">Initial value for angular rotation rate about the z-axis of the created frame</td></tr><tr><th scope="row" data-label="Name"><code>kr0</code></th><td data-label="Type"><code>numeric</code></td><td data-label="Default"><code>0</code></td><td data-label="Units">N·m/rad</td><td data-label="Description">Stiffness corresponding to the 0th rotation angle</td></tr><tr><th scope="row" data-label="Name"><code>kr1</code></th><td data-label="Type"><code>numeric</code></td><td data-label="Default"><code>0</code></td><td data-label="Units">N·m/rad</td><td data-label="Description">Stiffness corresponding to the 1st rotation angle</td></tr><tr><th scope="row" data-label="Name"><code>kr2</code></th><td data-label="Type"><code>numeric</code></td><td data-label="Default"><code>0</code></td><td data-label="Units">N·m/rad</td><td data-label="Description">Stiffness corresponding to the 2nd rotation angle</td></tr><tr><th scope="row" data-label="Name"><code>cr0</code></th><td data-label="Type"><code>numeric</code></td><td data-label="Default"><code>0</code></td><td data-label="Units">N·m·s/rad</td><td data-label="Description">Damping corresponding to the angular rate of the 0th rotation angle</td></tr><tr><th scope="row" data-label="Name"><code>cr1</code></th><td data-label="Type"><code>numeric</code></td><td data-label="Default"><code>0</code></td><td data-label="Units">N·m·s/rad</td><td data-label="Description">Damping corresponding to the angular rate of the 1st rotation angle</td></tr><tr><th scope="row" data-label="Name"><code>cr2</code></th><td data-label="Type"><code>numeric</code></td><td data-label="Default"><code>0</code></td><td data-label="Units">N·m·s/rad</td><td data-label="Description">Damping corresponding to the angular rate of the 2nd rotation angle</td></tr><tr><th scope="row" data-label="Name"><code>equilibrium_r0</code></th><td data-label="Type"><code>numeric</code></td><td data-label="Default"><code>0</code></td><td data-label="Units">rad</td><td data-label="Description">Equilibrium corresponding to the 0th rotation angle</td></tr><tr><th scope="row" data-label="Name"><code>equilibrium_r1</code></th><td data-label="Type"><code>numeric</code></td><td data-label="Default"><code>0</code></td><td data-label="Units">rad</td><td data-label="Description">Equilibrium corresponding to the 1st rotation angle</td></tr><tr><th scope="row" data-label="Name"><code>equilibrium_r2</code></th><td data-label="Type"><code>numeric</code></td><td data-label="Default"><code>0</code></td><td data-label="Units">rad</td><td data-label="Description">Equilibrium corresponding to the 2nd rotation angle</td></tr></tbody></table></div></section>
+<section id="equations">
+<h2>Equations<a class="anchor" href="#equations" aria-label="Link to section: Equations"></a></h2>
+<p>Orientation is tracked with a unit quaternion, which avoids the singularities of Euler angles:</p>
+<div class="equation" tabindex="0" role="group" aria-label="Equation"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mi>q</mi><mn>0</mn><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>q</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>q</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>q</mi><mn>3</mn><mn>2</mn></msubsup><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">q_0^2 + q_1^2 + q_2^2 + q_3^2 = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1111em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-2.453em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span></div></section>
+<section id="sign-conventions-notes">
+<h2>Sign conventions &amp; notes<a class="anchor" href="#sign-conventions-notes" aria-label="Link to section: Sign conventions &amp;amp; notes"></a></h2>
+<ul class="simple">
+<li><p><span class="docutils literal">is_form</span> is <span class="docutils literal">'degree of freedom'</span> (the value is a time-varying coordinate that the simulation solves for) or <span class="docutils literal">'constant'</span> (the value is fixed).</p></li>
+<li><p><span class="docutils literal">initial_r0</span>, <span class="docutils literal">initial_r1</span> and <span class="docutils literal">initial_r2</span> give the starting orientation as an equivalent Euler angle sequence (<span class="docutils literal">rotation_sequence</span>), which MOMDYN converts to the initial quaternion.</p></li>
+<li><p>The <span class="docutils literal">rate_r*</span> values are the initial angular velocity components about the axes of the created frame.</p></li>
+</ul>
+</section>
+<section id="related">
+<h2>Related<a class="anchor" href="#related" aria-label="Link to section: Related"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="/docs/joints/universal/">Universal Joint</a></p></li>
+<li><p><a class="reference external" href="/docs/joints/free_motion/">Free Motion Joint</a></p></li>
+<li><p><a class="reference external" href="/docs/joints/revolute/">Revolute Joint</a></p></li>
+<li><p><a class="reference external" href="/docs/sensors/rate_gyro/">Rate Gyro</a></p></li>
+</ul>
 </section>
 
-      <nav class="pager" aria-label="Pages"><a class="prev" href="/docs/joints/universal/"><span>Previous</span><b>Universal</b></a><a class="next" href="/docs/joints/planar/"><span>Next</span><b>Planar</b></a></nav>
+      <nav class="pager" aria-label="Pages" data-pagefind-ignore><a class="prev" href="/docs/joints/universal/"><span>Previous</span><b>Universal</b></a><a class="next" href="/docs/joints/planar/"><span>Next</span><b>Planar</b></a></nav>
     </main>
 
-    <aside class="docs-toc" id="toc" hidden>
-
+    <aside class="docs-toc" id="toc">
+<nav aria-label="On this page"><p class="toc-title">On this page</p><ul><li><a href="#parameters">Parameters</a></li><li><a href="#equations">Equations</a></li><li><a href="#sign-conventions-notes">Sign conventions &amp; notes</a></li><li><a href="#related">Related</a></li></ul></nav>
     </aside>
   </div>
 
@@ -123,8 +116,59 @@
     </div>
   </footer>
 
+  <dialog id="search" class="search-dialog" aria-label="Search the documentation">
+    <div class="search-head"><span>Search the docs</span><button type="button" class="search-close" id="search-close" aria-label="Close search">&times;</button></div>
+    <div id="search-box"></div>
+  </dialog>
+
   <script>
   (function () {
+    // Search: Pagefind is loaded the first time the dialog opens, so it costs nothing until used.
+    var dlg = document.getElementById('search'), loaded = false;
+    function loadSearch() {
+      if (loaded) return; loaded = true;
+      var css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/docs/pagefind/pagefind-ui.css'; document.head.appendChild(css);
+      var js = document.createElement('script'); js.src = '/docs/pagefind/pagefind-ui.js';
+      js.onload = function () {
+        new PagefindUI({ element: '#search-box', showImages: false, showSubResults: true, resetStyles: false, autofocus: true,
+          translations: { placeholder: 'Search the docs' } });
+        var i = dlg.querySelector('input'); if (i) i.focus();
+      };
+      document.head.appendChild(js);
+    }
+    function openSearch() {
+      if (!dlg.showModal) { location.href = '/docs/'; return; }
+      if (!dlg.open) dlg.showModal();
+      loadSearch();
+      var i = dlg.querySelector('input'); if (i) i.focus();
+    }
+    document.getElementById('search-open').addEventListener('click', openSearch);
+    document.getElementById('search-close').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a')) dlg.close(); });
+    document.addEventListener('keydown', function (e) {
+      var t = e.target, typing = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
+      if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) { e.preventDefault(); openSearch(); }
+      else if (e.key === '/' && !typing && !e.metaKey && !e.ctrlKey && !e.altKey) { e.preventDefault(); openSearch(); }
+    });
+    // "On this page": highlight the section being read.
+    var links = document.querySelectorAll('.docs-toc a[href^="#"]');
+    if (links.length) {
+      var map = {}; Array.prototype.forEach.call(links, function (a) { map[a.getAttribute('href').slice(1)] = a; });
+      var heads = Array.prototype.filter.call(document.querySelectorAll('.doc section[id]'), function (s) { return map[s.id]; });
+      var current = null, ticking = false;
+      function spy() {
+        ticking = false;
+        var best = heads[0];
+        heads.forEach(function (s) { if (s.getBoundingClientRect().top <= 120) best = s; });
+        if (best && best.id !== current) {
+          if (current && map[current]) map[current].removeAttribute('aria-current');
+          current = best.id; map[current].setAttribute('aria-current', 'true');
+        }
+      }
+      addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(spy); } }, { passive: true });
+      spy();
+    }
     var nav = document.getElementById('nav');
     function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 4); }
     addEventListener('scroll', onScroll, { passive: true }); onScroll();

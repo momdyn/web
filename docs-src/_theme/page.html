@@ -8,7 +8,7 @@
   <link rel="canonical" href="$canonical">
   <meta name="theme-color" content="#5856D6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#5E5CE6" media="(prefers-color-scheme: dark)">
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="$og_type">
   <meta property="og:site_name" content="MOMDYN">
   <meta property="og:title" content="$og_title">
   <meta property="og:description" content="$description">
@@ -20,7 +20,7 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/docs/_static/docs.css">
-  <script type="application/ld+json">$jsonld</script>
+$katex_css  $jsonld
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -36,7 +36,11 @@
         <a href="/docs/"$cur_home>Docs</a>
         <a href="/docs/tutorials/"$cur_tut>Tutorials</a>
         <a href="/docs/mechanism/"$cur_ref>Reference</a>
-$search_link      </nav>
+      </nav>
+      <button type="button" class="search-btn" id="search-open" aria-label="Search the docs" aria-keyshortcuts="Meta+K Control+K /">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+        <span class="search-label">Search</span><kbd class="search-kbd" aria-hidden="true">&#8984;K</kbd>
+      </button>
     </div>
   </header>
 
@@ -48,11 +52,16 @@ $search_link      </nav>
     <div class="scrim" id="scrim" hidden></div>
     <aside class="docs-side" id="side" aria-label="Documentation">
       <nav aria-label="Documentation">$tree</nav>
+      <div class="side-cta">
+        <a class="store-badge" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1600214400" width="132" height="44" alt="Download on the App Store" loading="lazy"></a>
+        <p>Free on iPhone &amp; iPad</p>
+      </div>
     </aside>
 
-    <main id="main" class="doc"$pagefind_body>
+    <main id="main" class="doc" data-pagefind-body>
 $breadcrumbs
       <h1>$title</h1>
+$toc_mobile
 $content
 $pager
     </main>
@@ -76,8 +85,59 @@ $toc
     </div>
   </footer>
 
+  <dialog id="search" class="search-dialog" aria-label="Search the documentation">
+    <div class="search-head"><span>Search the docs</span><button type="button" class="search-close" id="search-close" aria-label="Close search">&times;</button></div>
+    <div id="search-box"></div>
+  </dialog>
+
   <script>
   (function () {
+    // Search: Pagefind is loaded the first time the dialog opens, so it costs nothing until used.
+    var dlg = document.getElementById('search'), loaded = false;
+    function loadSearch() {
+      if (loaded) return; loaded = true;
+      var css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/docs/pagefind/pagefind-ui.css'; document.head.appendChild(css);
+      var js = document.createElement('script'); js.src = '/docs/pagefind/pagefind-ui.js';
+      js.onload = function () {
+        new PagefindUI({ element: '#search-box', showImages: false, showSubResults: true, resetStyles: false, autofocus: true,
+          translations: { placeholder: 'Search the docs' } });
+        var i = dlg.querySelector('input'); if (i) i.focus();
+      };
+      document.head.appendChild(js);
+    }
+    function openSearch() {
+      if (!dlg.showModal) { location.href = '/docs/'; return; }
+      if (!dlg.open) dlg.showModal();
+      loadSearch();
+      var i = dlg.querySelector('input'); if (i) i.focus();
+    }
+    document.getElementById('search-open').addEventListener('click', openSearch);
+    document.getElementById('search-close').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a')) dlg.close(); });
+    document.addEventListener('keydown', function (e) {
+      var t = e.target, typing = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
+      if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) { e.preventDefault(); openSearch(); }
+      else if (e.key === '/' && !typing && !e.metaKey && !e.ctrlKey && !e.altKey) { e.preventDefault(); openSearch(); }
+    });
+    // "On this page": highlight the section being read.
+    var links = document.querySelectorAll('.docs-toc a[href^="#"]');
+    if (links.length) {
+      var map = {}; Array.prototype.forEach.call(links, function (a) { map[a.getAttribute('href').slice(1)] = a; });
+      var heads = Array.prototype.filter.call(document.querySelectorAll('.doc section[id]'), function (s) { return map[s.id]; });
+      var current = null, ticking = false;
+      function spy() {
+        ticking = false;
+        var best = heads[0];
+        heads.forEach(function (s) { if (s.getBoundingClientRect().top <= 120) best = s; });
+        if (best && best.id !== current) {
+          if (current && map[current]) map[current].removeAttribute('aria-current');
+          current = best.id; map[current].setAttribute('aria-current', 'true');
+        }
+      }
+      addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(spy); } }, { passive: true });
+      spy();
+    }
     var nav = document.getElementById('nav');
     function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 4); }
     addEventListener('scroll', onScroll, { passive: true }); onScroll();

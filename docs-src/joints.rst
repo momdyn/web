@@ -1,3 +1,8 @@
+.. seo::
+   :title: Joints Reference – Revolute, Prismatic, Spherical and More | MOMDYN
+   :description: Reference for MOMDYN joints: rigid translation and rotation, prismatic, revolute, universal, spherical, planar, free motion and cylindrical joints.
+   :type: techarticle
+
 Joints
 ======
 

@@ -1,3 +1,8 @@
+.. seo::
+   :title: Create and Settings Dialogs – MOMDYN Model Setup
+   :description: Settings for a new MOMDYN model: name, gravity, simulation time, output rate, integration method and tolerance, with each option's form and default value.
+   :type: article
+
 Create / Settings Dialogs
 =========================
 

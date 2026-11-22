@@ -1,3 +1,8 @@
+.. seo::
+   :title: Bodies Reference – Particles and Rigid Bodies | MOMDYN
+   :description: Reference for MOMDYN bodies: particles, boxes, cylinders, cones and general rigid bodies, with mass, density, geometry and inertia inputs.
+   :type: techarticle
+
 Bodies
 ======
 

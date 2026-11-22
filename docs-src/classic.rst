@@ -1,3 +1,8 @@
+.. seo::
+   :title: Classic Interface Reference – Parameters, Frames, Vectors, Points
+   :description: The MOMDYN Classic interface builds kinematics from parameters, coordinates, speeds, frames, vectors and points, like a pencil-and-paper derivation.
+   :type: techarticle
+
 Classic
 =======
 

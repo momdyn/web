@@ -1,3 +1,8 @@
+.. seo::
+   :title: Loads Reference – Forces, Moments and Spring-Dampers | MOMDYN
+   :description: Reference for MOMDYN loads: external and actuated forces and moments, plus translational and rotational spring-dampers, with their governing equations.
+   :type: techarticle
+
 Loads
 =====
 

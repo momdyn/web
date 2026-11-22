@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Joints | MOMDYN Docs</title>
-  <meta name="description" content="Mechanical joints are typical of modern multibody software, and combine attributes of the fundamental objects found in the classic interface. A good...">
+  <title>Joints Reference – Revolute, Prismatic, Spherical and More | MOMDYN</title>
+  <meta name="description" content="Reference for MOMDYN joints: rigid translation and rotation, prismatic, revolute, universal, spherical, planar, free motion and cylindrical joints.">
   <link rel="canonical" href="https://momdyn.dc-engineer.com/docs/joints/">
   <meta name="theme-color" content="#5856D6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#5E5CE6" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="MOMDYN">
-  <meta property="og:title" content="Joints | MOMDYN Docs">
-  <meta property="og:description" content="Mechanical joints are typical of modern multibody software, and combine attributes of the fundamental objects found in the classic interface. A good...">
+  <meta property="og:title" content="Joints Reference – Revolute, Prismatic, Spherical and More | MOMDYN">
+  <meta property="og:description" content="Reference for MOMDYN joints: rigid translation and rotation, prismatic, revolute, universal, spherical, planar, free motion and cylindrical joints.">
   <meta property="og:url" content="https://momdyn.dc-engineer.com/docs/joints/">
   <meta property="og:image" content="https://momdyn.dc-engineer.com/assets/og.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -20,7 +20,8 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/docs/_static/docs.css">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Docs", "item": "https://momdyn.dc-engineer.com/docs/"}, {"@type": "ListItem", "position": 2, "name": "Mechanism Module", "item": "https://momdyn.dc-engineer.com/docs/mechanism/"}, {"@type": "ListItem", "position": 3, "name": "Joints", "item": "https://momdyn.dc-engineer.com/docs/joints/"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Docs", "item": "https://momdyn.dc-engineer.com/docs/"}, {"@type": "ListItem", "position": 2, "name": "Reference", "item": "https://momdyn.dc-engineer.com/docs/mechanism/"}, {"@type": "ListItem", "position": 3, "name": "Joints", "item": "https://momdyn.dc-engineer.com/docs/joints/"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Joints", "description": "Reference for MOMDYN joints: rigid translation and rotation, prismatic, revolute, universal, spherical, planar, free motion and cylindrical joints.", "inLanguage": "en", "author": {"@type": "Person", "name": "Eliott Radcliffe", "url": "https://dc-engineer.com"}, "publisher": {"@type": "Organization", "name": "DCDC LLC", "url": "https://momdyn.dc-engineer.com/"}, "dateModified": "2026-11-21", "mainEntityOfPage": "https://momdyn.dc-engineer.com/docs/joints/"}</script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -37,6 +38,10 @@
         <a href="/docs/tutorials/">Tutorials</a>
         <a href="/docs/mechanism/" aria-current="page">Reference</a>
       </nav>
+      <button type="button" class="search-btn" id="search-open" aria-label="Search the docs" aria-keyshortcuts="Meta+K Control+K /">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+        <span class="search-label">Search</span><kbd class="search-kbd" aria-hidden="true">&#8984;K</kbd>
+      </button>
     </div>
   </header>
 
@@ -47,17 +52,22 @@
     </div>
     <div class="scrim" id="scrim" hidden></div>
     <aside class="docs-side" id="side" aria-label="Documentation">
-      <nav aria-label="Documentation"><ul class="docs-tree"><li><a href="/docs/getting_started/">Getting Started</a><ul><li><details><summary>Tutorials</summary><ul><li><a href="/docs/tutorials/">Tutorials</a></li><li><a href="/docs/tutorials/pendulum/">Simple Pendulum</a></li><li><a href="/docs/tutorials/oscillator/">Mass-Spring-Damper</a></li></ul></details></li><li><a href="/docs/create_dialog/">Create / Settings Dialogs</a></li><li><a href="/docs/import_dialog/">Import Dialog</a></li><li><a href="/docs/on_screen_controls/">On-Screen Controls</a></li><li><a href="/docs/menu_dialog/">Menu Dialog</a></li><li><a href="/docs/save/">Import/Export</a></li></ul></li><li><a href="/docs/mechanism/">Mechanism Module</a><ul><li><details><summary>Classic</summary><ul><li><a href="/docs/classic/">Classic</a></li><li><a href="/docs/classic/parameter/">Parameter</a></li><li><a href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a></li><li><a href="/docs/classic/generalized_speed/">Generalized Speed</a></li><li><a href="/docs/classic/frame/">Frame</a></li><li><a href="/docs/classic/vector/">Vector</a></li><li><a href="/docs/classic/point/">Point</a></li></ul></details></li><li><details open><summary>Joints</summary><ul><li><a href="/docs/joints/" aria-current="page">Joints</a></li><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></details></li><li><details><summary>Bodies</summary><ul><li><a href="/docs/bodies/">Bodies</a></li><li><a href="/docs/bodies/particle/">Particle</a></li><li><a href="/docs/bodies/general_rigid_body/">General Rigid Body</a></li><li><a href="/docs/bodies/rigid_body_box/">Rigid Body Box</a></li><li><a href="/docs/bodies/rigid_body_cone/">Rigid Body Cone</a></li><li><a href="/docs/bodies/rigid_body_cylinder/">Rigid Body Cylinder</a></li></ul></details></li><li><details><summary>Loads</summary><ul><li><a href="/docs/loads/">Loads</a></li><li><a href="/docs/loads/external_force/">External Force</a></li><li><a href="/docs/loads/actuated_force/">Actuated Force</a></li><li><a href="/docs/loads/external_moment/">External Moment</a></li><li><a href="/docs/loads/actuated_moment/">Actuated Moment</a></li><li><a href="/docs/loads/translational_spring/">Translational Spring</a></li><li><a href="/docs/loads/rotational_spring/">Rotational Spring</a></li></ul></details></li><li><details><summary>Sensors</summary><ul><li><a href="/docs/sensors/">Sensors</a></li><li><a href="/docs/sensors/position_sensor/">Position Sensor</a></li><li><a href="/docs/sensors/velocity_sensor/">Velocity Sensor</a></li><li><a href="/docs/sensors/accelerometer/">Accelerometer</a></li><li><a href="/docs/sensors/dcm_sensor/">DCM Sensor</a></li><li><a href="/docs/sensors/rate_gyro/">Rate Gyro</a></li></ul></details></li></ul></li><li><a href="https://apps.apple.com/us/app/id1491149780" class="ext">Download on the App Store</a></li><li><a href="https://play.google.com/store/apps/details?id=com.badeyedea.momdyn" class="ext">Get it on Google Play</a></li><li><a href="https://www.momdyn.com/index.html" class="ext">Read our Blog</a></li><li><a href="https://www.facebook.com/Mobile-Multibody-Dynamics-102652851603623/" class="ext">Follow on Facebook</a></li><li><a href="https://www.youtube.com/channel/UC7ij1ezmh8a3Q7N3gF4zUkQ" class="ext">Watch on Youtube</a></li><li><a href="https://www.buymeacoffee.com/PLUQkDz" class="ext">Buy me a coffee</a></li></ul></nav>
+      <nav aria-label="Documentation"><ul class="docs-tree"><li><a href="/docs/getting_started/">Getting Started</a></li><li><details><summary>Tutorials</summary><ul><li><a href="/docs/tutorials/">Overview</a></li><li><a href="/docs/tutorials/pendulum/">Simple Pendulum</a></li><li><a href="/docs/tutorials/oscillator/">Mass-Spring-Damper</a></li></ul></details></li><li><details><summary>Interface</summary><ul><li><a href="/docs/interface/">Overview</a></li><li><a href="/docs/create_dialog/">Create / Settings Dialogs</a></li><li><a href="/docs/import_dialog/">Import Dialog</a></li><li><a href="/docs/on_screen_controls/">On-Screen Controls</a></li><li><a href="/docs/menu_dialog/">Menu Dialog</a></li><li><a href="/docs/save/">Import/Export</a></li></ul></details></li><li><details open><summary>Reference</summary><ul><li><a href="/docs/mechanism/">Overview</a></li><li><details><summary>Classic</summary><ul><li><a href="/docs/classic/">Overview</a></li><li><a href="/docs/classic/parameter/">Parameter</a></li><li><a href="/docs/classic/generalized_coordinate/">Generalized Coordinate</a></li><li><a href="/docs/classic/generalized_speed/">Generalized Speed</a></li><li><a href="/docs/classic/frame/">Frame</a></li><li><a href="/docs/classic/vector/">Vector</a></li><li><a href="/docs/classic/point/">Point</a></li></ul></details></li><li><details open><summary>Joints</summary><ul><li><a href="/docs/joints/" aria-current="page">Overview</a></li><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></details></li><li><details><summary>Bodies</summary><ul><li><a href="/docs/bodies/">Overview</a></li><li><a href="/docs/bodies/particle/">Particle</a></li><li><a href="/docs/bodies/general_rigid_body/">General Rigid Body</a></li><li><a href="/docs/bodies/rigid_body_box/">Rigid Body Box</a></li><li><a href="/docs/bodies/rigid_body_cone/">Rigid Body Cone</a></li><li><a href="/docs/bodies/rigid_body_cylinder/">Rigid Body Cylinder</a></li></ul></details></li><li><details><summary>Loads</summary><ul><li><a href="/docs/loads/">Overview</a></li><li><a href="/docs/loads/external_force/">External Force</a></li><li><a href="/docs/loads/actuated_force/">Actuated Force</a></li><li><a href="/docs/loads/external_moment/">External Moment</a></li><li><a href="/docs/loads/actuated_moment/">Actuated Moment</a></li><li><a href="/docs/loads/translational_spring/">Translational Spring</a></li><li><a href="/docs/loads/rotational_spring/">Rotational Spring</a></li></ul></details></li><li><details><summary>Sensors</summary><ul><li><a href="/docs/sensors/">Overview</a></li><li><a href="/docs/sensors/position_sensor/">Position Sensor</a></li><li><a href="/docs/sensors/velocity_sensor/">Velocity Sensor</a></li><li><a href="/docs/sensors/accelerometer/">Accelerometer</a></li><li><a href="/docs/sensors/dcm_sensor/">DCM Sensor</a></li><li><a href="/docs/sensors/rate_gyro/">Rate Gyro</a></li></ul></details></li></ul></details></li></ul></nav>
+      <div class="side-cta">
+        <a class="store-badge" href="https://apps.apple.com/us/app/mobile-multibody-dynamics/id1491149780"><img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1600214400" width="132" height="44" alt="Download on the App Store" loading="lazy"></a>
+        <p>Free on iPhone &amp; iPad</p>
+      </div>
     </aside>
 
     <main id="main" class="doc" data-pagefind-body>
-      <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/docs/">Docs</a></li><li><a href="/docs/mechanism/">Mechanism Module</a></li><li aria-current="page">Joints</li></ol></nav>
+      <nav class="crumbs" aria-label="Breadcrumb" data-pagefind-ignore><ol><li><a href="/docs/">Docs</a></li><li><a href="/docs/mechanism/">Reference</a></li><li aria-current="page">Joints</li></ol></nav>
       <h1>Joints</h1>
 
 
 
+
 <p>Mechanical joints are typical of modern multibody software, and combine attributes of the fundamental objects found in the classic interface. A good reference to common joint definitions may be found in the documentation for the open-source Modelica project, in the OpenModelica Mechanics Multibody package. While MOMDYN does not use Modelica  code, I will attempt to use similar terminology and input parameters where applicable.</p>
-<nav class="toctree" aria-label="Joint Types:"><p class="caption">Joint Types</p><ul><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></nav><hr><p><a class="reference external" href="/docs/joints/rigid_translation/">Rigid Translation</a></p>
+<div class="toctree"><p class="caption">Joint Types</p><ul><li><a href="/docs/joints/rigid_translation/">Rigid Translation</a></li><li><a href="/docs/joints/rigid_rotation/">Rigid Rotation</a></li><li><a href="/docs/joints/prismatic/">Prismatic</a></li><li><a href="/docs/joints/revolute/">Revolute</a></li><li><a href="/docs/joints/cylindrical/">Cylindrical</a></li><li><a href="/docs/joints/universal/">Universal</a></li><li><a href="/docs/joints/spherical/">Spherical</a></li><li><a href="/docs/joints/planar/">Planar</a></li><li><a href="/docs/joints/free_motion/">Free Motion</a></li></ul></div><hr><p><a class="reference external" href="/docs/joints/rigid_translation/">Rigid Translation</a></p>
 <div class="shots"><img src="/docs/_media/img/rigidtranslation.webp" width="128" height="128" alt="Depiction of a rigid translation" loading="eager" decoding="async"></div><p>A rigid translation creates a point that is translated relative to an existing point with vector components defined in a specified reference frame. The rigid translation is analogous to creating a vector and point using the classic interface.</p>
 <hr><p><a class="reference external" href="/docs/joints/rigid_rotation/">Rigid Rotation</a></p>
 <div class="shots"><img src="/docs/_media/img/rigidrotation.webp" width="128" height="128" alt="Depiction of a rigid rotation" loading="lazy" decoding="async"></div><p>A rigid rotation creates a frame that is oriented relative to an existing frame by a Euler angle sequence.</p>
@@ -77,7 +87,7 @@
 <div class="shots"><img src="/docs/_media/img/freemotion.webp" width="128" height="128" alt="Depiction of a free motion joint" loading="lazy" decoding="async"></div><p>A free motion joint creates a point that is translated by three components coordinates defined in the reference frame, and a frame that is rotated relative to an existing frame using a quaternion to define its orientation. Initial quaternion values are defined using an equivalent Euler angle sequence. The components can be constant valued, or a six degrees of freedom (DOF) form may be generated. If the DOF form is chosen, then optional stiffness, damping, and equilibrium coefficients can be used to include translational and rotational spring-damper physics in the joint.</p>
 <hr>
 
-      <nav class="pager" aria-label="Pages"><a class="prev" href="/docs/classic/point/"><span>Previous</span><b>Point</b></a><a class="next" href="/docs/joints/rigid_translation/"><span>Next</span><b>Rigid Translation</b></a></nav>
+      <nav class="pager" aria-label="Pages" data-pagefind-ignore><a class="prev" href="/docs/classic/point/"><span>Previous</span><b>Point</b></a><a class="next" href="/docs/joints/rigid_translation/"><span>Next</span><b>Rigid Translation</b></a></nav>
     </main>
 
     <aside class="docs-toc" id="toc" hidden>
@@ -99,8 +109,59 @@
     </div>
   </footer>
 
+  <dialog id="search" class="search-dialog" aria-label="Search the documentation">
+    <div class="search-head"><span>Search the docs</span><button type="button" class="search-close" id="search-close" aria-label="Close search">&times;</button></div>
+    <div id="search-box"></div>
+  </dialog>
+
   <script>
   (function () {
+    // Search: Pagefind is loaded the first time the dialog opens, so it costs nothing until used.
+    var dlg = document.getElementById('search'), loaded = false;
+    function loadSearch() {
+      if (loaded) return; loaded = true;
+      var css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/docs/pagefind/pagefind-ui.css'; document.head.appendChild(css);
+      var js = document.createElement('script'); js.src = '/docs/pagefind/pagefind-ui.js';
+      js.onload = function () {
+        new PagefindUI({ element: '#search-box', showImages: false, showSubResults: true, resetStyles: false, autofocus: true,
+          translations: { placeholder: 'Search the docs' } });
+        var i = dlg.querySelector('input'); if (i) i.focus();
+      };
+      document.head.appendChild(js);
+    }
+    function openSearch() {
+      if (!dlg.showModal) { location.href = '/docs/'; return; }
+      if (!dlg.open) dlg.showModal();
+      loadSearch();
+      var i = dlg.querySelector('input'); if (i) i.focus();
+    }
+    document.getElementById('search-open').addEventListener('click', openSearch);
+    document.getElementById('search-close').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a')) dlg.close(); });
+    document.addEventListener('keydown', function (e) {
+      var t = e.target, typing = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
+      if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) { e.preventDefault(); openSearch(); }
+      else if (e.key === '/' && !typing && !e.metaKey && !e.ctrlKey && !e.altKey) { e.preventDefault(); openSearch(); }
+    });
+    // "On this page": highlight the section being read.
+    var links = document.querySelectorAll('.docs-toc a[href^="#"]');
+    if (links.length) {
+      var map = {}; Array.prototype.forEach.call(links, function (a) { map[a.getAttribute('href').slice(1)] = a; });
+      var heads = Array.prototype.filter.call(document.querySelectorAll('.doc section[id]'), function (s) { return map[s.id]; });
+      var current = null, ticking = false;
+      function spy() {
+        ticking = false;
+        var best = heads[0];
+        heads.forEach(function (s) { if (s.getBoundingClientRect().top <= 120) best = s; });
+        if (best && best.id !== current) {
+          if (current && map[current]) map[current].removeAttribute('aria-current');
+          current = best.id; map[current].setAttribute('aria-current', 'true');
+        }
+      }
+      addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(spy); } }, { passive: true });
+      spy();
+    }
     var nav = document.getElementById('nav');
     function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 4); }
     addEventListener('scroll', onScroll, { passive: true }); onScroll();

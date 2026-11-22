@@ -1,3 +1,8 @@
+.. seo::
+   :title: Import/Export – Save Models and Export Python from MOMDYN
+   :description: Export MOMDYN models as app files, Python source, CSV simulation data and plot images, and read the structure of a saved model file line by line.
+   :type: techarticle
+
 Import/Export
 =============
 
