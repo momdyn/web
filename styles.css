@@ -114,6 +114,7 @@ section h2 { font-size: clamp(1.7rem, 5vw, 2.4rem); }
 .band :focus-visible { outline-color: #fff; }
 .band .badge-note b { font-weight: 800; }
 .icon3d { width: 8rem; height: 8rem; object-fit: contain; }
+.hero .icon3d { width: 18rem; max-width: 100%; height: auto; aspect-ratio: 1; margin: 0.5rem 0; }
 
 .hero { padding: 0; color: var(--label); }
 /* The hero is a faint indigo tint at the top that fades into the page color (white in light mode, black in dark mode). */
@@ -137,7 +138,7 @@ section h2 { font-size: clamp(1.7rem, 5vw, 2.4rem); }
     grid-template-rows: auto auto auto auto; text-align: left;
     min-height: min(100svh, 52rem); padding-top: 3rem; padding-bottom: 3rem;
   }
-  .icon3d { grid-area: icon; width: 18rem; height: 18rem; margin: -2rem 0 -3.5rem; justify-self: center; }
+  .hero .icon3d { grid-area: icon; width: 18rem; height: auto; margin: 0.5rem 0 0.5rem 1.5rem; justify-self: start; }
   .hero h1 { grid-area: title; font-size: clamp(2.6rem, 4.6vw, 3.6rem); }
   .hero-sub { grid-area: sub; margin-top: 1.5rem; }
   .hero-sub .sub-title { display: none; }
@@ -154,7 +155,7 @@ section h2 { font-size: clamp(1.7rem, 5vw, 2.4rem); }
 /* Short desktop viewports (e.g. 1280x640): keep the badge and the "Free" line on the first screen */
 @media (min-width: 56rem) and (max-height: 760px) {
   .hero-grid { min-height: 0; padding-top: 1.25rem; padding-bottom: 1.25rem; }
-  .icon3d { width: 13.5rem; height: 13.5rem; margin: -1.5rem 0 -3rem; }
+  .hero .icon3d { width: 13.5rem; margin: 0.25rem 0 0.25rem 1rem; }
   .hero h1 { font-size: clamp(2.2rem, 3.6vw, 2.9rem); margin-top: 0.6rem; }
   .hero-sub { margin-top: 0; }
   .hero h1 { margin-bottom: 0; }
